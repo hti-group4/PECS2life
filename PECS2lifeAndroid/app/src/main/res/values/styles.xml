@@ -17,4 +17,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="PECSCardTitle" parent="TextAppearance.AppCompat.Headline"/>
+
+    <style name="PECSCardDetailText" parent="TextAppearance.AppCompat.Subhead"/>
+
+    <style name="PECSCardDetailTitle" parent="TextAppearance.AppCompat.Headline"/>
+
 </resources>

@@ -4,4 +4,30 @@
     <string name="tab_text_2">Dressing</string>
     <string name="tab_text_3">Nature</string>
     <string name="help_request_button">Help</string>
+
+    <string name="title_placeholder">Title</string>
+    <string name="food_placeholder">Food</string>
+    <string name="food_info_placeholder">Here is some food</string>
+    <string name="subtitle_detail_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices congue rutrum. Phasellus elementum ipsum ac convallis aliquam. Suspendisse eleifend eros a enim faucibus mollis. Nunc placerat, est vitae vestibulum blandit, dolor diam fringilla tellus, eu euismod mauris neque at neque.</string>
+    <string name="PECSCardImageDescription">An image about a PECS card</string>
+
+    <string-array name="food_titles">
+        <item>Spinach soup</item>
+        <item>Christmas porridge</item>
+        <item>Fish meal</item>
+    </string-array>
+
+    <string-array name="food_info">
+        <item>Here is some Spinach soup!</item>
+        <item>Here is some Christmas porridge!</item>
+        <item>Here is some Fish meal!</item>
+    </string-array>
+
+    <array name="food_images">
+    <item>@drawable/img_spinach_soup</item>
+    <item>@drawable/img_christmas_porridge</item>
+    <item>@drawable/img_fish_meal</item>
+    </array>
+
+
 </resources>

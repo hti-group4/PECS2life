@@ -17,9 +17,6 @@
 package io.github.htigroup4.pecs2life;
 
 import android.os.Bundle;
-//import android.support.design.widget.TabLayout;
-//import android.support.v4.view.ViewPager;
-//import android.support.v7.app.AppCompatActivity;
 
 import com.google.android.material.tabs.TabLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
         // Create an instance of the tab layout from the view.
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         // Set the text for each tab.
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 2")); // R.string.tab_label2
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 3"));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_text_1));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_text_2));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_text_3));
 
         // Set the tabs to fill the entire layout.
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);

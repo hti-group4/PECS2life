@@ -15,7 +15,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        android:drawableStart="@drawable/auttaa"
+        android:drawableStart="@drawable/img_auttaa"
         android:text="@string/help_request_button" />
 
     <com.google.android.material.tabs.TabLayout
@@ -34,17 +34,5 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tab_layout"
         android:layout_marginTop="0dp" />
-
-
-    <!--<ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="@string/help_request_button"
-        android:src="@drawable/auttaa" />-->
 
 </RelativeLayout>

@@ -36,6 +36,7 @@ public class TabFragment1 extends Fragment {
     // Member variables.
     private RecyclerView mRecyclerView;
     private ArrayList<PECSCard> mPECSCardData;
+    private PECSCardAdapter mAdapter;
 
 
     public TabFragment1() {

@@ -2,6 +2,8 @@
 package io.github.htigroup4.pecs2life;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,5 +64,11 @@ public class MainActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+    }
+
+    public void sendHelpRequest(View view) {
+        Toast toast = Toast.makeText(this, "DEBUG: help clicked",
+                Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

@@ -57,7 +57,7 @@ public class TabFragment1 extends Fragment {
         }
 
         // Get a handle to the RecyclerView.
-        mRecyclerView = view.findViewById(R.id.recyclerview);
+        mRecyclerView = view.findViewById(R.id.recyclerView);
         // Create an adapter and supply the data to be displayed.
         mAdapter = new PECSCardAdapter(getContext(), mWordList);
         // Connect the adapter with the RecyclerView.

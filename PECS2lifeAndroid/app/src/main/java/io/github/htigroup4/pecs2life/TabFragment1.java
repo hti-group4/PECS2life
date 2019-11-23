@@ -27,6 +27,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 
@@ -35,7 +36,8 @@ import java.util.LinkedList;
  */
 public class TabFragment1 extends Fragment {
 
-    private final LinkedList<String> mWordList = new LinkedList<>();
+    //Member variables
+    private ArrayList<PECSCard> mSportsData;
     private RecyclerView mRecyclerView;
     private PECSCardAdapter mAdapter;
 
@@ -51,21 +53,44 @@ public class TabFragment1 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.tab_fragment1, container, false);
 
-        // Put initial data into the word list.
-        for (int i = 0; i < 20; i++) {
-            mWordList.addLast("Word " + i);
-        }
 
-        // Get a handle to the RecyclerView.
-        mRecyclerView = view.findViewById(R.id.recyclerView);
-        // Create an adapter and supply the data to be displayed.
-        mAdapter = new PECSCardAdapter(getContext(), mWordList);
-        // Connect the adapter with the RecyclerView.
-        mRecyclerView.setAdapter(mAdapter);
-        // Give the RecyclerView a default layout manager.
+        //Initialize the RecyclerView
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+
+        //Set the Layout Manager
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
+        //Initialize the ArrayList that will contain the data
+        mSportsData = new ArrayList<>();
+
+        //Initialize the adapter and set it ot the RecyclerView
+        mAdapter = new PECSCardAdapter(getContext(), mSportsData);
+        mRecyclerView.setAdapter(mAdapter);
+
+        //Get the data
+        initializeData();
+
         return view;
+    }
+
+    /**
+     * Method for initializing the sports data from resources.
+     */
+    private void initializeData() {
+        //Get the resources from the XML file
+        String[] sportsList = getResources().getStringArray(R.array.food_titles);
+        String[] sportsInfo = getResources().getStringArray(R.array.food_info);
+
+        //Clear the existing data (to avoid duplication)
+        mSportsData.clear();
+
+        //Create the ArrayList of Sports objects with the titles and information about each sport
+        for (int i = 0; i < sportsList.length; i++) {
+            mSportsData.add(new PECSCard(sportsList[i], sportsInfo[i]));
+        }
+
+        //Notify the adapter of the change
+        mAdapter.notifyDataSetChanged();
     }
 
 }

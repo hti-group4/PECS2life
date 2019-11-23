@@ -56,7 +56,6 @@ public class TabFragment1 extends Fragment {
             mWordList.addLast("Word " + i);
         }
 
-
         // Get a handle to the RecyclerView.
         mRecyclerView = view.findViewById(R.id.recyclerview);
         // Create an adapter and supply the data to be displayed.

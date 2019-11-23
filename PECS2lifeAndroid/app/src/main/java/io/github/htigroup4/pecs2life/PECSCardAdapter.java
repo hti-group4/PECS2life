@@ -1,4 +1,3 @@
-
 package io.github.htigroup4.pecs2life;
 
 import android.content.Context;
@@ -41,7 +40,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.WordVi
         return mWordList.size();
     }
 
-    class WordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class WordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView wordItemView;
         final PECSCardAdapter mAdapter;
 
@@ -49,6 +48,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.WordVi
             super(itemView);
             wordItemView = itemView.findViewById(R.id.word);
             this.mAdapter = adapter;
+            itemView.setOnClickListener(this);
         }
 
 

@@ -1,22 +1,14 @@
 
 package io.github.htigroup4.pecs2life;
 
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 
 /**
@@ -24,10 +16,6 @@ import java.util.LinkedList;
  * navigate to them, as well as the options menu showing Settings.
  */
 public class MainActivity extends AppCompatActivity {
-
-    private final LinkedList<String> mWordList = new LinkedList<>();
-    private RecyclerView mRecyclerView;
-    private PECSCardAdapter mAdapter;
 
     /**
      * Creates the content view and toolbar, sets up the tab layout, and sets up
@@ -63,34 +51,19 @@ public class MainActivity extends AppCompatActivity {
                 TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(
                 new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
+                    @Override
+                    public void onTabSelected(TabLayout.Tab tab) {
+                        viewPager.setCurrentItem(tab.getPosition());
+                    }
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-            }
+                    @Override
+                    public void onTabUnselected(TabLayout.Tab tab) {
+                    }
 
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-            }
-        });
-
-        // Put initial data into the word list.
-        for (int i = 0; i < 20; i++) {
-            mWordList.addLast("Word " + i);
-        }
-
-        // Get a handle to the RecyclerView.
-        mRecyclerView = findViewById(R.id.recyclerview);
-// Create an adapter and supply the data to be displayed.
-        mAdapter = new PECSCardAdapter(this, mWordList);
-// Connect the adapter with the RecyclerView.
-        mRecyclerView.setAdapter(mAdapter);
-// Give the RecyclerView a default layout manager.
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+                    @Override
+                    public void onTabReselected(TabLayout.Tab tab) {
+                    }
+                });
     }
 
     public void sendHelpRequest(View view) {

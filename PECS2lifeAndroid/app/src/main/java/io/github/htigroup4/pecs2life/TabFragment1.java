@@ -18,16 +18,26 @@ package io.github.htigroup4.pecs2life;
 
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.LinkedList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class TabFragment1 extends Fragment {
+
+    private final LinkedList<String> mWordList = new LinkedList<>();
+    private RecyclerView mRecyclerView;
+    private PECSCardAdapter mAdapter;
 
 
     public TabFragment1() {
@@ -39,7 +49,24 @@ public class TabFragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.tab_fragment1, container, false);
+        View view = inflater.inflate(R.layout.tab_fragment1, container, false);
+
+        // Put initial data into the word list.
+        for (int i = 0; i < 20; i++) {
+            mWordList.addLast("Word " + i);
+        }
+
+
+        // Get a handle to the RecyclerView.
+        mRecyclerView = view.findViewById(R.id.recyclerview);
+// Create an adapter and supply the data to be displayed.
+        mAdapter = new PECSCardAdapter(getContext(), mWordList);
+// Connect the adapter with the RecyclerView.
+        mRecyclerView.setAdapter(mAdapter);
+// Give the RecyclerView a default layout manager.
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+
+        return view;
     }
 
 }

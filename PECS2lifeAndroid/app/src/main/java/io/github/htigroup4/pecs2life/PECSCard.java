@@ -10,6 +10,7 @@ class PECSCard {
     // Member variables representing the title and information about the PECSCard.
     private String title;
     private String info;
+    private final int imageResource;
 
     /**
      * Constructor for the PECSCard data model.
@@ -17,9 +18,10 @@ class PECSCard {
      * @param title The name if the PECSCard.
      * @param info  Information about the PECSCard.
      */
-    PECSCard(String title, String info) {
+    PECSCard(String title, String info, int imageResource) {
         this.title = title;
         this.info = info;
+        this.imageResource = imageResource;
     }
 
     /**
@@ -38,6 +40,10 @@ class PECSCard {
      */
     String getInfo() {
         return info;
+    }
+
+    int getImageResource() {
+        return imageResource;
     }
 
 }

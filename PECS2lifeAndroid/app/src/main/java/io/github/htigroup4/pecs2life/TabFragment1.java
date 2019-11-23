@@ -17,6 +17,7 @@
 package io.github.htigroup4.pecs2life;
 
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -55,7 +56,7 @@ public class TabFragment1 extends Fragment {
 
 
         //Initialize the RecyclerView
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        mRecyclerView = view.findViewById(R.id.recyclerView);
 
         //Set the Layout Manager
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
@@ -80,14 +81,19 @@ public class TabFragment1 extends Fragment {
         //Get the resources from the XML file
         String[] sportsList = getResources().getStringArray(R.array.food_titles);
         String[] sportsInfo = getResources().getStringArray(R.array.food_info);
+        TypedArray sportsImageResources =
+                getResources().obtainTypedArray(R.array.food_images);
 
         //Clear the existing data (to avoid duplication)
         mSportsData.clear();
 
         //Create the ArrayList of Sports objects with the titles and information about each sport
         for (int i = 0; i < sportsList.length; i++) {
-            mSportsData.add(new PECSCard(sportsList[i], sportsInfo[i]));
+            mSportsData.add(new PECSCard(sportsList[i], sportsInfo[i], sportsImageResources.getResourceId(i, 0)));
         }
+
+        // Recycle the typed array.
+        sportsImageResources.recycle();
 
         //Notify the adapter of the change
         mAdapter.notifyDataSetChanged();

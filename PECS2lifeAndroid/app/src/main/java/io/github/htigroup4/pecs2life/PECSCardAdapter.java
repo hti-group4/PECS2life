@@ -4,10 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -39,8 +42,9 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
      * @param viewType The view type of the new View.
      * @return The newly create ViewHolder.
      */
+    @NonNull
     @Override
-    public PECSCardAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PECSCardAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false));
     }
 
@@ -76,6 +80,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
         //Member Variables for the TextViews
         private TextView mTitleText;
         private TextView mInfoText;
+        private ImageView mSportsImage;
 
         /**
          * Constructor for the ViewHolder, used in onCreateViewHolder().
@@ -86,14 +91,19 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
             super(itemView);
 
             //Initialize the views
-            mTitleText = (TextView) itemView.findViewById(R.id.title);
-            mInfoText = (TextView) itemView.findViewById(R.id.subTitle);
+            mTitleText = itemView.findViewById(R.id.title);
+            mInfoText = itemView.findViewById(R.id.subTitle);
+            mSportsImage = itemView.findViewById(R.id.sportsImage);
         }
 
         void bindTo(PECSCard currentSport) {
             //Populate the textviews with data
             mTitleText.setText(currentSport.getTitle());
             mInfoText.setText(currentSport.getInfo());
+
+            // Load the images into the ImageView using the Glide library.
+            Glide.with(mContext).load(
+                    currentSport.getImageResource()).into(mSportsImage);
 
         }
 

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -74,7 +75,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
     /**
      * ViewHolder class that represents each row of data in the RecyclerView
      */
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         //Member Variables for the TextViews
         private TextView mTitleText;
@@ -91,6 +92,9 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
             //Initialize the views
             mTitleText = itemView.findViewById(R.id.title);
             mPECSCardImage = itemView.findViewById(R.id.PECSCardImage);
+
+            // Set the OnClickListener to the entire view.
+            itemView.setOnClickListener(this);
         }
 
         void bindTo(PECSCard currentPECSCard) {
@@ -101,6 +105,21 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
             Glide.with(mContext).load(
                     currentPECSCard.getImageResource()).into(mPECSCardImage);
 
+        }
+
+        /**
+         * Handle click to show the AR activity
+         *
+         * @param view View that is clicked.
+         */
+        @Override
+        public void onClick(View view) {
+            PECSCard currentSport = mPECSCardData.get(getAdapterPosition());
+            String title = currentSport.getTitle();
+
+            Toast toast = Toast.makeText(mContext, "DEBUG: " + title + " clicked",
+                    Toast.LENGTH_SHORT);
+            toast.show();
         }
 
 

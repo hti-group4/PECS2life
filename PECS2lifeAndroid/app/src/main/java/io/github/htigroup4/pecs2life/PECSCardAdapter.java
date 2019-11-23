@@ -79,7 +79,6 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
 
         //Member Variables for the TextViews
         private TextView mTitleText;
-        private TextView mInfoText;
         private ImageView mSportsImage;
 
         /**
@@ -92,14 +91,12 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
 
             //Initialize the views
             mTitleText = itemView.findViewById(R.id.title);
-            mInfoText = itemView.findViewById(R.id.subTitle);
             mSportsImage = itemView.findViewById(R.id.sportsImage);
         }
 
         void bindTo(PECSCard currentSport) {
             //Populate the textviews with data
             mTitleText.setText(currentSport.getTitle());
-            mInfoText.setText(currentSport.getInfo());
 
             // Load the images into the ImageView using the Glide library.
             Glide.with(mContext).load(

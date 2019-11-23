@@ -80,7 +80,7 @@ public class TabFragment1 extends Fragment {
     private void initializeData() {
         //Get the resources from the XML file
         String[] sportsList = getResources().getStringArray(R.array.food_titles);
-        String[] sportsInfo = getResources().getStringArray(R.array.food_info);
+
         TypedArray sportsImageResources =
                 getResources().obtainTypedArray(R.array.food_images);
 
@@ -89,7 +89,7 @@ public class TabFragment1 extends Fragment {
 
         //Create the ArrayList of Sports objects with the titles and information about each sport
         for (int i = 0; i < sportsList.length; i++) {
-            mSportsData.add(new PECSCard(sportsList[i], sportsInfo[i], sportsImageResources.getResourceId(i, 0)));
+            mSportsData.add(new PECSCard(sportsList[i], sportsImageResources.getResourceId(i, 0)));
         }
 
         // Recycle the typed array.

@@ -21,10 +21,9 @@
             style="@style/PECSCardTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/sportsImage"
+            android:layout_below="@id/sportsImage"
             android:padding="8dp"
-            android:text="@string/title_placeholder"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+            android:text="@string/title_placeholder" />
 
         <TextView
             android:id="@+id/newsTitle"

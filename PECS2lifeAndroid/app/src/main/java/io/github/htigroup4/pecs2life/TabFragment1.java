@@ -19,16 +19,9 @@ package io.github.htigroup4.pecs2life;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.ArrayList;
-import java.util.Collections;
 
 
 /**
@@ -36,32 +29,17 @@ import java.util.Collections;
  */
 public class TabFragment1 extends Fragment {
 
-//    // Member variables.
-//    private RecyclerView mRecyclerView;
-//    private ArrayList<PECSCard> mPECSCardData;
-//    private PECSCardAdapter mAdapter;
-
 
     public TabFragment1() {
         // Required empty public constructor
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        // Inflate the layout for this fragment.
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.tab_fragment1, container, false);
     }
-
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-////        super.onCreate(savedInstanceState);
-////        setContentView(R.layout.activity_main);
-//
-//
-//
-//
-//    }
 
 }

@@ -21,8 +21,6 @@
 
     <style name="PECSCardDetailText" parent="TextAppearance.AppCompat.Subhead"/>
 
-    <style name="PECSCardDetailTitle" parent="TextAppearance.AppCompat.Headline"/>
-
     <style name="word_title">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

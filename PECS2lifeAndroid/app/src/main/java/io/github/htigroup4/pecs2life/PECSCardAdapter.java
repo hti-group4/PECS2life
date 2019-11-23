@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 /***
  * The adapter class for the RecyclerView, contains the PECSCard data
@@ -21,17 +20,17 @@ import java.util.LinkedList;
 public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHolder> {
 
     //Member variables
-    private ArrayList<PECSCard> mSportsData;
+    private ArrayList<PECSCard> mPECSCardData;
     private Context mContext;
 
     /**
      * Constructor that passes in the PECSCard data and the context
      *
-     * @param sportsData ArrayList containing the sports data
-     * @param context    Context of the application
+     * @param PECSCardData ArrayList containing the PECSCard data
+     * @param context      Context of the application
      */
-    PECSCardAdapter(Context context, ArrayList<PECSCard> sportsData) {
-        this.mSportsData = sportsData;
+    PECSCardAdapter(Context context, ArrayList<PECSCard> PECSCardData) {
+        this.mPECSCardData = PECSCardData;
         this.mContext = context;
     }
 
@@ -56,10 +55,10 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
      */
     @Override
     public void onBindViewHolder(PECSCardAdapter.ViewHolder holder, int position) {
-        //Get current sport
-        PECSCard currentSport = mSportsData.get(position);
+        //Get current PECSCard
+        PECSCard currentPECSCard = mPECSCardData.get(position);
         //Populate the textviews with data
-        holder.bindTo(currentSport);
+        holder.bindTo(currentPECSCard);
     }
 
     /**
@@ -69,7 +68,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
      */
     @Override
     public int getItemCount() {
-        return mSportsData.size();
+        return mPECSCardData.size();
     }
 
     /**
@@ -79,7 +78,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
 
         //Member Variables for the TextViews
         private TextView mTitleText;
-        private ImageView mSportsImage;
+        private ImageView mPECSCardImage;
 
         /**
          * Constructor for the ViewHolder, used in onCreateViewHolder().
@@ -91,16 +90,16 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
 
             //Initialize the views
             mTitleText = itemView.findViewById(R.id.title);
-            mSportsImage = itemView.findViewById(R.id.sportsImage);
+            mPECSCardImage = itemView.findViewById(R.id.PECSCardImage);
         }
 
-        void bindTo(PECSCard currentSport) {
+        void bindTo(PECSCard currentPECSCard) {
             //Populate the textviews with data
-            mTitleText.setText(currentSport.getTitle());
+            mTitleText.setText(currentPECSCard.getTitle());
 
             // Load the images into the ImageView using the Glide library.
             Glide.with(mContext).load(
-                    currentSport.getImageResource()).into(mSportsImage);
+                    currentPECSCard.getImageResource()).into(mPECSCardImage);
 
         }
 

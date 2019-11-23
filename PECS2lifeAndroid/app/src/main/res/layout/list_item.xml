@@ -10,7 +10,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/sportsImage"
+            android:id="@+id/PECSCardImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -21,7 +21,7 @@
             style="@style/PECSCardTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/sportsImage"
+            android:layout_below="@id/PECSCardImage"
             android:padding="8dp"
             android:text="@string/title_placeholder"
             android:textAlignment="center" />

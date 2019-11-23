@@ -29,7 +29,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 
 /**
@@ -38,7 +37,7 @@ import java.util.LinkedList;
 public class TabFragment1 extends Fragment {
 
     //Member variables
-    private ArrayList<PECSCard> mSportsData;
+    private ArrayList<PECSCard> mPECSCardsData;
     private RecyclerView mRecyclerView;
     private PECSCardAdapter mAdapter;
 
@@ -62,10 +61,10 @@ public class TabFragment1 extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
         //Initialize the ArrayList that will contain the data
-        mSportsData = new ArrayList<>();
+        mPECSCardsData = new ArrayList<>();
 
         //Initialize the adapter and set it ot the RecyclerView
-        mAdapter = new PECSCardAdapter(getContext(), mSportsData);
+        mAdapter = new PECSCardAdapter(getContext(), mPECSCardsData);
         mRecyclerView.setAdapter(mAdapter);
 
         //Get the data
@@ -75,25 +74,25 @@ public class TabFragment1 extends Fragment {
     }
 
     /**
-     * Method for initializing the sports data from resources.
+     * Method for initializing the PECSCards data from resources.
      */
     private void initializeData() {
         //Get the resources from the XML file
-        String[] sportsList = getResources().getStringArray(R.array.food_titles);
+        String[] PECSCardsList = getResources().getStringArray(R.array.food_titles);
 
-        TypedArray sportsImageResources =
+        TypedArray PECSCardsImageResources =
                 getResources().obtainTypedArray(R.array.food_images);
 
         //Clear the existing data (to avoid duplication)
-        mSportsData.clear();
+        mPECSCardsData.clear();
 
-        //Create the ArrayList of Sports objects with the titles and information about each sport
-        for (int i = 0; i < sportsList.length; i++) {
-            mSportsData.add(new PECSCard(sportsList[i], sportsImageResources.getResourceId(i, 0)));
+        //Create the ArrayList of PECSCards objects with the titles and information about each PECSCard
+        for (int i = 0; i < PECSCardsList.length; i++) {
+            mPECSCardsData.add(new PECSCard(PECSCardsList[i], PECSCardsImageResources.getResourceId(i, 0)));
         }
 
         // Recycle the typed array.
-        sportsImageResources.recycle();
+        PECSCardsImageResources.recycle();
 
         //Notify the adapter of the change
         mAdapter.notifyDataSetChanged();

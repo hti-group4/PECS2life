@@ -79,7 +79,7 @@ public class TabFragment1 extends Fragment {
                 .SimpleCallback(
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT |
                         ItemTouchHelper.DOWN | ItemTouchHelper.UP,
-                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                0) {
             /**
              * Defines the drag and drop functionality.
              *
@@ -112,10 +112,10 @@ public class TabFragment1 extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder,
                                  int direction) {
-                // Remove the item from the dataset.
-                mPECSCardsData.remove(viewHolder.getAdapterPosition());
-                // Notify the adapter.
-                mAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
+//                // Remove the item from the dataset.
+//                mPECSCardsData.remove(viewHolder.getAdapterPosition());
+//                // Notify the adapter.
+//                mAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
             }
         });
 

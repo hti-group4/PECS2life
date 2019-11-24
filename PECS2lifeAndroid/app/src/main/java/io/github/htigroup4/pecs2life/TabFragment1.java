@@ -19,16 +19,15 @@ package io.github.htigroup4.pecs2life;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -60,8 +59,12 @@ public class TabFragment1 extends Fragment {
         //Initialize the RecyclerView
         mRecyclerView = view.findViewById(R.id.recyclerView);
 
-        //Set the Layout Manager
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        // Get the appropriate column count.
+        int gridColumnCount = getResources().getInteger(R.integer.grid_column_count);
+
+        // Set the Layout Manager.
+        mRecyclerView.setLayoutManager(new GridLayoutManager(
+                getContext(), gridColumnCount));
 
         //Initialize the ArrayList that will contain the data
         mPECSCardsData = new ArrayList<>();

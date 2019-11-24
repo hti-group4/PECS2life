@@ -16,8 +16,8 @@
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
         android:drawableStart="@drawable/img_help"
-        android:text="@string/help_request_button"
-        android:onClick="sendHelpRequest"/>
+        android:onClick="sendHelpRequest"
+        android:text="@string/help_request_button" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
@@ -32,17 +32,8 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="420dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/tab_layout"
         android:layout_marginTop="0dp" />
-
-    <RelativeLayout
-        android:id="@+id/cards_area"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/pager"
-        android:padding="0dp">
-
-    </RelativeLayout>
 
 </RelativeLayout>

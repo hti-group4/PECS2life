@@ -114,8 +114,8 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
          */
         @Override
         public void onClick(View view) {
-            PECSCard currentSport = mPECSCardData.get(getAdapterPosition());
-            String title = currentSport.getTitle();
+            PECSCard currentPECSCard = mPECSCardData.get(getAdapterPosition());
+            String title = currentPECSCard.getTitle();
 
             Toast toast = Toast.makeText(mContext, "DEBUG: " + title + " clicked",
                     Toast.LENGTH_SHORT);

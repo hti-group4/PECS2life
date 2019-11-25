@@ -23,6 +23,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
     //Member variables
     private ArrayList<PECSCard> mPECSCardData;
     private Context mContext;
+    private PECSCard selected;
 
     /**
      * Constructor that passes in the PECSCard data and the context
@@ -58,8 +59,9 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
     public void onBindViewHolder(PECSCardAdapter.ViewHolder holder, int position) {
         //Get current PECSCard
         PECSCard currentPECSCard = mPECSCardData.get(position);
+
         //Populate the textviews with data
-        holder.bindTo(currentPECSCard);
+        holder.bindTo(currentPECSCard, currentPECSCard == selected);
     }
 
     /**
@@ -97,7 +99,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
             itemView.setOnClickListener(this);
         }
 
-        void bindTo(PECSCard currentPECSCard) {
+        void bindTo(PECSCard currentPECSCard, boolean isSelected) {
             //Populate the textviews with data
             mTitleText.setText(currentPECSCard.getTitle());
 

@@ -5,4 +5,8 @@
     <dimen name="appbar_padding">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+
+    <!--Source: https://github.com/davideas/FlexibleAdapter/blob/master/flexible-adapter-app/src/main/res/values/dimens.xml-->
+    <dimen name="launchscreen_product_logo_bottom">350dp</dimen>
+    <dimen name="launchscreen_text_logo_bottom">150dp</dimen>
 </resources>

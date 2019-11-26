@@ -1,0 +1,167 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 26.03.2013 16:31:46
+
+newmtl Chicken_chop_Wood
+	Ns 36.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.2880 0.2880 0.2880
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Wood.jpg
+	map_Kd D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Wood.jpg
+	map_bump D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Wood.jpg
+	bump D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Wood.jpg
+
+newmtl Chicken_chop_Lemons
+	Ns 36.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.8100 0.8100 0.8100
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Orange & Lemons.jpg
+	map_Kd D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Orange & Lemons.jpg
+	map_bump D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Orange & Lemons.jpg
+	bump D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Orange & Lemons.jpg
+	map_refl Map__142_Mix.tga
+
+newmtl Chicken_chop_Chicken
+	Ns 24.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5000 0.5000 0.5000
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.9450 0.9450 0.9450
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Chicken.jpg
+	map_Kd D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Chicken.jpg
+	map_bump D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Chicken.jpg
+
+newmtl Chicken_chop_Ketchup
+	Ns 38.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.6157 0.1686 0.1333
+	Kd 0.6157 0.1686 0.1333
+	Ks 1.2780 1.2780 1.2780
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Map__211_Falloff.tga
+	map_Kd Map__211_Falloff.tga
+	map_bump -bm 0.2000 Map__182_Noise.tga
+
+newmtl wire_088177027
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.3451 0.6941 0.1059
+	Kd 0.3451 0.6941 0.1059
+	Ks 0.3500 0.3500 0.3500
+
+newmtl Chicken_chop_Orange
+	Ns 55.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.1440 0.1440 0.1440
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Orange & Lemons.jpg
+	map_Kd D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Orange & Lemons.jpg
+	map_bump D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Orange & Lemons.jpg
+	bump D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Orange & Lemons.jpg
+	map_refl Map__142_Mix.tga
+
+newmtl Chicken_chop_Handkerchief
+	Ns 25.0000
+	Ni 1.5000
+	d 0.9000
+	Tr 0.1000
+	Tf 0.9000 0.9000 0.9000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.6390 0.6390 0.6390
+	Ke 0.0000 0.0000 0.0000
+	map_bump D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_handkerchief.jpg
+	bump D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_handkerchief.jpg
+
+newmtl wire_027177148
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.1059 0.6941 0.5804
+	Kd 0.1059 0.6941 0.5804
+	Ks 0.3500 0.3500 0.3500
+
+newmtl Chicken_chop_Orange_juice
+	Ns 26.0000
+	Ni 1.5000
+	d 0.9000
+	Tr 0.1000
+	Tf 0.9000 0.9000 0.9000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.7380 0.7380 0.7380
+	Ke 0.5880 0.5880 0.5880
+	map_Ka Map__80_Falloff.tga
+	map_Kd Map__80_Falloff.tga
+	map_d Map__81_Falloff.tga
+	map_refl Map__168_Falloff.tga
+
+newmtl wire_088199225
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.3451 0.7804 0.8824
+	Kd 0.3451 0.7804 0.8824
+	Ks 0.3500 0.3500 0.3500
+
+newmtl wire_255255255
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.3500 0.3500 0.3500
+
+newmtl 17___Default
+	Ns 21.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5000 0.5000 0.5000
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.7082 0.5073 0.1614
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Fries.jpg
+	map_Kd D:\My-Project\2013\Chicken Chop\Textures\Chicken chop_Fries.jpg
+	map_bump Map__215_Mix.tga

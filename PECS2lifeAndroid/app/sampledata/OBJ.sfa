@@ -1,0 +1,411 @@
+{
+  materials: [
+    {
+      name: 'Chicken_chop_Wood',
+      parameters: [
+        {
+          baseColor: 'Chicken chop_Wood',
+        },
+        {
+          baseColorTint: [
+            0.58799999999999997,
+            0.58799999999999997,
+            0.58799999999999997,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.22941600000000001,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'Chicken_chop_Lemons',
+      parameters: [
+        {
+          baseColor: 'Chicken chop_Orange & Lemons',
+        },
+        {
+          baseColorTint: [
+            0.58799999999999997,
+            0.58799999999999997,
+            0.58799999999999997,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.22941600000000001,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'Chicken_chop_Chicken',
+      parameters: [
+        {
+          baseColor: 'Chicken chop_Chicken',
+        },
+        {
+          baseColorTint: [
+            0.5,
+            0.5,
+            0.5,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.27734999999999999,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'Chicken_chop_Ketchup',
+      parameters: [
+        {
+          baseColor: 'Map__211_Falloff',
+        },
+        {
+          baseColorTint: [
+            0.61570000000000003,
+            0.1686,
+            0.1333,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.223607,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'wire_088177027',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            0.34510000000000002,
+            0.69410000000000005,
+            0.10589999999999999,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.242536,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'Chicken_chop_Orange',
+      parameters: [
+        {
+          baseColor: 'Chicken chop_Orange & Lemons',
+        },
+        {
+          baseColorTint: [
+            0.58799999999999997,
+            0.58799999999999997,
+            0.58799999999999997,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.18731700000000001,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'Chicken_chop_Handkerchief',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.27216600000000002,
+        },
+        {
+          opacity: 0.90000000000000002,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'wire_027177148',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            0.10589999999999999,
+            0.69410000000000005,
+            0.58040000000000003,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.242536,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'Chicken_chop_Orange_juice',
+      parameters: [
+        {
+          baseColor: 'Map__80_Falloff',
+        },
+        {
+          baseColorTint: [
+            0.58799999999999997,
+            0.58799999999999997,
+            0.58799999999999997,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.26726100000000003,
+        },
+        {
+          opacity: 0.90000000000000002,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'wire_088199225',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            0.34510000000000002,
+            0.78039999999999998,
+            0.88239999999999996,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.242536,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'wire_255255255',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.242536,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '17___Default',
+      parameters: [
+        {
+          baseColor: 'Chicken chop_Fries',
+        },
+        {
+          baseColorTint: [
+            0.5,
+            0.5,
+            0.5,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 0.29488399999999998,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/OBJ.obj',
+    name: 'OBJ',
+    recenter: 'root',
+    scale: 0.001,
+  },
+  samplers: [
+    {
+      file: 'sampledata/Chicken chop_Fries.jpg',
+      name: 'Chicken chop_Fries',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'D:\\My-Project\\2013\\Chicken Chop\\Textures\\Chicken chop_Fries.jpg',
+    },
+    {
+      file: 'sampledata/Map__215_Mix.tga',
+      name: 'Map__215_Mix',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'Map__215_Mix.tga',
+    },
+    {
+      file: 'sampledata/Chicken chop_handkerchief.jpg',
+      name: 'Chicken chop_handkerchief',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'D:\\My-Project\\2013\\Chicken Chop\\Textures\\Chicken chop_handkerchief.jpg',
+    },
+    {
+      file: 'sampledata/Map__211_Falloff.tga',
+      name: 'Map__211_Falloff',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'Map__211_Falloff.tga',
+    },
+    {
+      file: 'sampledata/Chicken chop_Chicken.jpg',
+      name: 'Chicken chop_Chicken',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'D:\\My-Project\\2013\\Chicken Chop\\Textures\\Chicken chop_Chicken.jpg',
+    },
+    {
+      file: 'sampledata/Chicken chop_Orange & Lemons.jpg',
+      name: 'Chicken chop_Orange & Lemons',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'D:\\My-Project\\2013\\Chicken Chop\\Textures\\Chicken chop_Orange & Lemons.jpg',
+    },
+    {
+      file: 'sampledata/Map__182_Noise.tga',
+      name: 'Map__182_Noise',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'Map__182_Noise.tga',
+    },
+    {
+      file: 'sampledata/Map__80_Falloff.tga',
+      name: 'Map__80_Falloff',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'Map__80_Falloff.tga',
+    },
+    {
+      file: 'sampledata/Map__81_Falloff.tga',
+      name: 'Map__81_Falloff',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'Map__81_Falloff.tga',
+    },
+    {
+      file: 'sampledata/Chicken chop_Wood.jpg',
+      name: 'Chicken chop_Wood',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'D:\\My-Project\\2013\\Chicken Chop\\Textures\\Chicken chop_Wood.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

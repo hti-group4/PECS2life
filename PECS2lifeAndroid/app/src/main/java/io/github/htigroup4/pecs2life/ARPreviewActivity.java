@@ -41,10 +41,12 @@ public class ARPreviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_arpreview);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
+        String title = getIntent().getStringExtra("title");
+
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
         ModelRenderable.builder()
-                .setSource(this, R.raw.andy)
+                .setSource(this, R.raw.random_food)
                 .build()
                 .thenAccept(renderable -> andyRenderable = renderable)
                 .exceptionally(

@@ -49,7 +49,7 @@ dependencies {
 sceneform.asset('sampledata/OBJ.obj',
         'default',
         'sampledata/OBJ.sfa',
-        'src/main/assets/OBJ')
+        'src/main/res/raw/random_food')
 
 sceneform.asset('sampledata/models/andy.obj',
         'default',

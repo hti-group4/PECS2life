@@ -45,12 +45,6 @@ dependencies {
     implementation 'com.google.ar.sceneform:core:1.13.0'
 }
 
-
-sceneform.asset('sampledata/OBJ.obj',
-        'default',
-        'sampledata/OBJ.sfa',
-        'src/main/res/raw/random_food')
-
 sceneform.asset('sampledata/models/andy.obj',
         'default',
         'sampledata/models/andy.sfa',

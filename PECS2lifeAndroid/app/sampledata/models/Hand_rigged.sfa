@@ -1,18 +1,13 @@
 {
-  animations: [
-    {
-      path: 'sampledata/models/G06_hotdog.fbx',
-    },
-  ],
   materials: [
     {
-      name: 'Hotdog',
+      name: 'Material #16',
       parameters: [
         {
           baseColor: [
-            1,
-            1,
-            1,
+            0.83921599999999996,
+            0.84313700000000003,
+            0.64313699999999996,
             1,
           ],
         },
@@ -45,7 +40,6 @@
     },
   ],
   model: {
-    scale: 0.25,
     attributes: [
       'Position',
       'TexCoord',
@@ -54,8 +48,8 @@
       'BoneWeights',
     ],
     collision: {},
-    file: 'sampledata/models/G06_hotdog.fbx',
-    name: 'G06_hotdog',
+    file: 'sampledata/models/Hand_rigged.FBX',
+    name: 'Hand_rigged',
     recenter: 'root',
   },
   version: '0.54:2',

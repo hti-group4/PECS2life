@@ -2,6 +2,7 @@
 
 package io.github.htigroup4.pecs2life;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -12,16 +13,17 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 public class PagerAdapter extends FragmentStatePagerAdapter {
     private int mNumOfTabs;
 
-    public PagerAdapter(FragmentManager fm, int NumOfTabs) {
-        super(fm);
+    PagerAdapter(FragmentManager fm, int NumOfTabs) {
+        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         this.mNumOfTabs = NumOfTabs;
     }
 
     /**
      * Return the Fragment associated with a specified position.
      *
-     * @param position
+     * @param position - the item position
      */
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         switch (position) {

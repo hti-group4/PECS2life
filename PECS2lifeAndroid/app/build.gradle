@@ -55,3 +55,8 @@ sceneform.asset('sampledata/models/red_pepper_OBJ.obj',
         'default',
         'sampledata/models/red_pepper_OBJ.sfa',
         'src/main/res/raw/red_pepper')
+
+sceneform.asset('sampledata/models/G06_hotdog.fbx',
+        'default',
+        'sampledata/models/G06_hotdog.sfa',
+        'src/main/res/raw/hotdog')

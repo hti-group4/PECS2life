@@ -46,7 +46,6 @@ dependencies {
 }
 
 
-
 sceneform.asset('sampledata/OBJ.obj',
         'default',
         'sampledata/OBJ.sfa',
@@ -55,4 +54,4 @@ sceneform.asset('sampledata/OBJ.obj',
 sceneform.asset('sampledata/models/andy.obj',
         'default',
         'sampledata/models/andy.sfa',
-        'src/main/assets/andy')
+        'src/main/res/raw/andy')

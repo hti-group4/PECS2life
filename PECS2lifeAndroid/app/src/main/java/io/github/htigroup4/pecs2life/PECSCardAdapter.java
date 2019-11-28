@@ -1,6 +1,7 @@
 package io.github.htigroup4.pecs2life;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,9 +120,13 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
             PECSCard currentPECSCard = mPECSCardData.get(getAdapterPosition());
             String title = currentPECSCard.getTitle();
 
-            Toast toast = Toast.makeText(mContext, "DEBUG: " + title + " clicked",
-                    Toast.LENGTH_SHORT);
-            toast.show();
+            Intent arPreviewIntent = new Intent(mContext, ARPreviewActivity.class);
+            arPreviewIntent.putExtra("title", currentPECSCard.getTitle());
+            mContext.startActivity(arPreviewIntent);
+
+//            Toast toast = Toast.makeText(mContext, "DEBUG: " + title + " clicked",
+//                    Toast.LENGTH_SHORT);
+//            toast.show();
         }
 
 

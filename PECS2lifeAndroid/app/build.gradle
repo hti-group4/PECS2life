@@ -83,3 +83,8 @@ sceneform.asset('sampledata/models/Hamburger.obj',
         'default',
         'sampledata/models/Hamburger.sfa',
         'src/main/res/raw/hamburger')
+
+sceneform.asset('sampledata/models/banana.obj',
+        'default',
+        'sampledata/models/banana.sfa',
+        'src/main/res/raw/banana')

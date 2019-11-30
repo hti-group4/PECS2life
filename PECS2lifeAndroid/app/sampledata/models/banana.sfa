@@ -1,0 +1,49 @@
+{
+  materials: [
+    {
+      name: 'banana2',
+      parameters: [
+        {
+          baseColor: 'banana',
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/models/banana.obj',
+    name: 'banana',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/banana.jpg',
+      name: 'banana',
+      pipeline_name: 'freeobjects&produkte/3dscans/Banana/banana.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

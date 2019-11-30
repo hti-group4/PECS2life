@@ -78,3 +78,8 @@ sceneform.asset('sampledata/models/Apple_01.obj',
         'default',
         'sampledata/models/Apple_01.sfa',
         'src/main/res/raw/apple_01')
+
+sceneform.asset('sampledata/models/Hamburger.obj',
+        'default',
+        'sampledata/models/Hamburger.sfa',
+        'src/main/res/raw/hamburger')

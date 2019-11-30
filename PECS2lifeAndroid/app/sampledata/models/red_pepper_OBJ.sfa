@@ -54,6 +54,7 @@
     },
   ],
   model: {
+    scale: 1.25,
     attributes: [
       'Position',
       'Orientation',

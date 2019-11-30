@@ -31,12 +31,11 @@
     </array>
 
     <array name="models_in_3d">
-        <item>@raw/andy</item>
         <item>@raw/red_pepper</item>
-        <item>@raw/hand_rigged</item>
         <item>@raw/noodle_meal</item>
         <item>@raw/sandwich</item>
         <item>@raw/apple_01</item>
+        <item>@raw/hamburger</item>
     </array>
 
 

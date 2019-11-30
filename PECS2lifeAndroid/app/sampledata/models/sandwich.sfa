@@ -210,7 +210,7 @@
     },
   ],
   model: {
-    scale: 0.5,
+    scale: 0.25,
     attributes: [
       'Position',
       'TexCoord',

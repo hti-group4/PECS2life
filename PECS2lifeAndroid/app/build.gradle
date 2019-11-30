@@ -68,3 +68,8 @@ sceneform.asset('sampledata/models/noodle_meal.obj',
         'default',
         'sampledata/models/noodle_meal.sfa',
         'src/main/res/raw/noodle_meal')
+
+sceneform.asset('sampledata/models/sandwich.obj',
+        'default',
+        'sampledata/models/sandwich.sfa',
+        'src/main/res/raw/sandwich')

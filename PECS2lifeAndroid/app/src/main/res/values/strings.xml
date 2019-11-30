@@ -18,6 +18,7 @@
         <item>Apple</item>
         <item>Hamburger</item>
         <item>Banana</item>
+        <item>Carrot</item>
     </string-array>
 
 
@@ -28,6 +29,7 @@
         <item>@drawable/img_apple</item>
         <item>@drawable/img_hamburger</item>
         <item>@drawable/img_banana</item>
+        <item>@drawable/img_carrot</item>
     </array>
 
     <array name="models_in_3d">
@@ -37,6 +39,7 @@
         <item>@raw/apple_01</item>
         <item>@raw/hamburger</item>
         <item>@raw/banana</item>
+        <item>@raw/carrot_01</item>
     </array>
 
 

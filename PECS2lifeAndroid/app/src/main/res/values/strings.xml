@@ -32,9 +32,8 @@
 
     <array name="models_in_3d">
         <item>@raw/andy</item>
-        <item>@raw/hotdog</item>
         <item>@raw/red_pepper</item>
-
+        <item>@raw/hand_rigged</item>
     </array>
 
 

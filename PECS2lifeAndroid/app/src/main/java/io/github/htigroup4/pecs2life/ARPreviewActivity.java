@@ -59,7 +59,7 @@ public class ARPreviewActivity extends AppCompatActivity {
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
         ModelRenderable.builder()
                 .setSource(this, resourceId)//R.raw.andy
-//                .setSource(this, Uri.parse("Hand_rigged.sfb"))
+//                .setSource(this, Uri.parse("hand_rigged.sfb"))
                 .build()
                 .thenAccept(renderable -> andyRenderable = renderable)
                 .exceptionally(

@@ -59,12 +59,7 @@ sceneform.asset('sampledata/models/red_pepper_OBJ.obj',
         'sampledata/models/red_pepper_OBJ.sfa',
         'src/main/res/raw/red_pepper')
 
-sceneform.asset('sampledata/models/G06_hotdog.fbx',
-        'default',
-        'sampledata/models/G06_hotdog.sfa',
-        'src/main/res/raw/hotdog')
-
 sceneform.asset('sampledata/models/Hand_rigged.FBX',
         'default',
         'sampledata/models/Hand_rigged.sfa',
-        'src/main/assets/Hand_rigged')
+        'src/main/res/raw/hand_rigged')

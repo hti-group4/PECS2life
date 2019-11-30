@@ -30,5 +30,12 @@
         <item>@drawable/img_liver_casserole</item>
     </array>
 
+    <array name="models_in_3d">
+        <item>@raw/andy</item>
+        <item>@raw/hotdog</item>
+        <item>@raw/red_pepper</item>
+
+    </array>
+
 
 </resources>

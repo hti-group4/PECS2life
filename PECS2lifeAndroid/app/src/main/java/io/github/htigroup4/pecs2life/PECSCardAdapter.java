@@ -122,6 +122,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
 
             Intent arPreviewIntent = new Intent(mContext, ARPreviewActivity.class);
             arPreviewIntent.putExtra("title", currentPECSCard.getTitle());
+            arPreviewIntent.putExtra("position", getAdapterPosition());
             mContext.startActivity(arPreviewIntent);
 
 //            Toast toast = Toast.makeText(mContext, "DEBUG: " + title + " clicked",

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -44,12 +45,21 @@ public class ARPreviewActivity extends AppCompatActivity {
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
         String title = getIntent().getStringExtra("title");
+        int position = getIntent().getIntExtra("position", 0);
+
+        TypedArray PECSCardsImageResources =
+                getResources().obtainTypedArray(R.array.models_in_3d);
+
+        int resourceId = PECSCardsImageResources.getResourceId(position, 0);
+
+        PECSCardsImageResources.recycle();
+
 
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
         ModelRenderable.builder()
-//                .setSource(this, R.raw.red_pepper)
-                .setSource(this, Uri.parse("Hand_rigged.sfb"))
+                .setSource(this, resourceId)//R.raw.andy
+//                .setSource(this, Uri.parse("Hand_rigged.sfb"))
                 .build()
                 .thenAccept(renderable -> andyRenderable = renderable)
                 .exceptionally(
@@ -60,11 +70,6 @@ public class ARPreviewActivity extends AppCompatActivity {
                             toast.show();
                             return null;
                         });
-
-//        // Attach the ModelRenderable to the node in the scene.
-//        Node andyNode = new Node();
-//        andyNode.setParent(arFragment.getArSceneView().getScene());
-//        andyNode.setRenderable(andyRenderable);
 
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {

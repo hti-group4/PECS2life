@@ -44,7 +44,6 @@ public class ARPreviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_arpreview);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
-        String title = getIntent().getStringExtra("title");
         int position = getIntent().getIntExtra("position", 0);
 
         TypedArray PECSCardsImageResources =
@@ -53,7 +52,6 @@ public class ARPreviewActivity extends AppCompatActivity {
         int resourceId = PECSCardsImageResources.getResourceId(position, 0);
 
         PECSCardsImageResources.recycle();
-
 
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().

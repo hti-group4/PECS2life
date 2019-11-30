@@ -117,11 +117,9 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
          */
         @Override
         public void onClick(View view) {
-            PECSCard currentPECSCard = mPECSCardData.get(getAdapterPosition());
-            String title = currentPECSCard.getTitle();
+//            PECSCard currentPECSCard = mPECSCardData.get(getAdapterPosition());
 
             Intent arPreviewIntent = new Intent(mContext, ARPreviewActivity.class);
-            arPreviewIntent.putExtra("title", currentPECSCard.getTitle());
             arPreviewIntent.putExtra("position", getAdapterPosition());
             mContext.startActivity(arPreviewIntent);
 

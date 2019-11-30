@@ -40,6 +40,7 @@
     },
   ],
   model: {
+    scale: 0.75,
     attributes: [
       'Position',
       'TexCoord',

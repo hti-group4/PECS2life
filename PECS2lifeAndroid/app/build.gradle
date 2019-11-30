@@ -43,6 +43,9 @@ dependencies {
 
     // Alternatively, use ArSceneView without the UX dependency.
     implementation 'com.google.ar.sceneform:core:1.13.0'
+
+    // Support for animated model renderables
+    implementation "com.google.ar.sceneform:animation:1.13.0"
 }
 
 sceneform.asset('sampledata/models/andy.obj',

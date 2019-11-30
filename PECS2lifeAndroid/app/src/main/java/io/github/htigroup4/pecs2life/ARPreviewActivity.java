@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.sceneform.AnchorNode;
+import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
@@ -46,17 +48,23 @@ public class ARPreviewActivity extends AppCompatActivity {
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
         ModelRenderable.builder()
-                .setSource(this, R.raw.red_pepper)
+//                .setSource(this, R.raw.red_pepper)
+                .setSource(this, Uri.parse("Hand_rigged.sfb"))
                 .build()
                 .thenAccept(renderable -> andyRenderable = renderable)
                 .exceptionally(
                         throwable -> {
                             Toast toast =
-                                    Toast.makeText(this, "Unable to load andy renderable", Toast.LENGTH_LONG);
+                                    Toast.makeText(this, "Unable to load Renderable", Toast.LENGTH_LONG);
                             toast.setGravity(Gravity.CENTER, 0, 0);
                             toast.show();
                             return null;
                         });
+
+//        // Attach the ModelRenderable to the node in the scene.
+//        Node andyNode = new Node();
+//        andyNode.setParent(arFragment.getArSceneView().getScene());
+//        andyNode.setRenderable(andyRenderable);
 
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {

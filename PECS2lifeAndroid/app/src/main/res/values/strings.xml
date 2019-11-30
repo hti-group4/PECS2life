@@ -12,22 +12,22 @@
     <string name="PECSCardImageDescription">An image about a PECS card</string>
 
     <string-array name="food_titles">
-        <item>Spinach soup</item>
-        <item>Christmas porridge</item>
-        <item>Fish meal</item>
-        <item>Vegetable balls</item>
-        <item>Cabbage casserole</item>
-        <item>Liver casserole</item>
+        <item>Red pepper</item>
+        <item>Noodle meal</item>
+        <item>Sandwich</item>
+        <item>Apple</item>
+        <item>Hamburger</item>
+        <item>Banana</item>
     </string-array>
 
 
     <array name="food_images">
-        <item>@drawable/img_spinach_soup</item>
-        <item>@drawable/img_christmas_porridge</item>
-        <item>@drawable/img_fish_meal</item>
-        <item>@drawable/img_vegetable_balls</item>
-        <item>@drawable/img_cabbage_casserole</item>
-        <item>@drawable/img_liver_casserole</item>
+        <item>@drawable/img_red_pepper</item>
+        <item>@drawable/img_noodle_meal</item>
+        <item>@drawable/img_sandwich</item>
+        <item>@drawable/img_apple</item>
+        <item>@drawable/img_hamburger</item>
+        <item>@drawable/img_banana</item>
     </array>
 
     <array name="models_in_3d">

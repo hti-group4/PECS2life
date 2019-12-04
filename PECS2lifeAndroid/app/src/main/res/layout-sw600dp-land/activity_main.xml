@@ -9,15 +9,19 @@
 
     <Button
         android:id="@+id/help_button"
-        android:layout_width="match_parent"
+        android:layout_width="563dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginStart="358dp"
         android:layout_marginTop="0dp"
+        android:layout_marginEnd="359dp"
         android:layout_marginBottom="0dp"
         android:drawableStart="@drawable/img_help"
         android:onClick="sendHelpRequest"
-        android:text="@string/help_request_button" />
+        android:text="@string/help_request_button"
+        android:textSize="80sp"
+        android:textStyle="bold" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"

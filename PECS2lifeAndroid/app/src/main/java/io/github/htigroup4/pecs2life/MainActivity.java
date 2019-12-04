@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
     final private String serverKey = "key=" + BuildConfig.SERVER_KEY;
+    final private String contentType = "application/json";
 
     /**
      * Creates the content view, sets up the tab layout, and sets up

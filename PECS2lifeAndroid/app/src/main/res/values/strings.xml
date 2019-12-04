@@ -4,6 +4,7 @@
     <string name="tab_text_2">Dressing</string>
     <string name="tab_text_3">Nature</string>
     <string name="help_request_button">Help</string>
+    <string name="help_request_button_teacher">Respond to the request for help</string>
 
     <string name="title_placeholder">Title</string>
 
@@ -13,8 +14,11 @@
     <string name="ar_preview_label">AR Preview</string>
     <string name="notification_channel_name">Help request</string>
     <string name="notification_channel_description">Communication between a pupil and a teacher device channels</string>
-    <string name="notification_title">Pupil</string>
-    <string name="notification_message">Could you help me?</string>
+    <string name="pupil_notification_title">Pupil</string>
+    <string name="pupil_notification_message">Could you help me?</string>
+
+    <string name="teacher_notification_title">Teacher</string>
+    <string name="teacher_notification_message">I will help you as soon as possible!</string>
 
     <string-array name="food_titles">
         <item>Red pepper</item>

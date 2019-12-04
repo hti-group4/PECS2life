@@ -6,9 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -57,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
             FirebaseMessaging.getInstance().subscribeToTopic("/topics/fromPupilToTeacher");
         }
 
-
         // Create an instance of the tab layout from the view.
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         // Set the text for each tab.
@@ -96,9 +92,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendHelpRequest(View view) {
-        TOPIC = "/topics/fromPupilToTeacher"; //topic has to match what the receiver subscribed to
-        NOTIFICATION_TITLE = getString(R.string.notification_title);
-        NOTIFICATION_MESSAGE = getString(R.string.notification_message);
+        if (getResources().getBoolean(R.bool.isTablet)) { // the device is a tablet = a pupil uses it
+            TOPIC = "/topics/fromPupilToTeacher"; //topic has to match what the receiver subscribed to
+            NOTIFICATION_TITLE = getString(R.string.pupil_notification_title);
+            NOTIFICATION_MESSAGE = getString(R.string.pupil_notification_message);
+        } else { // the device is a mobile phone = a teacher uses it
+            TOPIC = "/topics/fromTeacherToPupil"; //topic has to match what the receiver subscribed to
+            NOTIFICATION_TITLE = getString(R.string.teacher_notification_title);
+            NOTIFICATION_MESSAGE = getString(R.string.teacher_notification_message);
+        }
 
         JSONObject notification = new JSONObject();
         JSONObject notificationBody = new JSONObject();

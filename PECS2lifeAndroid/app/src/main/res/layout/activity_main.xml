@@ -17,7 +17,7 @@
         android:layout_marginBottom="0dp"
         android:drawableStart="@drawable/img_help"
         android:onClick="sendHelpRequest"
-        android:text="@string/help_request_button" />
+        android:text="@string/help_request_button_teacher" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"

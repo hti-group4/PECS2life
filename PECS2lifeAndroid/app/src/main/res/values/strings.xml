@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PECS2life</string>
     <string name="tab_text_1">Food</string>
-    <string name="tab_text_2">Dressing</string>
+    <string name="tab_text_2">Music</string>
     <string name="tab_text_3">Nature</string>
     <string name="help_request_button">Help</string>
     <string name="help_request_button_teacher">Respond to the request for help</string>

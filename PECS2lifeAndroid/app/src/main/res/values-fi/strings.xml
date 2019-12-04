@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">PECS2life</string>
+    <string name="tab_text_1">Ruoka</string>
+    <string name="tab_text_2">Musiikki</string>
+    <string name="tab_text_3">Luonto</string>
+    <string name="help_request_button">Apua</string>
+    <string name="help_request_button_teacher">Vastaus avunpyyntöön</string>
+
+    <string name="title_placeholder">Otsikko</string>
+
+    <string name="subtitle_detail_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices congue rutrum. Phasellus elementum ipsum ac convallis aliquam. Suspendisse eleifend eros a enim faucibus mollis. Nunc placerat, est vitae vestibulum blandit, dolor diam fringilla tellus, eu euismod mauris neque at neque.</string>
+
+    <string name="PECSCardImageDescription">Kuva PECS-kortista</string>
+    <string name="ar_preview_label">AR-esikatselu</string>
+    <string name="notification_channel_name">Avunpyyntö</string>
+    <string name="notification_channel_description">Kommunikointi oppilaan ja opettajan laitekanavien välillä</string>
+
+    <string name="pupil_notification_title">Oppilas</string>
+    <string name="pupil_notification_message">Voitko auttaa minua?</string>
+
+    <string name="teacher_notification_title">Opettaja</string>
+    <string name="teacher_notification_message">Autan sinua niin pian kuin mahdollista!</string>
+
+    <string-array name="food_titles">
+        <item>Paprika</item>
+        <item>Nuudeliateria</item>
+        <item>Voileipä</item>
+        <item>Omena</item>
+        <item>Hampurilainen</item>
+        <item>Banaani</item>
+        <item>Porkkana</item>
+    </string-array>
+
+
+    <array name="food_images">
+        <item>@drawable/img_red_pepper</item>
+        <item>@drawable/img_noodle_meal</item>
+        <item>@drawable/img_sandwich</item>
+        <item>@drawable/img_apple</item>
+        <item>@drawable/img_hamburger</item>
+        <item>@drawable/img_banana</item>
+        <item>@drawable/img_carrot</item>
+    </array>
+
+    <array name="models_in_3d">
+        <item>@raw/red_pepper</item>
+        <item>@raw/noodle_meal</item>
+        <item>@raw/sandwich</item>
+        <item>@raw/apple_01</item>
+        <item>@raw/hamburger</item>
+        <item>@raw/banana</item>
+        <item>@raw/carrot_01</item>
+    </array>
+
+
+</resources>

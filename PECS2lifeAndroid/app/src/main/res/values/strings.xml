@@ -12,7 +12,7 @@
     <string name="PECSCardImageDescription">An image about a PECS card</string>
     <string name="ar_preview_label">AR Preview</string>
     <string name="notification_channel_name">Help request</string>
-    <string name="notification_channel_description">Help request from a pupil device sent to a teacher device</string>
+    <string name="notification_channel_description">Communication between a pupil and a teacher device channels</string>
     <string name="notification_title">Pupil</string>
     <string name="notification_message">Could you help me?</string>
 

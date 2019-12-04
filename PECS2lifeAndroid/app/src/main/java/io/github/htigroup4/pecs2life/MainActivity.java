@@ -12,13 +12,16 @@ import androidx.viewpager.widget.ViewPager;
 
 
 /**
- * This app offers three view fragments and three tabs below the app bar to
- * navigate to them, as well as the options menu showing Settings.
+ * This app offers three view fragments and three tabs to
+ * navigate to them.
  */
 public class MainActivity extends AppCompatActivity {
 
+    final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
+    final private String serverKey = "key=" + BuildConfig.SERVER_KEY;
+
     /**
-     * Creates the content view and toolbar, sets up the tab layout, and sets up
+     * Creates the content view, sets up the tab layout, and sets up
      * a page adapter to manage views in fragments. The user clicks a tab and
      * navigates to the view fragment.
      *

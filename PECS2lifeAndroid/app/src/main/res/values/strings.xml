@@ -13,6 +13,8 @@
     <string name="ar_preview_label">AR Preview</string>
     <string name="notification_channel_name">Help request</string>
     <string name="notification_channel_description">Help request from a pupil device sent to a teacher device</string>
+    <string name="notification_title">Pupil</string>
+    <string name="notification_message">Could you help me?</string>
 
     <string-array name="food_titles">
         <item>Red pepper</item>

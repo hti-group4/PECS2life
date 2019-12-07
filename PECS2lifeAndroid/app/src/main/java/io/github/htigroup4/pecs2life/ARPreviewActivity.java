@@ -6,9 +6,9 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -18,17 +18,19 @@ import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.sceneform.AnchorNode;
-import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 
 public class ARPreviewActivity extends AppCompatActivity {
+    Handler handler;
+    Runnable r;
+
     private static final String TAG = ARPreviewActivity.class.getSimpleName();
     private static final double MIN_OPENGL_VERSION = 3.0;
 
     private ArFragment arFragment;
-    private ModelRenderable andyRenderable;
+    private ModelRenderable modelRenderable;
 
     @Override
     @SuppressWarnings({"AndroidApiChecker", "FutureReturnValueIgnored"})
@@ -42,6 +44,15 @@ public class ARPreviewActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_arpreview);
+
+        handler = new Handler();
+
+        //Toast.makeText(ARPreviewActivity.this, "User was inactive in last 10 seconds", Toast.LENGTH_SHORT).show();
+
+        r = this::finish; // after 10 seconds, moving back to the main activity
+
+        startHandler();
+
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
         int position = getIntent().getIntExtra("position", 0);
@@ -59,7 +70,7 @@ public class ARPreviewActivity extends AppCompatActivity {
                 .setSource(this, resourceId)//R.raw.andy
 //                .setSource(this, Uri.parse("hand_rigged.sfb"))
                 .build()
-                .thenAccept(renderable -> andyRenderable = renderable)
+                .thenAccept(renderable -> modelRenderable = renderable)
                 .exceptionally(
                         throwable -> {
                             Toast toast =
@@ -71,7 +82,7 @@ public class ARPreviewActivity extends AppCompatActivity {
 
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-                    if (andyRenderable == null) {
+                    if (modelRenderable == null) {
                         return;
                     }
 
@@ -83,10 +94,25 @@ public class ARPreviewActivity extends AppCompatActivity {
                     // Create the transformable andy and add it to the anchor.
                     TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
                     andy.setParent(anchorNode);
-                    andy.setRenderable(andyRenderable);
+                    andy.setRenderable(modelRenderable);
                     andy.select();
                 });
 
+    }
+
+    @Override
+    public void onUserInteraction() {
+        super.onUserInteraction();
+        stopHandler();
+        startHandler();
+    }
+
+    public void stopHandler() {
+        handler.removeCallbacks(r);
+    }
+
+    public void startHandler() {
+        handler.postDelayed(r, 10 * 1000); // 10 seconds = 10 * 1000 ms
     }
 
     /**

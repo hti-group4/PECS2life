@@ -101,7 +101,7 @@ public class ARPreviewActivity extends AppCompatActivity {
 
         // R.drawable.custom_texture is a .png file in src/main/res/drawable
         Texture.builder()
-                .setSource(this, R.drawable.checkerboard_cross)
+                .setSource(this, R.drawable.square_bg)
                 .setSampler(sampler)
                 .build()
                 .thenAccept(texture -> {

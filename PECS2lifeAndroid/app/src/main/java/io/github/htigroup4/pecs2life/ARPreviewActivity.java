@@ -22,6 +22,8 @@ import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.Scene;
 import com.google.ar.sceneform.SceneView;
 import com.google.ar.sceneform.rendering.ModelRenderable;
+import com.google.ar.sceneform.rendering.PlaneRenderer;
+import com.google.ar.sceneform.rendering.Texture;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 
@@ -35,8 +37,8 @@ public class ARPreviewActivity extends AppCompatActivity {
     private ArFragment arFragment;
     private ModelRenderable modelRenderable;
 
-    private SceneView sceneView;
-    private Scene scene;
+//    private SceneView sceneView;
+//    private Scene scene;
 
     @Override
     @SuppressWarnings({"AndroidApiChecker", "FutureReturnValueIgnored"})
@@ -53,9 +55,14 @@ public class ARPreviewActivity extends AppCompatActivity {
 
         handler = new Handler();
 
-        //Toast.makeText(ARPreviewActivity.this, "User was inactive in last 10 seconds", Toast.LENGTH_SHORT).show();
 
-        r = this::finish; // after 10 seconds, moving back to the main activity
+        r = new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(ARPreviewActivity.this, "User was inactive in last 10 seconds", Toast.LENGTH_SHORT).show();
+                //finish(); // after 10 seconds, moving back to the main activity
+            }
+        };
 
         startHandler();
 
@@ -86,32 +93,50 @@ public class ARPreviewActivity extends AppCompatActivity {
                             return null;
                         });
 
-        arFragment.getPlaneDiscoveryController().hide();
-        arFragment.getPlaneDiscoveryController().setInstructionView(null);
-        arFragment.getArSceneView().getPlaneRenderer().setEnabled(false);
+        Texture.Sampler sampler =
+                Texture.Sampler.builder()
+                        .setMinFilter(Texture.Sampler.MinFilter.LINEAR)
+                        .setWrapMode(Texture.Sampler.WrapMode.REPEAT)
+                        .build();
+
+        // R.drawable.custom_texture is a .png file in src/main/res/drawable
+        Texture.builder()
+                .setSource(this, R.drawable.checkerboard_cross)
+                .setSampler(sampler)
+                .build()
+                .thenAccept(texture -> {
+                    arFragment.getArSceneView().getPlaneRenderer()
+                            .getMaterial().thenAccept(material ->
+                            material.setTexture(PlaneRenderer.MATERIAL_TEXTURE, texture));
+                });
+
+        // the following lines hide and disable the planeRenderer:
+//        arFragment.getPlaneDiscoveryController().hide();
+//        arFragment.getPlaneDiscoveryController().setInstructionView(null);
+//        arFragment.getArSceneView().getPlaneRenderer().setEnabled(false);
 
 //        Node modelNode = new Node();
 //        modelNode.setRenderable(modelRenderable);
 //        scene.addChild(modelNode);
 
 
-//        arFragment.setOnTapArPlaneListener(
-//                (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-//                    if (modelRenderable == null) {
-//                        return;
-//                    }
-//
-//                    // Create the Anchor.
-//                    Anchor anchor = hitResult.createAnchor();
-//                    AnchorNode anchorNode = new AnchorNode(anchor);
-//                    anchorNode.setParent(arFragment.getArSceneView().getScene());
-//
-//                    // Create the transformable andy and add it to the anchor.
-//                    TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
-//                    andy.setParent(anchorNode);
-//                    andy.setRenderable(modelRenderable);
-//                    andy.select();
-//                });
+        arFragment.setOnTapArPlaneListener(
+                (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
+                    if (modelRenderable == null) {
+                        return;
+                    }
+
+                    // Create the Anchor.
+                    Anchor anchor = hitResult.createAnchor();
+                    AnchorNode anchorNode = new AnchorNode(anchor);
+                    anchorNode.setParent(arFragment.getArSceneView().getScene());
+
+                    // Create the transformable andy and add it to the anchor.
+                    TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
+                    andy.setParent(anchorNode);
+                    andy.setRenderable(modelRenderable);
+                    andy.select();
+                });
 
     }
 

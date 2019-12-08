@@ -21,8 +21,11 @@ import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.Scene;
 import com.google.ar.sceneform.SceneView;
+import com.google.ar.sceneform.math.Vector3;
+import com.google.ar.sceneform.rendering.Color;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.rendering.PlaneRenderer;
+import com.google.ar.sceneform.rendering.Renderable;
 import com.google.ar.sceneform.rendering.Texture;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
@@ -56,12 +59,9 @@ public class ARPreviewActivity extends AppCompatActivity {
         handler = new Handler();
 
 
-        r = new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(ARPreviewActivity.this, "User was inactive in last 10 seconds", Toast.LENGTH_SHORT).show();
-                //finish(); // after 10 seconds, moving back to the main activity
-            }
+        r = () -> {
+            Toast.makeText(ARPreviewActivity.this, "User was inactive in last 10 seconds", Toast.LENGTH_SHORT).show();
+            //finish(); // after 10 seconds, moving back to the main activity
         };
 
         startHandler();
@@ -77,22 +77,14 @@ public class ARPreviewActivity extends AppCompatActivity {
 
         PECSCardsImageResources.recycle();
 
-        // When you build a Renderable, Sceneform loads its resources in the background while returning
-        // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
-        ModelRenderable.builder()
-                .setSource(this, resourceId)//R.raw.andy
-//                .setSource(this, Uri.parse("hand_rigged.sfb"))
-                .build()
-                .thenAccept(renderable -> modelRenderable = renderable)
-                .exceptionally(
-                        throwable -> {
-                            Toast toast =
-                                    Toast.makeText(this, "Unable to load Renderable", Toast.LENGTH_LONG);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
-                            return null;
-                        });
 
+        // How to change plane detection colour:
+//        arFragment.getArSceneView().getPlaneRenderer()
+//                .getMaterial().thenAccept(material ->
+//                material.setFloat3(PlaneRenderer.MATERIAL_COLOR, new Color(0.0f, 0.0f, 1.0f, 1.0f)));
+
+
+        // Customize plane visualization:
         Texture.Sampler sampler =
                 Texture.Sampler.builder()
                         .setMinFilter(Texture.Sampler.MinFilter.LINEAR)
@@ -104,11 +96,33 @@ public class ARPreviewActivity extends AppCompatActivity {
                 .setSource(this, R.drawable.square_bg)
                 .setSampler(sampler)
                 .build()
-                .thenAccept(texture -> {
-                    arFragment.getArSceneView().getPlaneRenderer()
-                            .getMaterial().thenAccept(material ->
-                            material.setTexture(PlaneRenderer.MATERIAL_TEXTURE, texture));
-                });
+                .thenAccept(texture -> arFragment.getArSceneView().getPlaneRenderer()
+                        .getMaterial().thenAccept(material ->
+                        material.setTexture(PlaneRenderer.MATERIAL_TEXTURE, texture)));
+
+
+        // When you build a Renderable, Sceneform loads its resources in the background while returning
+        // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
+        ModelRenderable.builder()
+                .setSource(this, resourceId)//R.raw.andy
+//                .setSource(this, Uri.parse("hand_rigged.sfb"))
+                .build()
+//                .thenAccept(renderable -> modelRenderable = renderable)
+                .thenAccept(this::onRenderableLoaded)
+                .exceptionally(
+                        throwable -> {
+                            Toast toast =
+                                    Toast.makeText(this, "Unable to load Renderable", Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+                            return null;
+                        });
+
+
+//        Node node = new Node();
+//        node.setParent(arFragment.getArSceneView().getScene());
+//        node.setRenderable(modelRenderable);
+
 
         // the following lines hide and disable the planeRenderer:
 //        arFragment.getPlaneDiscoveryController().hide();
@@ -120,24 +134,36 @@ public class ARPreviewActivity extends AppCompatActivity {
 //        scene.addChild(modelNode);
 
 
-        arFragment.setOnTapArPlaneListener(
-                (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-                    if (modelRenderable == null) {
-                        return;
-                    }
+        // add the renderable when tapping the plane area:
+//        arFragment.setOnTapArPlaneListener(
+//                (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
+//                    if (modelRenderable == null) {
+//                        return;
+//                    }
+//
+//                    // Create the Anchor.
+//                    Anchor anchor = hitResult.createAnchor();
+//                    AnchorNode anchorNode = new AnchorNode(anchor);
+//                    anchorNode.setParent(arFragment.getArSceneView().getScene());
+//
+//                    // Create the transformable 3D model and add it to the anchor.
+//                    TransformableNode transformableNode = new TransformableNode(arFragment.getTransformationSystem());
+//                    transformableNode.setParent(anchorNode);
+//                    transformableNode.setRenderable(modelRenderable);
+//                    transformableNode.select();
+//                });
 
-                    // Create the Anchor.
-                    Anchor anchor = hitResult.createAnchor();
-                    AnchorNode anchorNode = new AnchorNode(anchor);
-                    anchorNode.setParent(arFragment.getArSceneView().getScene());
+    }
 
-                    // Create the transformable andy and add it to the anchor.
-                    TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
-                    andy.setParent(anchorNode);
-                    andy.setRenderable(modelRenderable);
-                    andy.select();
-                });
+    void onRenderableLoaded(Renderable model) {
+        AnchorNode anchorNode = new AnchorNode();
+        anchorNode.setParent(arFragment.getArSceneView().getScene());
 
+        Node modelNode = new Node();
+//        modelNode.setParent(arFragment.getArSceneView().getScene());
+        modelNode.setParent(anchorNode);
+        modelNode.setRenderable(model);
+        //modelNode.setLocalPosition(new Vector3(0, 0, 0));
     }
 
     @Override

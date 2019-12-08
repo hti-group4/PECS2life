@@ -30,6 +30,8 @@ import com.google.ar.sceneform.rendering.Texture;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 
+import java.util.Objects;
+
 public class ARPreviewActivity extends AppCompatActivity {
     Handler handler;
     Runnable r;
@@ -98,7 +100,7 @@ public class ARPreviewActivity extends AppCompatActivity {
                 .build()
                 .thenAccept(texture -> arFragment.getArSceneView().getPlaneRenderer()
                         .getMaterial().thenAccept(material ->
-                        material.setTexture(PlaneRenderer.MATERIAL_TEXTURE, texture)));
+                                material.setTexture(PlaneRenderer.MATERIAL_TEXTURE, texture)));
 
 
         // When you build a Renderable, Sceneform loads its resources in the background while returning
@@ -119,19 +121,10 @@ public class ARPreviewActivity extends AppCompatActivity {
                         });
 
 
-//        Node node = new Node();
-//        node.setParent(arFragment.getArSceneView().getScene());
-//        node.setRenderable(modelRenderable);
-
-
         // the following lines hide and disable the planeRenderer:
 //        arFragment.getPlaneDiscoveryController().hide();
 //        arFragment.getPlaneDiscoveryController().setInstructionView(null);
 //        arFragment.getArSceneView().getPlaneRenderer().setEnabled(false);
-
-//        Node modelNode = new Node();
-//        modelNode.setRenderable(modelRenderable);
-//        scene.addChild(modelNode);
 
 
         // add the renderable when tapping the plane area:
@@ -159,10 +152,11 @@ public class ARPreviewActivity extends AppCompatActivity {
         AnchorNode anchorNode = new AnchorNode();
         anchorNode.setParent(arFragment.getArSceneView().getScene());
 
-        Node modelNode = new Node();
+        TransformableNode modelNode = new TransformableNode(arFragment.getTransformationSystem());
 //        modelNode.setParent(arFragment.getArSceneView().getScene());
         modelNode.setParent(anchorNode);
         modelNode.setRenderable(model);
+        modelNode.select();
         //modelNode.setLocalPosition(new Vector3(0, 0, 0));
     }
 
@@ -190,14 +184,8 @@ public class ARPreviewActivity extends AppCompatActivity {
      * <p>Finishes the activity if Sceneform can not run
      */
     public static boolean checkIsSupportedDeviceOrFinish(final Activity activity) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            Log.e(TAG, "Sceneform requires Android N or later");
-            Toast.makeText(activity, "Sceneform requires Android N or later", Toast.LENGTH_LONG).show();
-            activity.finish();
-            return false;
-        }
         String openGlVersionString =
-                ((ActivityManager) activity.getSystemService(Context.ACTIVITY_SERVICE))
+                ((ActivityManager) Objects.requireNonNull(activity.getSystemService(Context.ACTIVITY_SERVICE)))
                         .getDeviceConfigurationInfo()
                         .getGlEsVersion();
         if (Double.parseDouble(openGlVersionString) < MIN_OPENGL_VERSION) {

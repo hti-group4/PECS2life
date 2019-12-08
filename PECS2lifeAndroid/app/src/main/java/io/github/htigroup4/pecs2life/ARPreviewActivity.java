@@ -149,15 +149,15 @@ public class ARPreviewActivity extends AppCompatActivity {
     }
 
     void onRenderableLoaded(Renderable model) {
-        AnchorNode anchorNode = new AnchorNode();
-        anchorNode.setParent(arFragment.getArSceneView().getScene());
+//        AnchorNode anchorNode = new AnchorNode();
+//        anchorNode.setParent(arFragment.getArSceneView().getScene());
 
         TransformableNode modelNode = new TransformableNode(arFragment.getTransformationSystem());
-//        modelNode.setParent(arFragment.getArSceneView().getScene());
-        modelNode.setParent(anchorNode);
+        modelNode.setParent(arFragment.getArSceneView().getScene());
+//        modelNode.setParent(anchorNode);
         modelNode.setRenderable(model);
-        modelNode.select();
-        //modelNode.setLocalPosition(new Vector3(0, 0, 0));
+//        modelNode.select();
+        modelNode.setLocalPosition(new Vector3(0, 0, 0));
     }
 
     @Override

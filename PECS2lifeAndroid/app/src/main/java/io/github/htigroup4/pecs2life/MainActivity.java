@@ -1,6 +1,8 @@
 
 package io.github.htigroup4.pecs2life;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     String NOTIFICATION_TITLE;
     String NOTIFICATION_MESSAGE;
     String TOPIC;
+    int LARGE_ICON;
 
     /**
      * Creates the content view, sets up the tab layout, and sets up
@@ -96,10 +99,14 @@ public class MainActivity extends AppCompatActivity {
             TOPIC = "/topics/fromPupilToTeacher"; //topic has to match what the receiver subscribed to
             NOTIFICATION_TITLE = getString(R.string.pupil_notification_title);
             NOTIFICATION_MESSAGE = getString(R.string.pupil_notification_message);
+            LARGE_ICON = R.drawable.pupil;
+            //LARGE_ICON = BitmapFactory.decodeResource(getResources(), R.drawable.pupil);
         } else { // the device is a mobile phone = a teacher uses it
             TOPIC = "/topics/fromTeacherToPupil"; //topic has to match what the receiver subscribed to
             NOTIFICATION_TITLE = getString(R.string.teacher_notification_title);
             NOTIFICATION_MESSAGE = getString(R.string.teacher_notification_message);
+            LARGE_ICON = R.drawable.teacher;
+            //LARGE_ICON = BitmapFactory.decodeResource(getResources(), R.drawable.teacher);
         }
 
         JSONObject notification = new JSONObject();
@@ -108,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             notificationBody.put("title", NOTIFICATION_TITLE);
             notificationBody.put("message", NOTIFICATION_MESSAGE);
+            notificationBody.put("largeIcon", LARGE_ICON);
 
             notification.put("to", TOPIC);
             notification.put("data", notificationBody);

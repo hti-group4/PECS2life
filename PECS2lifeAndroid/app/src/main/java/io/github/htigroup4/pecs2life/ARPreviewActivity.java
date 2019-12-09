@@ -62,8 +62,8 @@ public class ARPreviewActivity extends AppCompatActivity {
 
 
         r = () -> {
-            Toast.makeText(ARPreviewActivity.this, "User was inactive in last 10 seconds", Toast.LENGTH_SHORT).show();
-            //finish(); // after 10 seconds, moving back to the main activity
+            Toast.makeText(ARPreviewActivity.this, R.string.user_inactive, Toast.LENGTH_LONG).show();
+            finish(); // after 10 seconds, moving back to the main activity
         };
 
         startHandler();
@@ -77,14 +77,12 @@ public class ARPreviewActivity extends AppCompatActivity {
 
         int resourceId = PECSCardsImageResources.getResourceId(position, 0);
 
-        PECSCardsImageResources.recycle();
+        PECSCardsImageResources.recycle(); // a compulsory feature after previous rows
 
-
-        // How to change plane detection colour:
-//        arFragment.getArSceneView().getPlaneRenderer()
-//                .getMaterial().thenAccept(material ->
-//                material.setFloat3(PlaneRenderer.MATERIAL_COLOR, new Color(0.0f, 0.0f, 1.0f, 1.0f)));
-
+        // the following lines hide and disable the planeRenderer:
+        arFragment.getPlaneDiscoveryController().hide();
+        arFragment.getPlaneDiscoveryController().setInstructionView(null);
+        arFragment.getArSceneView().getPlaneRenderer().setEnabled(false);
 
         // Customize plane visualization:
         Texture.Sampler sampler =
@@ -102,7 +100,6 @@ public class ARPreviewActivity extends AppCompatActivity {
                         .getMaterial().thenAccept(material ->
                                 material.setTexture(PlaneRenderer.MATERIAL_TEXTURE, texture)));
 
-
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
         ModelRenderable.builder()
@@ -119,45 +116,16 @@ public class ARPreviewActivity extends AppCompatActivity {
                             toast.show();
                             return null;
                         });
-
-
-        // the following lines hide and disable the planeRenderer:
-//        arFragment.getPlaneDiscoveryController().hide();
-//        arFragment.getPlaneDiscoveryController().setInstructionView(null);
-//        arFragment.getArSceneView().getPlaneRenderer().setEnabled(false);
-
-
-        // add the renderable when tapping the plane area:
-//        arFragment.setOnTapArPlaneListener(
-//                (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-//                    if (modelRenderable == null) {
-//                        return;
-//                    }
-//
-//                    // Create the Anchor.
-//                    Anchor anchor = hitResult.createAnchor();
-//                    AnchorNode anchorNode = new AnchorNode(anchor);
-//                    anchorNode.setParent(arFragment.getArSceneView().getScene());
-//
-//                    // Create the transformable 3D model and add it to the anchor.
-//                    TransformableNode transformableNode = new TransformableNode(arFragment.getTransformationSystem());
-//                    transformableNode.setParent(anchorNode);
-//                    transformableNode.setRenderable(modelRenderable);
-//                    transformableNode.select();
-//                });
-
     }
 
     void onRenderableLoaded(Renderable model) {
-//        AnchorNode anchorNode = new AnchorNode();
-//        anchorNode.setParent(arFragment.getArSceneView().getScene());
+        AnchorNode anchorNode = new AnchorNode();
+        anchorNode.setParent(arFragment.getArSceneView().getScene());
 
         TransformableNode modelNode = new TransformableNode(arFragment.getTransformationSystem());
-        modelNode.setParent(arFragment.getArSceneView().getScene());
-//        modelNode.setParent(anchorNode);
+        modelNode.setParent(anchorNode);
         modelNode.setRenderable(model);
-//        modelNode.select();
-        modelNode.setLocalPosition(new Vector3(0, 0, 0));
+        modelNode.setLocalPosition(new Vector3(0f, 0f, -0.3f));
     }
 
     @Override

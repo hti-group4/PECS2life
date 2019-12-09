@@ -45,7 +45,6 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MyBaseActivity" />
         <!--
  Indicates that the app requires ARCore ("AR Required"). Causes the Google
          Play Store to download and install Google Play Services for AR when the

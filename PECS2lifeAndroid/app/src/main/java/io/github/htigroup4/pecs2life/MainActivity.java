@@ -97,12 +97,12 @@ public class MainActivity extends AppCompatActivity {
             TOPIC = "/topics/fromPupilToTeacher"; //topic has to match what the receiver subscribed to
             NOTIFICATION_TITLE = getString(R.string.pupil_notification_title);
             NOTIFICATION_MESSAGE = getString(R.string.pupil_notification_message);
-            LARGE_ICON = R.drawable.pupil;
+            LARGE_ICON = R.drawable.img_pupil;
         } else { // the device is a mobile phone = a teacher uses it
             TOPIC = "/topics/fromTeacherToPupil"; //topic has to match what the receiver subscribed to
             NOTIFICATION_TITLE = getString(R.string.teacher_notification_title);
             NOTIFICATION_MESSAGE = getString(R.string.teacher_notification_message);
-            LARGE_ICON = R.drawable.teacher;
+            LARGE_ICON = R.drawable.img_teacher;
         }
 
         JSONObject notification = new JSONObject();

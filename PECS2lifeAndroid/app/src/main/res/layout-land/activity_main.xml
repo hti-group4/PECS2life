@@ -46,4 +46,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
 
+    <com.vlstr.blurdialog.BlurDialog
+        android:id="@+id/blurView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:elevation="24dp"
+        android:visibility="invisible"
+        app:blurDialogDuration="length_long"
+        app:blurDialogIcon="@mipmap/ic_launcher"
+        app:blurDialogTitle="Hello World!"
+        app:blurDialogTitleSize="12dp"
+        app:blurOverlayColor="@color/colorOverlay">
+
+    </com.vlstr.blurdialog.BlurDialog>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

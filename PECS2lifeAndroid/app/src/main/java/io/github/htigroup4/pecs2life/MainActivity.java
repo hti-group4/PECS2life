@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.vlstr.blurdialog.BlurDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     String NOTIFICATION_MESSAGE;
     String TOPIC;
     int LARGE_ICON;
+    int SENDER_ICON;
     String RESPONSE_MESSAGE;
 
     /**
@@ -99,12 +101,14 @@ public class MainActivity extends AppCompatActivity {
             NOTIFICATION_TITLE = getString(R.string.pupil_notification_title);
             NOTIFICATION_MESSAGE = getString(R.string.pupil_notification_message);
             LARGE_ICON = R.drawable.img_pupil;
+            SENDER_ICON = R.drawable.img_teacher;
             RESPONSE_MESSAGE = getString(R.string.response_message_help);
         } else { // the device is a mobile phone = a teacher uses it
             TOPIC = "/topics/fromTeacherToPupil"; //topic has to match what the receiver subscribed to
             NOTIFICATION_TITLE = getString(R.string.teacher_notification_title);
             NOTIFICATION_MESSAGE = getString(R.string.teacher_notification_message);
             LARGE_ICON = R.drawable.img_teacher;
+            SENDER_ICON = R.drawable.img_pupil;
             RESPONSE_MESSAGE = getString(R.string.response_message_response);
         }
 
@@ -128,7 +132,14 @@ public class MainActivity extends AppCompatActivity {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(FCM_API, notification,
                 response -> {
                     Log.i(TAG, "onResponse: " + response.toString());
-                    Toast.makeText(this, RESPONSE_MESSAGE, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(this, RESPONSE_MESSAGE, Toast.LENGTH_LONG).show();
+
+                    final BlurDialog blurDialog = (BlurDialog) findViewById(R.id.blurView);
+                    blurDialog.create(getWindow().getDecorView(), 20);
+                    blurDialog.setTitle(RESPONSE_MESSAGE);
+                    blurDialog.setIcon(getDrawable(SENDER_ICON));
+                    blurDialog.show();
+
                 },
                 error -> {
                     Toast.makeText(MainActivity.this, "Request error", Toast.LENGTH_LONG).show();

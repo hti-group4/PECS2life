@@ -38,9 +38,8 @@ public class TabFragment1 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.tab_fragment1, container, false);
 
-
         //Initialize the RecyclerView
-        mRecyclerView = view.findViewById(R.id.recyclerView);
+        mRecyclerView = view.findViewById(R.id.recyclerView1);
 
         // Get the appropriate column count.
         int gridColumnCount = getResources().getInteger(R.integer.grid_column_count);

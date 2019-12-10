@@ -33,6 +33,12 @@
         <item>Carrot</item>
     </string-array>
 
+    <string-array name="music_titles">
+        <item>Song 1</item>
+        <item>Song 2</item>
+        <item>Song 3</item>
+        <item>Song 4</item>
+    </string-array>
 
     <array name="food_images">
         <item>@drawable/img_red_pepper</item>
@@ -42,6 +48,13 @@
         <item>@drawable/img_hamburger</item>
         <item>@drawable/img_banana</item>
         <item>@drawable/img_carrot</item>
+    </array>
+
+    <array name="music_images">
+        <item>@drawable/img_note_semiquaver</item>
+        <item>@drawable/img_note_semiquaver</item>
+        <item>@drawable/img_note_semiquaver</item>
+        <item>@drawable/img_note_semiquaver</item>
     </array>
 
     <array name="models_in_3d">

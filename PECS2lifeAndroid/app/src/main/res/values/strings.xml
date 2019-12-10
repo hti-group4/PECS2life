@@ -20,6 +20,8 @@
     <string name="teacher_notification_title">Teacher</string>
     <string name="teacher_notification_message">I will help you as soon as possible!</string>
     <string name="user_inactive">User was inactive in last 10 seconds</string>
+    <string name="response_message_help">Help sent</string>
+    <string name="response_message_response">Response sent</string>
 
     <string-array name="food_titles">
         <item>Red pepper</item>

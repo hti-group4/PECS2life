@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     String NOTIFICATION_MESSAGE;
     String TOPIC;
     int LARGE_ICON;
+    String RESPONSE_MESSAGE;
 
     /**
      * Creates the content view, sets up the tab layout, and sets up
@@ -98,11 +99,13 @@ public class MainActivity extends AppCompatActivity {
             NOTIFICATION_TITLE = getString(R.string.pupil_notification_title);
             NOTIFICATION_MESSAGE = getString(R.string.pupil_notification_message);
             LARGE_ICON = R.drawable.img_pupil;
+            RESPONSE_MESSAGE = getString(R.string.response_message_help);
         } else { // the device is a mobile phone = a teacher uses it
             TOPIC = "/topics/fromTeacherToPupil"; //topic has to match what the receiver subscribed to
             NOTIFICATION_TITLE = getString(R.string.teacher_notification_title);
             NOTIFICATION_MESSAGE = getString(R.string.teacher_notification_message);
             LARGE_ICON = R.drawable.img_teacher;
+            RESPONSE_MESSAGE = getString(R.string.response_message_response);
         }
 
         JSONObject notification = new JSONObject();
@@ -119,18 +122,13 @@ public class MainActivity extends AppCompatActivity {
             Log.e(TAG, "onCreate: " + e.getMessage());
         }
         sendNotification(notification);
-
-//        Toast toast = Toast.makeText(this, "DEBUG: help clicked",
-//                Toast.LENGTH_SHORT);
-//        toast.show();
     }
 
     private void sendNotification(JSONObject notification) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(FCM_API, notification,
                 response -> {
                     Log.i(TAG, "onResponse: " + response.toString());
-                    //edtTitle.setText("");
-                    //edtMessage.setText("");
+                    Toast.makeText(this, RESPONSE_MESSAGE, Toast.LENGTH_LONG).show();
                 },
                 error -> {
                     Toast.makeText(MainActivity.this, "Request error", Toast.LENGTH_LONG).show();

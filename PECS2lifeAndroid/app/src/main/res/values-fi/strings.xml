@@ -21,6 +21,8 @@
     <string name="teacher_notification_title">Opettaja</string>
     <string name="teacher_notification_message">Autan sinua niin pian kuin mahdollista!</string>
     <string name="user_inactive">Käyttäjä oli epäaktiivinen viimeiset 10 sekuntia</string>
+    <string name="response_message_help">Apu lähetetty</string>
+    <string name="response_message_response">Vastaus lähetetty</string>
 
     <string-array name="food_titles">
         <item>Paprika</item>

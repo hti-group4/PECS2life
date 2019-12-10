@@ -132,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(FCM_API, notification,
                 response -> {
                     Log.i(TAG, "onResponse: " + response.toString());
-                    //Toast.makeText(this, RESPONSE_MESSAGE, Toast.LENGTH_LONG).show();
 
                     final BlurDialog blurDialog = (BlurDialog) findViewById(R.id.blurView);
                     blurDialog.create(getWindow().getDecorView(), 20);

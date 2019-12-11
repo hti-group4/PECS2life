@@ -63,13 +63,21 @@ public class TabFragment2 extends Fragment {
         //Get the data
         initializeData();
 
+        // If there is more than one column, disable swipe to dismiss
+        int swipeDirs;
+        if (gridColumnCount > 1) {
+            swipeDirs = 0;
+        } else {
+            swipeDirs = ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+        }
+
+
         // Helper class for creating swipe to dismiss and drag and drop
         // functionality.
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper
                 .SimpleCallback(
                 0,
-                ItemTouchHelper.LEFT |
-                        ItemTouchHelper.RIGHT) {
+                swipeDirs) {
 
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView,
@@ -99,7 +107,13 @@ public class TabFragment2 extends Fragment {
 
 
         FloatingActionButton floatingActionButton = view.findViewById(R.id.floatingActionButton);
-        floatingActionButton.setOnClickListener(view1 -> initializeData());
+        // if the device is NOT a tablet (ie. a mobile device = a teacher device), allow the functionality
+        if (!getResources().getBoolean(R.bool.isTablet)) {
+            floatingActionButton.setOnClickListener(view1 -> initializeData());
+        } else {
+            floatingActionButton.hide();
+        }
+
 
         return view;
     }

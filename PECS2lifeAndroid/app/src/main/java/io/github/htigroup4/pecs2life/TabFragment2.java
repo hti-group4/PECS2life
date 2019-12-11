@@ -70,27 +70,12 @@ public class TabFragment2 extends Fragment {
                 0,
                 ItemTouchHelper.LEFT |
                         ItemTouchHelper.RIGHT) {
-            /**
-             * Defines the drag and drop functionality.
-             *
-             * @param recyclerView The RecyclerView that contains the list items
-             * @param viewHolder The PECSCardViewHolder that is being moved
-             * @param target The PECSCardViewHolder that you are switching the
-             *               original one with.
-             * @return true if the item was moved, false otherwise
-             */
+
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView,
                                   @NonNull RecyclerView.ViewHolder viewHolder,
                                   @NonNull RecyclerView.ViewHolder target) {
-//                // Get the from and to positions.
-//                int from = viewHolder.getAdapterPosition();
-//                int to = target.getAdapterPosition();
-//
-//                // Swap the items and notify the adapter.
-//                Collections.swap(mPECSCardsData, from, to);
-//                mAdapter.notifyItemMoved(from, to);
-                return false; // was true
+                return false;
             }
 
             /**

@@ -114,12 +114,7 @@ public class TabFragment2 extends Fragment {
 
 
         FloatingActionButton floatingActionButton = view.findViewById(R.id.floatingActionButton);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                initializeData();
-            }
-        });
+        floatingActionButton.setOnClickListener(view1 -> initializeData());
 
         return view;
     }
@@ -148,14 +143,4 @@ public class TabFragment2 extends Fragment {
         //Notify the adapter of the change
         mAdapter.notifyDataSetChanged();
     }
-
-//    /**
-//     * onClick method for th FAB that resets the data.
-//     *
-//     * @param view The button view that was clicked.
-//     */
-//    public void resetSports(View view) {
-//        initializeData();
-//    }
-
 }

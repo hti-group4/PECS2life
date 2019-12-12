@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     tools:context="io.github.htigroup4.pecs2life.TabFragment3">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Some text 3"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

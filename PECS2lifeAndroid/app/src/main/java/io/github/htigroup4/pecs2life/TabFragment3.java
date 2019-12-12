@@ -13,6 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+
 import java.util.ArrayList;
 
 
@@ -23,6 +26,8 @@ public class TabFragment3 extends Fragment {
 
     private RecyclerView mRecyclerView;
     private ArrayList<DataSetFire> arrayList;
+    private FirebaseRecyclerOptions<DataSetFire> options;
+    private FirebaseRecyclerAdapter<DataSetFire, FirebaseViewHolder> adapter;
 
 
     public TabFragment3() {

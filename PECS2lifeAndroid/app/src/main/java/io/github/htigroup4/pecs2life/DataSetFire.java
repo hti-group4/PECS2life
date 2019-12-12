@@ -2,30 +2,20 @@ package io.github.htigroup4.pecs2life;
 
 public class DataSetFire {
 
-    private String teamone;
-    private String teamtwo;
+    private String name;
 
     public DataSetFire() {
     }
 
-    public DataSetFire(String teamone, String teamtwo) {
-        this.teamone = teamone;
-        this.teamtwo = teamtwo;
+    public DataSetFire(String name) {
+        this.name = name;
     }
 
-    public String getTeamone() {
-        return teamone;
+    public String getName() {
+        return name;
     }
 
-    public void setTeamone(String teamone) {
-        this.teamone = teamone;
-    }
-
-    public String getTeamtwo() {
-        return teamtwo;
-    }
-
-    public void setTeamtwo(String teamtwo) {
-        this.teamtwo = teamtwo;
+    public void setName(String name) {
+        this.name = name;
     }
 }

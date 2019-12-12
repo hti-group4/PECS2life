@@ -62,16 +62,17 @@ public class TabFragment3 extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         arrayList = new ArrayList<>();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("cwc");
+        //databaseReference = FirebaseDatabase.getInstance().getReference().child("cwc");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Music");
         databaseReference.keepSynced(true);
         options = new FirebaseRecyclerOptions.Builder<DataSetFire>().setQuery(databaseReference, DataSetFire.class).build();
 
         adapter = new FirebaseRecyclerAdapter<DataSetFire, FirebaseViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull FirebaseViewHolder holder, int position, @NonNull DataSetFire model) {
-                holder.teamone.setText(model.getTeamone());
-                holder.teamtwo.setText(model.getTeamtwo());
-                holder.itemView.setOnClickListener(view1 -> Toast.makeText(getContext(), "teamone: " + model.getTeamone() + ", teamtwo: " + model.getTeamtwo(), Toast.LENGTH_SHORT).show());
+                holder.name.setText(model.getName());
+                //holder.teamtwo.setText(model.getTeamtwo());
+                holder.itemView.setOnClickListener(view1 -> Toast.makeText(getContext(), "name: " + model.getName(), Toast.LENGTH_SHORT).show());
             }
 
             @NonNull

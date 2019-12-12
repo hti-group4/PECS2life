@@ -13,23 +13,13 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/teamone"
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="TeamOne Name"
+            android:text="Title for a song"
             android:textAlignment="center"
             android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/teamtwo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="TeamTwo Name"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
 
     </LinearLayout>
 

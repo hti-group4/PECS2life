@@ -8,13 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class FirebaseViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView teamone, teamtwo;
+    public TextView name;
 
 
-    public FirebaseViewHolder(@NonNull View itemView) {
+    FirebaseViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        teamone = itemView.findViewById(R.id.teamone);
-        teamtwo = itemView.findViewById(R.id.teamtwo);
+        name = itemView.findViewById(R.id.name);
     }
 }

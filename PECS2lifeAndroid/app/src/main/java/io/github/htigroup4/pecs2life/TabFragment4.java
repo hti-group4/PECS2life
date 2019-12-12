@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 
 /**
@@ -22,6 +22,7 @@ import java.util.HashMap;
 public class TabFragment4 extends Fragment {
 
     private DatabaseReference databaseReference;
+    private ArrayList<MusicData> arrayList;
 
     public TabFragment4() {
         // Required empty public constructor
@@ -34,10 +35,49 @@ public class TabFragment4 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.tab_fragment4, container, false);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Music");
 
-        HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("name","Song 1");
+        String[] songs = {"Song 1", "Song 2", "Song 3", "Song 4"};
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Music");
+        //databaseReference.removeValue();
+
+        for (int i = 0; i < songs.length; i++) {
+            MusicData musicData = new MusicData(songs[i]);
+            DatabaseReference child = databaseReference.child("song" + i);
+            child.setValue(musicData);
+        }
+
+//        databaseReference.orderByChild("name").equalTo("Song 6").addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                System.out.println("DEBUG INFO: " + dataSnapshot.getValue());
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+
+        //DatabaseReference list = databaseReference.child("list");
+        //list.removeValue();
+
+        //databaseReference.removeValue();
+
+        //arrayList = new ArrayList<>();
+
+//        for (String song : songs) {
+//            MusicData musicData = new MusicData(song);
+//
+//            databaseReference.push().setValue(musicData);
+//
+//            //arrayList.add(musicData);
+//        }
+
+        //databaseReference.child("list").setValue(arrayList);
+
+        //HashMap<String, String> hashMap = new HashMap<>();
+        //hashMap.put("name","Song 1");
         //hashMap.put("name","Song 2");
 
 

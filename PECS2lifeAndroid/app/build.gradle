@@ -108,3 +108,14 @@ sceneform.asset('sampledata/models/Carrot_01.obj',
         'default',
         'sampledata/models/Carrot_01.sfa',
         'src/main/res/raw/carrot_01')
+
+
+sceneform.asset('sampledata/models/Apple.fbx',
+        'default',
+        'sampledata/models/Apple.sfa',
+        'src/main/res/raw/apple_02')
+
+sceneform.asset('sampledata/models/bowl.fbx',
+        'default',
+        'sampledata/models/bowl.sfa',
+        'src/main/res/raw/bowl')

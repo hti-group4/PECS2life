@@ -28,7 +28,7 @@ public class TabFragment2 extends Fragment {
     //Member variables
     private ArrayList<PECSCard> mPECSCardsData;
     private RecyclerView mRecyclerView;
-    private PECSCardAdapter mAdapter;
+    private MusicCardAdapter mAdapter;
 
     public TabFragment2() {
         // Required empty public constructor
@@ -55,7 +55,7 @@ public class TabFragment2 extends Fragment {
         mPECSCardsData = new ArrayList<>();
 
         //Initialize the adapter and set it ot the RecyclerView
-        mAdapter = new PECSCardAdapter(getContext(), mPECSCardsData);
+        mAdapter = new MusicCardAdapter(getContext(), mPECSCardsData);
         mRecyclerView.setAdapter(mAdapter);
 
         //Get the data

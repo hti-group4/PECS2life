@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -116,15 +117,16 @@ public class MusicCardAdapter extends RecyclerView.Adapter<MusicCardAdapter.View
          */
         @Override
         public void onClick(View view) {
-//            PECSCard currentPECSCard = mPECSCardData.get(getAdapterPosition());
+            PECSCard currentPECSCard = mPECSCardData.get(getAdapterPosition());
+            String title = currentPECSCard.getTitle();
 
-            Intent arPreviewIntent = new Intent(mContext, ARPreviewActivity.class);
-            arPreviewIntent.putExtra("position", getAdapterPosition());
-            mContext.startActivity(arPreviewIntent);
+//            Intent arPreviewIntent = new Intent(mContext, ARPreviewActivity.class);
+//            arPreviewIntent.putExtra("position", getAdapterPosition());
+//            mContext.startActivity(arPreviewIntent);
 
-//            Toast toast = Toast.makeText(mContext, "DEBUG: " + title + " clicked",
-//                    Toast.LENGTH_SHORT);
-//            toast.show();
+            Toast toast = Toast.makeText(mContext, "DEBUG: " + title + " clicked",
+                    Toast.LENGTH_SHORT);
+            toast.show();
         }
 
 

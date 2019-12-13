@@ -94,10 +94,8 @@ public class ARPreviewActivity extends AppCompatActivity {
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
         ModelRenderable.builder()
-                .setSource(this, resourceId)//R.raw.andy
-//                .setSource(this, Uri.parse("hand_rigged.sfb"))
+                .setSource(this, resourceId) // e.g. R.raw.andy
                 .build()
-//                .thenAccept(renderable -> modelRenderable = renderable)
                 .thenAccept(this::onRenderableLoaded)
                 .exceptionally(
                         throwable -> {

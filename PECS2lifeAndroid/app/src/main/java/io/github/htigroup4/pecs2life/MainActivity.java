@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         // Set the text for each tab.
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_text_1));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_text_2));
-        tabLayout.addTab(tabLayout.newTab().setText("Test 1")); // was: R.string.tab_text_3
+        //tabLayout.addTab(tabLayout.newTab().setText("Test 1")); // was: R.string.tab_text_3
         //tabLayout.addTab(tabLayout.newTab().setText("Test 2"));
 
         // Set the tabs to fill the entire layout.

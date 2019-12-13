@@ -23,6 +23,8 @@
     <string name="response_message_help">Help sent</string>
     <string name="response_message_response">Response sent</string>
     <string name="song_string">Song</string>
+    <string name="music_toast_1">You clicked \"</string>
+    <string name="music_toast_2">\" card in position </string>
 
     <string-array name="food_titles">
         <item>Red pepper</item>

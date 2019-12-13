@@ -36,7 +36,7 @@ public class TabFragment4 extends Fragment {
         View view = inflater.inflate(R.layout.tab_fragment4, container, false);
 
 
-        String[] songs = {"Song 1", "Song 2", "Song 3", "Song 4"};
+        String[] songs = {"Laulu AAA", "Laulu BBB", "Laulu CCC", "Laulu DDD"};
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Music");
         //databaseReference.removeValue();

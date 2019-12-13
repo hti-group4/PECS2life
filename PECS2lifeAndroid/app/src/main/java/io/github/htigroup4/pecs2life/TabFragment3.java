@@ -90,7 +90,7 @@ public class TabFragment3 extends Fragment {
                 Glide.with(Objects.requireNonNull(getContext())).load(
                         R.drawable.img_note_semiquaver).into(holder.musicImage);
 
-                holder.itemView.setOnClickListener(view1 -> Toast.makeText(getContext(), "DEBUG: " + model.getName() + " clicked", Toast.LENGTH_SHORT).show());
+                holder.itemView.setOnClickListener(view1 -> Toast.makeText(getContext(), "DEBUG: " + model.getName() + " clicked in position " + position, Toast.LENGTH_LONG).show());
             }
 
             @NonNull
@@ -126,6 +126,14 @@ public class TabFragment3 extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder,
                                  int direction) {
+
+                // Remove the item from the dataset.
+                DatabaseReference child = databaseReference.child("song" + viewHolder.getAdapterPosition());
+                child.removeValue();
+
+                // Notify the adapter.
+                adapter.notifyItemRemoved(viewHolder.getAdapterPosition());
+
                 // Remove the item from the dataset.
                 //mPECSCardsData.remove(viewHolder.getAdapterPosition());
                 // Notify the adapter.
@@ -133,6 +141,7 @@ public class TabFragment3 extends Fragment {
             }
         });
 
+        helper.attachToRecyclerView(mRecyclerView);
 
         return view;
     }

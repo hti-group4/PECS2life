@@ -54,7 +54,7 @@ public class TabFragment2 extends Fragment {
         //Initialize the ArrayList that will contain the data
         mPECSCardsData = new ArrayList<>();
 
-        //Initialize the adapter and set it ot the RecyclerView
+        //Initialize the adapter and set it to the RecyclerView
         mAdapter = new MusicCardAdapter(getContext(), mPECSCardsData);
         mRecyclerView.setAdapter(mAdapter);
 

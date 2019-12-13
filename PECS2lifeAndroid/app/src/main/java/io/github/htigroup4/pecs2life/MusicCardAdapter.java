@@ -80,7 +80,7 @@ public class MusicCardAdapter extends RecyclerView.Adapter<MusicCardAdapter.View
      */
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        //Member Variables for the TextViews
+        //Member Variables for the views
         private TextView mTitleText;
         private ImageView mPECSCardImage;
 

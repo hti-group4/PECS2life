@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,7 +35,7 @@ public class TabFragment3 extends Fragment {
 
     //Member variables
     private RecyclerView mRecyclerView;
-    private ArrayList<DataSetFire> arrayList;
+    private ArrayList<MusicData> arrayList;
     private FirebaseRecyclerOptions<DataSetFire> options;
     private FirebaseRecyclerAdapter<DataSetFire, FirebaseViewHolder> adapter;
     private DatabaseReference databaseReference;
@@ -74,6 +75,10 @@ public class TabFragment3 extends Fragment {
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), gridColumnCount));
 
         arrayList = new ArrayList<>();
+        for (int i = 1; i <= 4; i++) {
+            arrayList.add(new MusicData("Laulu " + i));
+        }
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Music");
         databaseReference.keepSynced(true);
@@ -127,9 +132,25 @@ public class TabFragment3 extends Fragment {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder,
                                  int direction) {
 
-                // Remove the item from the dataset.
-                DatabaseReference child = databaseReference.child("song" + viewHolder.getAdapterPosition());
+                //String[] songs = {"Laulu 1", "Laulu 2", "Laulu 3", "Laulu 4"};
+
+                // get the position of the card: e.g. 0th is the first one
+                //int position = viewHolder.getAdapterPosition();
+
+                int i = arrayList.size() - 1;
+
+                DatabaseReference child = databaseReference.child("song" + i);
                 child.removeValue();
+                databaseReference.keepSynced(true);
+
+                arrayList.remove(i);
+
+                // 0th position -> song[last]
+
+
+                // Remove the item from the dataset.
+                //DatabaseReference child = databaseReference.child("song" + position);
+                //child.removeValue();
 
                 // Notify the adapter.
                 adapter.notifyItemRemoved(viewHolder.getAdapterPosition());
@@ -142,6 +163,36 @@ public class TabFragment3 extends Fragment {
         });
 
         helper.attachToRecyclerView(mRecyclerView);
+
+        // Removes all the music cards and recreates them to the database:
+        FloatingActionButton floatingActionButton = view.findViewById(R.id.floatingActionButton2);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //String[] songs = {"Laulu 1", "Laulu 2", "Laulu 3", "Laulu 4"};
+                //databaseReference = FirebaseDatabase.getInstance().getReference().child("Music");
+                databaseReference.removeValue();
+
+                arrayList.clear();
+
+                for (int i = 1; i <= 4; i++) {
+                    MusicData musicData = new MusicData("Laulu " + i);
+                    arrayList.add(musicData);
+
+                    int j = i - 1;
+                    DatabaseReference child = databaseReference.child("song" + j);
+                    child.setValue(musicData);
+
+
+                }
+
+//                for (int i = 0; i < songs.length; i++) {
+//                    MusicData musicData = new MusicData(songs[i]);
+//                    DatabaseReference child = databaseReference.child("song" + i);
+//                    child.setValue(musicData);
+//                }
+            }
+        });
 
         return view;
     }

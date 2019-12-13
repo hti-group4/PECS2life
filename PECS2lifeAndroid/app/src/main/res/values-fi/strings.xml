@@ -25,7 +25,7 @@
     <string name="response_message_response">Vastaus lähetetty</string>
     <string name="song_string">Laulu</string>
     <string name="music_toast_1">Klikattiin \"</string>
-    <string name="music_toast_2">\" -korttia kohdassa </string>
+    <string name="music_toast_2">\" -korttia kohdassa</string>
 
     <string-array name="food_titles">
         <item>Paprika</item>

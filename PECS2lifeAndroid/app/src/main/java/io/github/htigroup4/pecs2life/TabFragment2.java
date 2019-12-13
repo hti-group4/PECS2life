@@ -88,13 +88,11 @@ public class TabFragment2 extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull FirebaseViewHolder holder, int position, @NonNull DataSetFire model) {
                 holder.name.setText(model.getName());
-                //Glide.with(getContext()).load(
-                //        model.getImageResource()).into(holder.musicImage); // drawable/img_note_semiquaver
 
                 Glide.with(Objects.requireNonNull(getContext())).load(
                         R.drawable.img_note_semiquaver).into(holder.musicImage);
 
-                holder.itemView.setOnClickListener(view1 -> Toast.makeText(getContext(), getString(R.string.music_toast_1) + model.getName() + getString(R.string.music_toast_2) + position, Toast.LENGTH_LONG).show());
+                holder.itemView.setOnClickListener(view1 -> Toast.makeText(getContext(), getString(R.string.music_toast_1) + model.getName() + getString(R.string.music_toast_2) + " " + position, Toast.LENGTH_LONG).show());
             }
 
             @NonNull

@@ -8,12 +8,11 @@
 
     <string name="title_placeholder">Title</string>
 
-    <string name="subtitle_detail_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices congue rutrum. Phasellus elementum ipsum ac convallis aliquam. Suspendisse eleifend eros a enim faucibus mollis. Nunc placerat, est vitae vestibulum blandit, dolor diam fringilla tellus, eu euismod mauris neque at neque.</string>
-
     <string name="PECSCardImageDescription">An image about a PECS card</string>
     <string name="ar_preview_label">AR Preview</string>
     <string name="notification_channel_name">Help request</string>
     <string name="notification_channel_description">Communication between a pupil and a teacher device channels</string>
+
     <string name="pupil_notification_title">Pupil</string>
     <string name="pupil_notification_message">Could you help me?</string>
 
@@ -36,13 +35,6 @@
         <item>Carrot</item>
     </string-array>
 
-    <string-array name="music_titles">
-        <item>Song 1</item>
-        <item>Song 2</item>
-        <item>Song 3</item>
-        <item>Song 4</item>
-    </string-array>
-
     <array name="food_images">
         <item>@drawable/img_red_pepper</item>
         <item>@drawable/img_noodle_meal</item>
@@ -51,13 +43,6 @@
         <item>@drawable/img_hamburger</item>
         <item>@drawable/img_banana</item>
         <item>@drawable/img_carrot</item>
-    </array>
-
-    <array name="music_images">
-        <item>@drawable/img_note_semiquaver</item>
-        <item>@drawable/img_note_semiquaver</item>
-        <item>@drawable/img_note_semiquaver</item>
-        <item>@drawable/img_note_semiquaver</item>
     </array>
 
     <array name="models_in_3d">

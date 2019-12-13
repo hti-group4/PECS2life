@@ -8,8 +8,6 @@
 
     <string name="title_placeholder">Otsikko</string>
 
-    <string name="subtitle_detail_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices congue rutrum. Phasellus elementum ipsum ac convallis aliquam. Suspendisse eleifend eros a enim faucibus mollis. Nunc placerat, est vitae vestibulum blandit, dolor diam fringilla tellus, eu euismod mauris neque at neque.</string>
-
     <string name="PECSCardImageDescription">Kuva PECS-kortista</string>
     <string name="ar_preview_label">AR-esikatselu</string>
     <string name="notification_channel_name">Avunpyyntö</string>
@@ -35,13 +33,6 @@
         <item>Hampurilainen</item>
         <item>Banaani</item>
         <item>Porkkana</item>
-    </string-array>
-
-    <string-array name="music_titles">
-        <item>Laulu 1</item>
-        <item>Laulu 2</item>
-        <item>Laulu 3</item>
-        <item>Laulu 4</item>
     </string-array>
 
 </resources>

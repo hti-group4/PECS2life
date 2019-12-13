@@ -22,6 +22,7 @@
     <string name="user_inactive">User was inactive in last 10 seconds</string>
     <string name="response_message_help">Help sent</string>
     <string name="response_message_response">Response sent</string>
+    <string name="song_string">Song</string>
 
     <string-array name="food_titles">
         <item>Red pepper</item>

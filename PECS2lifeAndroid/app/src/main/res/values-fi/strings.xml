@@ -23,6 +23,7 @@
     <string name="user_inactive">Käyttäjä oli epäaktiivinen viimeiset 10 sekuntia</string>
     <string name="response_message_help">Apu lähetetty</string>
     <string name="response_message_response">Vastaus lähetetty</string>
+    <string name="song_string">Laulu</string>
 
     <string-array name="food_titles">
         <item>Paprika</item>
@@ -40,33 +41,5 @@
         <item>Laulu 3</item>
         <item>Laulu 4</item>
     </string-array>
-
-    <array name="food_images">
-        <item>@drawable/img_red_pepper</item>
-        <item>@drawable/img_noodle_meal</item>
-        <item>@drawable/img_sandwich</item>
-        <item>@drawable/img_apple</item>
-        <item>@drawable/img_hamburger</item>
-        <item>@drawable/img_banana</item>
-        <item>@drawable/img_carrot</item>
-    </array>
-
-    <array name="music_images">
-        <item>@drawable/img_note_semiquaver</item>
-        <item>@drawable/img_note_semiquaver</item>
-        <item>@drawable/img_note_semiquaver</item>
-        <item>@drawable/img_note_semiquaver</item>
-    </array>
-
-    <array name="models_in_3d">
-        <item>@raw/red_pepper</item>
-        <item>@raw/noodle_meal</item>
-        <item>@raw/sandwich</item>
-        <item>@raw/apple_01</item>
-        <item>@raw/hamburger</item>
-        <item>@raw/banana</item>
-        <item>@raw/carrot_01</item>
-    </array>
-
 
 </resources>

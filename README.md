@@ -6,6 +6,14 @@
 
 This application runs on [Google Play Services for AR](https://play.google.com/store/apps/details?id=com.google.ar.core) (ARCore), which is provided by Google LLC and governed by the [Google Privacy Policy](https://policies.google.com/privacy).
 
+## Libraries used in this project
+
+- [ARCore SDK for Android Studio](https://github.com/google-ar/arcore-android-sdk/) & [Sceneform SDK for Android](https://github.com/google-ar/sceneform-android-sdk) (the AR features)
+- [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging), [Firebase Realtime Database](https://firebase.google.com/docs/database) & [Firebase UI Database](https://firebaseopensource.com/projects/firebase/firebaseui-android/database/readme.md/) (back-end features like notifications and music cards)
+- [Glide](https://github.com/bumptech/glide) (an image loading and caching library for Android)
+- [Volley](https://github.com/google/volley) (an HTTP library that makes networking for Android apps easier and faster)
+- [Blur Dialog](https://github.com/byvlstr/blurdialog) (an Android dialog-like view providing a blur effect as background, a title and an icon)
+
 ## Images used in the project
 
 All the images (except 3D models and the app icon) are from [Papunet Kuvapankki](https://kuvapankki.papunet.net/) (by The Finnish Association on Intellectual and Developmental Disabilities \[Kehitysvammaliitto]). The images are licensed with the [Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en) license.
@@ -45,6 +53,8 @@ Open source announcement
 Some software components of this product incorporate source code include the following Open Source Licenses.
 
    Apache License Version 2.0.
+   BSD
+   MIT
 
 ### [TabExperiment](https://github.com/google-developer-training/android-fundamentals-apps-v2/tree/master/TabExperiment)
 
@@ -177,3 +187,28 @@ See the License for the specific language governing permissions and
 limitations under the License.
  
 ```
+
+### [Glide](https://github.com/bumptech/glide)
+
+BSD, part MIT and Apache 2.0. See the [LICENSE](https://github.com/bumptech/glide/blob/master/LICENSE) file for details.
+
+
+### [Volley](https://github.com/google/volley)
+
+```
+
+Copyright 2016 Google LLC. All Rights Reserved.
+ 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+ 
+ ```

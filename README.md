@@ -16,3 +16,4 @@ All the images (except 3D models and the app icon) are from [Papunet Kuvapankki]
 - [banana_3.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/banana_3.png) (© Sergio Palao / ARASAAC)
 - [carrot.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/carrot.png) (© Sergio Palao / ARASAAC)
 - [semiquaver-figure.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20191114/semiquaver-figure.png) (© Sergio Palao / ARASAAC)
+- [to help.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/to%20help.png) (© Sergio Palao / ARASAAC)

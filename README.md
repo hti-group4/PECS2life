@@ -28,4 +28,10 @@ Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/))
 
 ## 3D models used in the project
 
-- 
+- [Low Poly Cartoon Red Pepper 3D model](https://www.turbosquid.com/3d-models/red-pepper-modelled-3d-model-1467304) (made by chroma3D, [TurboSquid Royalty Free License](https://blog.turbosquid.com/royalty-free-license/) - All Extended Uses)
+- [3D Banana](https://www.turbosquid.com/FullPreview/Index.cfm/ID/1203279) (made by 3dfood, [TurboSquid Royalty Free License](https://blog.turbosquid.com/royalty-free-license/) - All Extended Uses)
+- [Cheeseburger](https://poly.google.com/view/eke7qcu_FR2) (Poly by Google, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)
+- [Carrot](https://poly.google.com/view/c1zld-II5RD) (Poly by Google, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)
+- [Apple](https://poly.google.com/view/4tOmpD9-xsV) (Poly by Google, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)
+- [Sammich](https://poly.google.com/view/cSfvG3qqDr7) (made by Ryan Donaldson, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)
+- [ラーメン](https://poly.google.com/view/0wXZw_lvY35) (made by sugamo, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)

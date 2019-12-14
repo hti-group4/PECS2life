@@ -64,12 +64,6 @@ dependencies {
     implementation "com.google.ar.sceneform:animation:1.13.0"
 }
 
-sceneform.asset('sampledata/models/andy.obj',
-        'default',
-        'sampledata/models/andy.sfa',
-        'src/main/res/raw/andy')
-
-
 sceneform.asset('sampledata/models/red_pepper_OBJ.obj',
         'default',
         'sampledata/models/red_pepper_OBJ.sfa',

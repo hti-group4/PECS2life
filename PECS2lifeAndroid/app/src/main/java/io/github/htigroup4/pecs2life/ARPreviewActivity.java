@@ -1,3 +1,23 @@
+/*
+ * Copyright (C) of the original layout file: 2018 Google LLC. All Rights Reserved.
+ * Copyright (C) of the edited file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
+ * Changes made to this file: added user inactivity detection feature.
+ * Updated ModelRenderable to load from IntExtra & resource string.
+ * Texture from another drawable file.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package io.github.htigroup4.pecs2life;
 
 import android.app.Activity;
@@ -32,9 +52,6 @@ public class ARPreviewActivity extends AppCompatActivity {
 
     private ArFragment arFragment;
     private ModelRenderable modelRenderable;
-
-//    private SceneView sceneView;
-//    private Scene scene;
 
     @Override
     @SuppressWarnings({"AndroidApiChecker", "FutureReturnValueIgnored"})

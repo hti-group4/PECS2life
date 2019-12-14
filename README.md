@@ -53,7 +53,9 @@ Open source announcement
 Some software components of this product incorporate source code include the following Open Source Licenses.
 
    Apache License Version 2.0.
+   
    BSD
+   
    MIT
 
 ### [TabExperiment](https://github.com/google-developer-training/android-fundamentals-apps-v2/tree/master/TabExperiment)

@@ -2,7 +2,17 @@
 
 > A project work made by three Human-Technology Interaction students at Tampere University
 
-(c) 2019 by Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu
+© 2019 by Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu
 
-## Getting started
-TODO
+## Images used in the project
+
+All the images (except 3D models and the app icon) are from [Papunet Kuvapankki](https://kuvapankki.papunet.net/) (by The Finnish Association on Intellectual and Developmental Disabilities \[Kehitysvammaliitto]). The images are licensed with the [Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en) license.
+
+- [red pepper.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/red%20pepper.png) (© Sergio Palao / ARASAAC)
+- [noodles.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/noodles.png) (© Sergio Palao / ARASAAC)
+- [sandwich.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/sandwich.png) (© Sergio Palao / ARASAAC)
+- [omena_vari.jpg](https://papunet.net/sites/papunet.net/files/kuvapankki/20190410/omena_vari.jpg) (© Elina Vanninen)
+- [hamburger.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/hamburger.png) (© Sergio Palao / ARASAAC)
+- [banana_3.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/banana_3.png) (© Sergio Palao / ARASAAC)
+- [carrot.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/carrot.png) (© Sergio Palao / ARASAAC)
+- [semiquaver-figure.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20191114/semiquaver-figure.png) (© Sergio Palao / ARASAAC)

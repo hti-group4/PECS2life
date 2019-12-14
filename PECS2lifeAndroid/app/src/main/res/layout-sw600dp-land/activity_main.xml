@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright (C) of the original layout file: 2018 Google Inc.
-  ~ Copyright (C) of the edited layout file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu)
+  ~ Copyright (C) of the edited layout file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
   ~ Changes made to this layout file: removed a toolbar, added a button (id: help_button) and added BlurDialog.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");

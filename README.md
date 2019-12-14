@@ -35,3 +35,22 @@ Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/))
 - [Apple](https://poly.google.com/view/4tOmpD9-xsV) (Poly by Google, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)
 - [Sammich](https://poly.google.com/view/cSfvG3qqDr7) (made by Ryan Donaldson, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)
 - [ラーメン](https://poly.google.com/view/0wXZw_lvY35) (made by sugamo, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)
+
+## Licenses about components that are used in this app
+
+Open source announcement
+
+Some software components of this product incorporate source code include the following Open Source Licenses.
+
+   Apache License Version 2.0.
+
+### [TabExperiment](https://github.com/google-developer-training/android-fundamentals-apps-v2/tree/master/TabExperiment)
+
+Copyright 2018 Google, Inc.
+
+Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE file distributed with this work for additional information regarding copyright ownership. The ASF licenses this file to you under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+

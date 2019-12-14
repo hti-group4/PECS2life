@@ -1,7 +1,8 @@
 /*
  * Copyright (C) of the original layout file: 2018 Google Inc.
  * Copyright (C) of the edited file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
- * Changes made to this file: added the content for initializing data for the RecyclerView. Added the FirebaseDatabase content.
+ * Changes made to this file: added the content for initializing data for the RecyclerView (copied partly from MaterialMe and MaterialMe-Resource samples).
+ * Added the FirebaseDatabase content. Removed the drag and drop functionality. Added the FloatingActionButton with own functionality.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

@@ -1,3 +1,23 @@
+/*
+ * Copyright (C) of the original layout file: 2018 Google Inc.
+ * Copyright (C) of the edited file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
+ * Changes made to this file: renamed the class name from SportsAdapter to PECSCard. Renamed all mentions about sports to PECSCard.
+ * Removed member variable TextView mInfoText and all its initializations & populations.
+ * Updated a different action for onClick method.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package io.github.htigroup4.pecs2life;
 
 import android.content.Context;
@@ -23,7 +43,6 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
     //Member variables
     private ArrayList<PECSCard> mPECSCardData;
     private Context mContext;
-    private PECSCard selected;
 
     /**
      * Constructor that passes in the PECSCard data and the context
@@ -61,7 +80,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
         PECSCard currentPECSCard = mPECSCardData.get(position);
 
         //Populate the textviews with data
-        holder.bindTo(currentPECSCard, currentPECSCard == selected);
+        holder.bindTo(currentPECSCard);
     }
 
     /**
@@ -99,7 +118,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
             itemView.setOnClickListener(this);
         }
 
-        void bindTo(PECSCard currentPECSCard, boolean isSelected) {
+        void bindTo(PECSCard currentPECSCard) {
             //Populate the textviews with data
             mTitleText.setText(currentPECSCard.getTitle());
 
@@ -116,30 +135,10 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
          */
         @Override
         public void onClick(View view) {
-//            PECSCard currentPECSCard = mPECSCardData.get(getAdapterPosition());
-
             Intent arPreviewIntent = new Intent(mContext, ARPreviewActivity.class);
             arPreviewIntent.putExtra("position", getAdapterPosition());
             mContext.startActivity(arPreviewIntent);
-
-//            Toast toast = Toast.makeText(mContext, "DEBUG: " + title + " clicked",
-//                    Toast.LENGTH_SHORT);
-//            toast.show();
         }
-
-
-//        @Override
-//        public void onClick(View view) {
-//            // Get the position of the item that was clicked.
-//            int mPosition = getLayoutPosition();
-//            // Use that to access the affected item in mWordList.
-//            String element = mWordList.get(mPosition);
-//            // Change the word in the mWordList.
-//            mWordList.set(mPosition, "Clicked! " + element);
-//            // Notify the adapter, that the data has changed so it can
-//            // update the RecyclerView to display the data.
-//            mAdapter.notifyDataSetChanged();
-//        }
     }
 }
 

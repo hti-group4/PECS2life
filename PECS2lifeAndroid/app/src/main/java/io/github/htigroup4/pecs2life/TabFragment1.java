@@ -1,7 +1,8 @@
 /*
  * Copyright (C) of the original layout file: 2018 Google Inc.
  * Copyright (C) of the edited file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
- * Changes made to this file: added the content for initializing data for the RecyclerView.
+ * Changes made to this file: added the content for initializing data for the RecyclerView (copied partly from MaterialMe and MaterialMe-Resource samples).
+ * Removed the ItemTouchHelper feature with drag and drop & swipe to dismiss functionalities.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

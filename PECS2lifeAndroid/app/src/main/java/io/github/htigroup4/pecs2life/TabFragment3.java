@@ -76,7 +76,10 @@ public class TabFragment3 extends Fragment {
         });
 
         RecyclerView rv = view.findViewById(R.id.recyclerView4);
-        rv.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        int gridColumnCount = getResources().getInteger(R.integer.grid_column_count);
+
+        rv.setLayoutManager(new GridLayoutManager(getContext(), gridColumnCount));
         rv.setItemAnimator(new DefaultItemAnimator());
         rv.setAdapter(adapter);
 

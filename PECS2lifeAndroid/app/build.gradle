@@ -114,3 +114,8 @@ sceneform.asset('sampledata/models/bowl.fbx',
         'default',
         'sampledata/models/bowl.sfa',
         'src/main/res/raw/bowl')
+
+sceneform.asset('sampledata/models/Adana.obj',
+        'default',
+        'sampledata/models/Adana.sfa',
+        'src/main/res/raw/adana')

@@ -1,0 +1,121 @@
+{
+  materials: [
+    {
+      name: '01___Default',
+      parameters: [
+        {
+          baseColor: 'kebap 1',
+        },
+        {
+          baseColorTint: [
+            0.58823499999999995,
+            0.58823499999999995,
+            0.58823499999999995,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.408248,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'beyaz_tabak',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            0.90980399999999995,
+            0.90980399999999995,
+            0.90980399999999995,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.408248,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'corba',
+      parameters: [
+        {
+          baseColor: 'mercimek-corbasi',
+        },
+        {
+          baseColorTint: [
+            0.90980399999999995,
+            0.90980399999999995,
+            0.90980399999999995,
+            1,
+          ],
+        },
+        {
+          metallic: 1,
+        },
+        {
+          roughness: 0.408248,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/models/Adana.obj',
+    name: 'Adana',
+    recenter: 'root',
+    scale: 0.01,
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/mercimek-corbasi.jpg',
+      name: 'mercimek-corbasi',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'D:\\Teklif\\18 Adana - Corba\\mercimek-corbasi.jpg',
+    },
+    {
+      file: 'sampledata/models/kebap 1.jpg',
+      name: 'kebap 1',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'D:\\Teklif\\18 Adana - Corba\\kebap 1.jpg',
+    },
+    {
+      file: 'sampledata/models/kebap disp.jpg',
+      name: 'kebap disp',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: 'D:\\Teklif\\18 Adana - Corba\\kebap disp.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

@@ -1,0 +1,44 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 22.09.2015 11:09:56
+
+newmtl 01___Default
+	Ns 9.999999
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.588235 0.588235 0.588235
+	Kd 0.588235 0.588235 0.588235
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\Teklif\18 Adana - Corba\kebap 1.jpg
+	map_Kd D:\Teklif\18 Adana - Corba\kebap 1.jpg
+	map_bump D:\Teklif\18 Adana - Corba\kebap disp.jpg
+	bump D:\Teklif\18 Adana - Corba\kebap disp.jpg
+
+newmtl beyaz_tabak
+	Ns 9.999999
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.909804 0.909804 0.909804
+	Kd 0.909804 0.909804 0.909804
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+
+newmtl corba
+	Ns 9.999999
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.909804 0.909804 0.909804
+	Kd 0.909804 0.909804 0.909804
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\Teklif\18 Adana - Corba\mercimek-corbasi.jpg
+	map_Kd D:\Teklif\18 Adana - Corba\mercimek-corbasi.jpg

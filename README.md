@@ -6,6 +6,10 @@
 
 This application runs on [Google Play Services for AR](https://play.google.com/store/apps/details?id=com.google.ar.core) (ARCore), which is provided by Google LLC and governed by the [Google Privacy Policy](https://policies.google.com/privacy).
 
+## License
+
+This project is licensed under the **GNU General Public License v3.0**. See the [LICENSE](https://github.com/hti-group4/PECS2life/blob/master/LICENSE) file for the details.
+
 ## Libraries used in this project
 
 - [ARCore SDK for Android Studio](https://github.com/google-ar/arcore-android-sdk/) & [Sceneform SDK for Android](https://github.com/google-ar/sceneform-android-sdk) (the AR features)

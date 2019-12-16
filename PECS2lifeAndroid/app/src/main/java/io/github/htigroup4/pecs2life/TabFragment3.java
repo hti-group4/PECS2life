@@ -24,15 +24,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 
 public class TabFragment3 extends Fragment {
+
+    StringBuffer sb = null;
+    MyAdapter adapter;
 
 
     public TabFragment3() {
@@ -46,7 +54,60 @@ public class TabFragment3 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.tab_fragment3, container, false);
 
+        adapter = new MyAdapter(getContext(), getPlayers());
+
+        FloatingActionButton floatingActionButton = view.findViewById(R.id.floatingActionButton3);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sb = new StringBuffer();
+
+                for (Player p : adapter.checkedPlayers) {
+                    sb.append(p.getName());
+                    sb.append("\n");
+                }
+
+                if (adapter.checkedPlayers.size() > 0) {
+                    Toast.makeText(getContext(), sb.toString(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Please Check Players", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        RecyclerView rv = view.findViewById(R.id.recyclerView4);
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv.setItemAnimator(new DefaultItemAnimator());
+        rv.setAdapter(adapter);
+
         return view;
+    }
+
+    private ArrayList<Player> getPlayers() {
+        ArrayList<Player> players = new ArrayList<>();
+
+        Player p = new Player("Item 1", R.drawable.img_banana);
+        players.add(p);
+
+        p = new Player("Item 2", R.drawable.img_apple);
+        players.add(p);
+
+        p = new Player("Item 3", R.drawable.img_carrot);
+        players.add(p);
+
+        p = new Player("Item 4", R.drawable.img_noodle_meal);
+        players.add(p);
+
+        p = new Player("Item 5", R.drawable.img_red_pepper);
+        players.add(p);
+
+        p = new Player("Item 6", R.drawable.img_sandwich);
+        players.add(p);
+
+        p = new Player("Item 7", R.drawable.img_hamburger);
+        players.add(p);
+
+        return players;
     }
 
 }

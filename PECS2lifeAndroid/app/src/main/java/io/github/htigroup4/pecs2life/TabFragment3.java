@@ -39,8 +39,8 @@ import java.util.ArrayList;
 
 public class TabFragment3 extends Fragment {
 
-    StringBuffer sb = null;
-    MyAdapter adapter;
+    private StringBuffer sb = null;
+    private MyAdapter adapter;
 
 
     public TabFragment3() {
@@ -57,21 +57,18 @@ public class TabFragment3 extends Fragment {
         adapter = new MyAdapter(getContext(), getPlayers());
 
         FloatingActionButton floatingActionButton = view.findViewById(R.id.floatingActionButton3);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sb = new StringBuffer();
+        floatingActionButton.setOnClickListener(view1 -> {
+            sb = new StringBuffer();
 
-                for (Player p : adapter.checkedPlayers) {
-                    sb.append(p.getName());
-                    sb.append("\n");
-                }
+            for (Player p : adapter.checkedPlayers) {
+                sb.append(p.getName());
+                sb.append("\n");
+            }
 
-                if (adapter.checkedPlayers.size() > 0) {
-                    Toast.makeText(getContext(), sb.toString(), Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getContext(), "Please Check Players", Toast.LENGTH_SHORT).show();
-                }
+            if (adapter.checkedPlayers.size() > 0) {
+                Toast.makeText(getContext(), sb.toString(), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getContext(), "Please Check Players", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -98,7 +95,7 @@ public class TabFragment3 extends Fragment {
         p = new Player("Item 3", R.drawable.img_carrot);
         players.add(p);
 
-        p = new Player("Item 4", R.drawable.img_noodle_meal);
+        p = new Player("Item 4", R.drawable.img_kebab_meal);
         players.add(p);
 
         p = new Player("Item 5", R.drawable.img_red_pepper);

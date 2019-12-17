@@ -69,16 +69,6 @@ sceneform.asset('sampledata/models/red_pepper_OBJ.obj',
         'sampledata/models/red_pepper_OBJ.sfa',
         'src/main/res/raw/red_pepper')
 
-sceneform.asset('sampledata/models/Hand_rigged.FBX',
-        'default',
-        'sampledata/models/Hand_rigged.sfa',
-        'src/main/res/raw/hand_rigged')
-
-sceneform.asset('sampledata/models/noodle_meal.obj',
-        'default',
-        'sampledata/models/noodle_meal.sfa',
-        'src/main/res/raw/noodle_meal')
-
 sceneform.asset('sampledata/models/sandwich.obj',
         'default',
         'sampledata/models/sandwich.sfa',

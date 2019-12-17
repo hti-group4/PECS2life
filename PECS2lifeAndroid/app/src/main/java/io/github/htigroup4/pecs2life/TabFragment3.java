@@ -72,11 +72,16 @@ public class TabFragment3 extends Fragment {
 
         RecyclerView rv = view.findViewById(R.id.recyclerView3);
 
+        //RecyclerView rv2 = view.findViewById(R.id.recyclerViewFooter);
+
         int gridColumnCount = getResources().getInteger(R.integer.grid_column_count);
 
         rv.setLayoutManager(new GridLayoutManager(getContext(), gridColumnCount));
         rv.setItemAnimator(new DefaultItemAnimator());
         rv.setAdapter(adapter);
+
+        //rv2.setLayoutManager(new GridLayoutManager(getContext(), gridColumnCount));
+        //PECSCardAdapter pecsCardAdapter = new PECSCardAdapter(getContext())
 
         return view;
     }

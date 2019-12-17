@@ -41,8 +41,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
             if (chk.isChecked()) {
                 checkedPlayers.add(players.get(pos));
+                System.out.println("Checked");
             } else if (!chk.isChecked()) {
                 checkedPlayers.remove(players.get(pos));
+                System.out.println("Unchecked");
             }
         });
 

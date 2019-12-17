@@ -118,4 +118,4 @@ sceneform.asset('sampledata/models/bowl.fbx',
 sceneform.asset('sampledata/models/Adana.obj',
         'default',
         'sampledata/models/Adana.sfa',
-        'src/main/res/raw/adana')
+        'src/main/res/raw/kebab_meal')

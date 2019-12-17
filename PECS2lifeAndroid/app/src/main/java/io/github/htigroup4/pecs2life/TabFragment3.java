@@ -81,7 +81,9 @@ public class TabFragment3 extends Fragment {
         rv.setAdapter(adapter);
 
         //rv2.setLayoutManager(new GridLayoutManager(getContext(), gridColumnCount));
-        //PECSCardAdapter pecsCardAdapter = new PECSCardAdapter(getContext())
+        //MyAdapter newAdapter = new MyAdapter(getContext(), adapter.checkedPlayers);
+        //rv2.setAdapter(newAdapter);
+
 
         return view;
     }

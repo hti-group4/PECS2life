@@ -13,11 +13,11 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
-    Context c;
-    ArrayList<Player> players;
+    private Context c;
+    private ArrayList<Player> players;
     ArrayList<Player> checkedPlayers = new ArrayList<>();
 
-    public MyAdapter(Context c, ArrayList<Player> players) {
+    MyAdapter(Context c, ArrayList<Player> players) {
         this.c = c;
         this.players = players;
     }
@@ -27,9 +27,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.model, null);
-        MyHolder holder = new MyHolder(v);
 
-        return holder;
+        return new MyHolder(v);
     }
 
     @Override
@@ -37,16 +36,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.nameTxt.setText(players.get(position).getName());
         holder.img.setImageResource(players.get(position).getImage());
 
-        holder.setItemClickListener(new ItemClickListener() {
-            @Override
-            public void onItemClick(View v, int pos) {
-                CheckBox chk = (CheckBox) v;
+        holder.setItemClickListener((v, pos) -> {
+            CheckBox chk = (CheckBox) v;
 
-                if (chk.isChecked()) {
-                    checkedPlayers.add(players.get(pos));
-                } else if (!chk.isChecked()) {
-                    checkedPlayers.remove(players.get(pos));
-                }
+            if (chk.isChecked()) {
+                checkedPlayers.add(players.get(pos));
+            } else if (!chk.isChecked()) {
+                checkedPlayers.remove(players.get(pos));
             }
         });
 

@@ -19,7 +19,6 @@
 package io.github.htigroup4.pecs2life;
 
 
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +28,6 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -72,7 +70,7 @@ public class TabFragment3 extends Fragment {
             }
         });
 
-        RecyclerView rv = view.findViewById(R.id.recyclerView4);
+        RecyclerView rv = view.findViewById(R.id.recyclerView3);
 
         int gridColumnCount = getResources().getInteger(R.integer.grid_column_count);
 

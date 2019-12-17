@@ -80,7 +80,7 @@ public class TabFragment2 extends Fragment {
         View view = inflater.inflate(R.layout.tab_fragment2, container, false);
 
         //Initialize the RecyclerView
-        mRecyclerView = view.findViewById(R.id.recyclerView3);
+        mRecyclerView = view.findViewById(R.id.recyclerView2);
 
         mRecyclerView.setHasFixedSize(true);
 

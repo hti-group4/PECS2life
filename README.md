@@ -23,7 +23,7 @@ This project is licensed under the **GNU General Public License v3.0**. See the 
 All the images (except 3D models and the app icon) are from [Papunet Kuvapankki](https://kuvapankki.papunet.net/) (by The Finnish Association on Intellectual and Developmental Disabilities \[Kehitysvammaliitto]). The images are licensed with the [Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en) license.
 
 - [red pepper.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/red%20pepper.png) (© Sergio Palao / ARASAAC)
-- [noodles.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/noodles.png) (© Sergio Palao / ARASAAC)
+- [36_ruoka.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20190128/36_ruoka.png) (© Kuvako)
 - [sandwich.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/sandwich.png) (© Sergio Palao / ARASAAC)
 - [omena_vari.jpg](https://papunet.net/sites/papunet.net/files/kuvapankki/20190410/omena_vari.jpg) (© Elina Vanninen)
 - [hamburger.png](https://papunet.net/sites/papunet.net/files/kuvapankki/20130503/hamburger.png) (© Sergio Palao / ARASAAC)
@@ -44,11 +44,11 @@ Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/))
 
 - [Low Poly Cartoon Red Pepper 3D model](https://www.turbosquid.com/3d-models/red-pepper-modelled-3d-model-1467304) (made by chroma3D, [TurboSquid Royalty Free License](https://blog.turbosquid.com/royalty-free-license/) - All Extended Uses)
 - [3D Banana](https://www.turbosquid.com/FullPreview/Index.cfm/ID/1203279) (made by 3dfood, [TurboSquid Royalty Free License](https://blog.turbosquid.com/royalty-free-license/) - All Extended Uses)
+- [Adana Kebap](https://www.turbosquid.com/FullPreview/Index.cfm/ID/962680) (made by AHG Models, [TurboSquid Royalty Free License](https://blog.turbosquid.com/royalty-free-license/) - All Extended Uses)
 - [Cheeseburger](https://poly.google.com/view/eke7qcu_FR2) (Poly by Google, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)
 - [Carrot](https://poly.google.com/view/c1zld-II5RD) (Poly by Google, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)
 - [Apple](https://poly.google.com/view/4tOmpD9-xsV) (Poly by Google, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)
 - [Sammich](https://poly.google.com/view/cSfvG3qqDr7) (made by Ryan Donaldson, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)
-- [ラーメン](https://poly.google.com/view/0wXZw_lvY35) (made by sugamo, [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) license)
 
 ## Licenses about components that are used in this app
 

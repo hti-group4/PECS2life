@@ -55,11 +55,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             if (checkBox.isChecked()) {
                 mCheckedPECSCards.add(mPECSCards.get(pos));
 
-                System.out.println(pos + " checked");
+                System.out.println("DEBUG: an item in position " + pos + " checked");
             } else if (!checkBox.isChecked()) {
                 mCheckedPECSCards.remove(mPECSCards.get(pos));
 
-                System.out.println(pos + " unchecked");
+                System.out.println("DEBUG: an item in position " + pos + " unchecked");
             }
         });
 
@@ -97,8 +97,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
             mCheckBox.setOnClickListener(this);
 
+//            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+//                @Override
+//                public boolean onLongClick(View view) {
+//                    return false;
+//                }
+//            });
+
             // Set the OnClickListener to the entire view.
-            itemView.setOnClickListener(this);
+            //itemView.setOnClickListener(this);
         }
 
         void bindTo(PECSCard currentPECSCard) {
@@ -127,5 +134,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             arPreviewIntent.putExtra("position", getAdapterPosition());
             mContext.startActivity(arPreviewIntent);
         }
+
+
+
+//        public void onLongClick(View view){
+//
+//        }
     }
 }

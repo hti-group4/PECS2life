@@ -10,18 +10,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    ImageView img;
-    TextView nameTxt;
-    CheckBox chk;
+    private ImageView img;
+    private TextView nameTxt;
+    private CheckBox chk;
 
-    ItemClickListener itemClickListener;
+    private ItemClickListener itemClickListener;
 
     public MyHolder(@NonNull View itemView) {
         super(itemView);
 
         nameTxt = itemView.findViewById(R.id.title2);
         img = itemView.findViewById(R.id.PECSCardImage2);
-        chk = itemView.findViewById(R.id.chk);
+        chk = itemView.findViewById(R.id.checkBox);
 
         chk.setOnClickListener(this);
     }

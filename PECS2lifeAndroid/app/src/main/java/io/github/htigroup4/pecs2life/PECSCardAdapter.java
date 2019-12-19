@@ -1,9 +1,7 @@
 /*
  * Copyright (C) of the original layout file: 2018 Google Inc.
  * Copyright (C) of the edited file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
- * Changes made to this file: renamed the class name from SportsAdapter to PECSCard. Renamed all mentions about sports to PECSCard.
- * Removed member variable TextView mInfoText and all its initializations & populations.
- * Updated a different action for onClick method.
+ * Changes made to this file: TODO
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +23,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,18 +40,20 @@ import java.util.ArrayList;
 public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHolder> {
 
     //Member variables
-    private ArrayList<PECSCard> mPECSCardData;
     private Context mContext;
+    private ArrayList<PECSCard> mPECSCards;
+    ArrayList<PECSCard> mCheckedPECSCards;
 
     /**
      * Constructor that passes in the PECSCard data and the context
      *
-     * @param PECSCardData ArrayList containing the PECSCard data
-     * @param context      Context of the application
+     * @param mPECSCards ArrayList containing the PECSCard data
+     * @param context    Context of the application
      */
-    PECSCardAdapter(Context context, ArrayList<PECSCard> PECSCardData) {
-        this.mPECSCardData = PECSCardData;
+    PECSCardAdapter(Context context, ArrayList<PECSCard> mPECSCards) {
         this.mContext = context;
+        this.mPECSCards = mPECSCards;
+        this.mCheckedPECSCards = new ArrayList<>();
     }
 
     /**
@@ -65,7 +66,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
     @NonNull
     @Override
     public PECSCardAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false));
+        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.list_item_with_checkbox, parent, false));
     }
 
     /**
@@ -75,12 +76,29 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
      * @param position The adapter position.
      */
     @Override
-    public void onBindViewHolder(PECSCardAdapter.ViewHolder holder, int position) {
-        //Get current PECSCard
-        PECSCard currentPECSCard = mPECSCardData.get(position);
+    public void onBindViewHolder(@NonNull PECSCardAdapter.ViewHolder holder, int position) {
 
-        //Populate the textviews with data
+        //Get current PECSCard
+        PECSCard currentPECSCard = mPECSCards.get(position);
+
         holder.bindTo(currentPECSCard);
+
+        holder.setItemClickListener((v, pos) -> {
+            CheckBox checkBox = (CheckBox) v;
+
+            if (checkBox.isChecked()) {
+                holder.setCheckedValueToTrue();
+                mCheckedPECSCards.add(mPECSCards.get(pos));
+
+                System.out.println("DEBUG: an item in position " + pos + " checked");
+            } else if (!checkBox.isChecked()) {
+                holder.setCheckedValueToFalse();
+                mCheckedPECSCards.remove(mPECSCards.get(pos));
+
+                System.out.println("DEBUG: an item in position " + pos + " unchecked");
+            }
+        });
+
     }
 
     /**
@@ -90,7 +108,7 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
      */
     @Override
     public int getItemCount() {
-        return mPECSCardData.size();
+        return mPECSCards.size();
     }
 
     /**
@@ -102,6 +120,10 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
         private TextView mTitleText;
         private ImageView mPECSCardImage;
 
+        private ItemClickListener itemClickListener;
+
+        private boolean mIsChecked;
+
         /**
          * Constructor for the ViewHolder, used in onCreateViewHolder().
          *
@@ -111,11 +133,13 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
             super(itemView);
 
             //Initialize the views
-            mTitleText = itemView.findViewById(R.id.title);
-            mPECSCardImage = itemView.findViewById(R.id.PECSCardImage);
+            mTitleText = itemView.findViewById(R.id.title2);
+            mPECSCardImage = itemView.findViewById(R.id.PECSCardImage2);
+            CheckBox mCheckBox = itemView.findViewById(R.id.checkBox);
 
-            // Set the OnClickListener to the entire view.
-            itemView.setOnClickListener(this);
+            mCheckBox.setOnClickListener(this);
+
+            mIsChecked = false;
         }
 
         void bindTo(PECSCard currentPECSCard) {
@@ -125,7 +149,10 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
             // Load the images into the ImageView using the Glide library.
             Glide.with(mContext).load(
                     currentPECSCard.getImageResource()).into(mPECSCardImage);
+        }
 
+        void setItemClickListener(ItemClickListener ic) {
+            this.itemClickListener = ic;
         }
 
         /**
@@ -135,11 +162,21 @@ public class PECSCardAdapter extends RecyclerView.Adapter<PECSCardAdapter.ViewHo
          */
         @Override
         public void onClick(View view) {
-            Intent arPreviewIntent = new Intent(mContext, ARPreviewActivity.class);
-            arPreviewIntent.putExtra("position", getAdapterPosition());
-            mContext.startActivity(arPreviewIntent);
+            this.itemClickListener.onItemClick(view, getLayoutPosition());
+
+            if (this.mIsChecked) {
+                Intent arPreviewIntent = new Intent(mContext, ARPreviewActivity.class);
+                arPreviewIntent.putExtra("position", getAdapterPosition());
+                mContext.startActivity(arPreviewIntent);
+            }
+        }
+
+        void setCheckedValueToTrue() {
+            this.mIsChecked = true;
+        }
+
+        void setCheckedValueToFalse() {
+            this.mIsChecked = false;
         }
     }
 }
-
-

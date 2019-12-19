@@ -40,7 +40,7 @@ import java.util.ArrayList;
 public class TabFragment1 extends Fragment {
 
     private StringBuffer sb = null;
-    private PECSCardAdapter2 mAdapter;
+    private PECSCardAdapter mAdapter;
 
     private ArrayList<PECSCard> mPECSCardsData;
 
@@ -69,7 +69,7 @@ public class TabFragment1 extends Fragment {
         mPECSCardsData = new ArrayList<>();
 
         //Initialize the mAdapter and set it ot the RecyclerView
-        mAdapter = new PECSCardAdapter2(getContext(), mPECSCardsData);
+        mAdapter = new PECSCardAdapter(getContext(), mPECSCardsData);
         recyclerView.setAdapter(mAdapter);
 
         //Get the data

@@ -1,8 +1,7 @@
 /*
  * Copyright (C) of the original layout file: 2018 Google Inc.
  * Copyright (C) of the edited file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
- * Changes made to this file: added the content for initializing data for the RecyclerView (copied partly from MaterialMe and MaterialMe-Resource samples).
- * Removed the ItemTouchHelper feature with drag and drop & swipe to dismiss functionalities.
+ * Changes made to this file: TODO
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,24 +24,25 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class TabFragment1 extends Fragment {
 
-    //Member variables
-    private ArrayList<PECSCard> mPECSCardsData;
-    private RecyclerView mRecyclerView;
-    private PECSCardAdapter mAdapter;
+    private StringBuffer sb = null;
+    private PECSCardAdapter2 mAdapter;
 
+    private ArrayList<PECSCard> mPECSCardsData;
 
     public TabFragment1() {
         // Required empty public constructor
@@ -56,25 +56,40 @@ public class TabFragment1 extends Fragment {
         View view = inflater.inflate(R.layout.tab_fragment1, container, false);
 
         //Initialize the RecyclerView
-        mRecyclerView = view.findViewById(R.id.recyclerView1);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView3);
 
         // Get the appropriate column count.
         int gridColumnCount = getResources().getInteger(R.integer.grid_column_count);
 
         // Set the Layout Manager.
-        mRecyclerView.setLayoutManager(new GridLayoutManager(
+        recyclerView.setLayoutManager(new GridLayoutManager(
                 getContext(), gridColumnCount));
 
         //Initialize the ArrayList that will contain the data
         mPECSCardsData = new ArrayList<>();
 
-        //Initialize the adapter and set it ot the RecyclerView
-        mAdapter = new PECSCardAdapter(getContext(), mPECSCardsData);
-        mRecyclerView.setAdapter(mAdapter);
+        //Initialize the mAdapter and set it ot the RecyclerView
+        mAdapter = new PECSCardAdapter2(getContext(), mPECSCardsData);
+        recyclerView.setAdapter(mAdapter);
 
         //Get the data
         initializeData();
 
+        FloatingActionButton floatingActionButton = view.findViewById(R.id.floatingActionButton3);
+        floatingActionButton.setOnClickListener(view1 -> {
+            sb = new StringBuffer();
+
+            for (PECSCard card : mAdapter.mCheckedPECSCards) {
+                sb.append(card.getTitle());
+                sb.append("\n");
+            }
+
+            if (mAdapter.mCheckedPECSCards.size() > 0) {
+                Toast.makeText(getContext(), sb.toString(), Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getContext(), "Please check PECSCard(s)", Toast.LENGTH_LONG).show();
+            }
+        });
         return view;
     }
 
@@ -99,7 +114,7 @@ public class TabFragment1 extends Fragment {
         // Recycle the typed array.
         PECSCardsImageResources.recycle();
 
-        //Notify the adapter of the change
+        //Notify the mAdapter of the change
         mAdapter.notifyDataSetChanged();
     }
 

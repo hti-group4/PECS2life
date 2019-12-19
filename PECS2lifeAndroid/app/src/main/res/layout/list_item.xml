@@ -23,18 +23,18 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/PECSCardImage"
+            android:id="@+id/musicImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:contentDescription="@string/PECSCardImageDescription" />
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/name"
             style="@style/PECSCardTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/PECSCardImage"
+            android:layout_below="@id/musicImage"
             android:padding="8dp"
             android:text="@string/title_placeholder"
             android:textAlignment="center" />

@@ -115,7 +115,7 @@ public class TabFragment2 extends Fragment {
             @NonNull
             @Override
             public FirebaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                return new FirebaseViewHolder(LayoutInflater.from(getContext()).inflate(R.layout.row, parent, false));
+                return new FirebaseViewHolder(LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false));
             }
         };
 

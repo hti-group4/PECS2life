@@ -37,14 +37,14 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TabFragment3 extends Fragment {
+public class TabFragment1New extends Fragment {
 
     private StringBuffer sb = null;
     private PECSCardAdapter2 mAdapter;
 
     private ArrayList<PECSCard> mPECSCardsData;
 
-    public TabFragment3() {
+    public TabFragment1New() {
         // Required empty public constructor
     }
 
@@ -53,7 +53,7 @@ public class TabFragment3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.tab_fragment3, container, false);
+        View view = inflater.inflate(R.layout.tab_fragment1_new, container, false);
 
         //Initialize the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView3);

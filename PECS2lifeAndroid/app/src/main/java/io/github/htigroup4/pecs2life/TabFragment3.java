@@ -36,11 +36,12 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TabFragment3 extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
+//public class TabFragment3 extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
+public class TabFragment3 extends Fragment {
 
-    private ArrayList<Integer> viewColors;
-    private MyRecyclerViewAdapter adapter;
-    private ArrayList<String> animalNames;
+//    private ArrayList<Integer> viewColors;
+//    private MyRecyclerViewAdapter adapter;
+//    private ArrayList<String> animalNames;
 
     public TabFragment3() {
         // Required empty public constructor
@@ -53,51 +54,52 @@ public class TabFragment3 extends Fragment implements MyRecyclerViewAdapter.Item
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.tab_fragment3, container, false);
 
-        // data to populate the RecyclerView with
-        viewColors = new ArrayList<>();
-        viewColors.add(Color.BLUE);
-        viewColors.add(Color.YELLOW);
-        viewColors.add(Color.MAGENTA);
-        viewColors.add(Color.RED);
-        viewColors.add(Color.BLACK);
-        viewColors.add(Color.CYAN);
-
-        // data to populate the RecyclerView with
-        animalNames = new ArrayList<>();
-        animalNames.add("Horse");
-        animalNames.add("Cow");
-        animalNames.add("Camel");
-        animalNames.add("Sheep");
-        animalNames.add("Goat");
-        animalNames.add("Lamb");
-
-        // set up the RecyclerView
-        RecyclerView recyclerView = view.findViewById(R.id.rvAnimals);
-        LinearLayoutManager layoutManager
-                = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-        adapter = new MyRecyclerViewAdapter(getContext(), viewColors, animalNames);
-        adapter.setClickListener(this);
-        recyclerView.setAdapter(adapter);
+//        // data to populate the RecyclerView with
+//        viewColors = new ArrayList<>();
+//        viewColors.add(Color.BLUE);
+//        viewColors.add(Color.YELLOW);
+//        viewColors.add(Color.MAGENTA);
+//        viewColors.add(Color.RED);
+//        viewColors.add(Color.BLACK);
+//        viewColors.add(Color.CYAN);
+//
+//        // data to populate the RecyclerView with
+//        animalNames = new ArrayList<>();
+//        animalNames.add("Horse");
+//        animalNames.add("Cow");
+//        animalNames.add("Camel");
+//        animalNames.add("Sheep");
+//        animalNames.add("Goat");
+//        animalNames.add("Lamb");
+//
+//        // set up the RecyclerView
+//        RecyclerView recyclerView = view.findViewById(R.id.rvAnimals);
+//        LinearLayoutManager layoutManager
+//                = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+//        recyclerView.setLayoutManager(layoutManager);
+//        adapter = new MyRecyclerViewAdapter(getContext(), viewColors, animalNames);
+//        adapter.setClickListener(this);
+//        recyclerView.setAdapter(adapter);
 
         Button button1 = view.findViewById(R.id.buttonInsertItem);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String item = "Pig";
-                int newColor = Color.GREEN;
-                int insertIndex = 2;
-                animalNames.add(insertIndex, item);
-                viewColors.add(insertIndex, newColor);
-                adapter.notifyItemInserted(insertIndex);
+                Toast.makeText(getContext(), "Button clicked", Toast.LENGTH_SHORT).show();
+//                String item = "Pig";
+//                int newColor = Color.GREEN;
+//                int insertIndex = 2;
+//                animalNames.add(insertIndex, item);
+//                viewColors.add(insertIndex, newColor);
+//                adapter.notifyItemInserted(insertIndex);
             }
         });
 
         return view;
     }
 
-    @Override
-    public void onItemClick(View view, int position) {
-        Toast.makeText(getContext(), "You clicked " + adapter.getItem(position) + " on item position " + position, Toast.LENGTH_SHORT).show();
-    }
+//    @Override
+//    public void onItemClick(View view, int position) {
+//        Toast.makeText(getContext(), "You clicked " + adapter.getItem(position) + " on item position " + position, Toast.LENGTH_SHORT).show();
+//    }
 }

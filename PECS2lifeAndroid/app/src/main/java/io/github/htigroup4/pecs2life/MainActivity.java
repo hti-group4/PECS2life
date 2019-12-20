@@ -18,12 +18,15 @@
 
 package io.github.htigroup4.pecs2life;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -34,6 +37,7 @@ import com.vlstr.blurdialog.BlurDialog;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,7 +46,7 @@ import java.util.Map;
  * This app offers three view fragments and two tabs to
  * navigate to them.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
 
     final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
     final private String serverKey = "key=" + BuildConfig.SERVER_KEY;
@@ -56,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
     int SENDER_ICON;
     String RESPONSE_MESSAGE;
 
+    private ArrayList<Integer> viewColors;
+    private MyRecyclerViewAdapter adapter;
+    private ArrayList<String> animalNames;
+
     /**
      * Creates the content view, sets up the tab layout, and sets up
      * a page adapter to manage views in fragments. The user clicks a tab and
@@ -67,6 +75,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // data to populate the RecyclerView with
+        viewColors = new ArrayList<>();
+        viewColors.add(Color.BLUE);
+        viewColors.add(Color.YELLOW);
+        viewColors.add(Color.MAGENTA);
+        viewColors.add(Color.RED);
+        viewColors.add(Color.BLACK);
+        viewColors.add(Color.CYAN);
+
+        // data to populate the RecyclerView with
+        animalNames = new ArrayList<>();
+        animalNames.add("Horse");
+        animalNames.add("Cow");
+        animalNames.add("Camel");
+        animalNames.add("Sheep");
+        animalNames.add("Goat");
+        animalNames.add("Lamb");
+
+        // set up the RecyclerView
+        RecyclerView recyclerView = findViewById(R.id.rvAnimals);
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new MyRecyclerViewAdapter(this, viewColors, animalNames);
+        adapter.setClickListener(this);
+        recyclerView.setAdapter(adapter);
 
         // TODO remove this section when settings for subscription handling has added to the app
         if (getResources().getBoolean(R.bool.isTablet)) { // the device is a tablet = a pupil uses it
@@ -170,5 +205,10 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on item position " + position, Toast.LENGTH_SHORT).show();
     }
 }

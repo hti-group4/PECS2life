@@ -99,13 +99,13 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         animalNames.add("Goat");
         animalNames.add("Lamb");
 
-        SharedPreferences prefs = this.getSharedPreferences("io.github.htigroup4.pecs2life", Context.MODE_PRIVATE);
-        SharedPreferences.Editor edit = prefs.edit();
-
-        Set<String> set = new HashSet<>();
-        set.addAll(animalNames);
-        edit.putStringSet("animalNames", set);
-        edit.commit();
+//        SharedPreferences prefs = this.getSharedPreferences("io.github.htigroup4.pecs2life", Context.MODE_PRIVATE);
+//        SharedPreferences.Editor edit = prefs.edit();
+//
+//        Set<String> set = new HashSet<>();
+//        set.addAll(animalNames);
+//        edit.putStringSet("animalNames", set);
+//        edit.commit();
 
 
         // set up the RecyclerView

@@ -21,6 +21,7 @@ package io.github.htigroup4.pecs2life;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -85,16 +86,18 @@ public class TabFragment3 extends Fragment {
         Button button1 = view.findViewById(R.id.buttonInsertItem);
         button1.setOnClickListener(view1 -> {
 
-            SharedPreferences prefs = getContext().getSharedPreferences("io.github.htigroup4.pecs2life", Context.MODE_PRIVATE);
-            Set<String> set = prefs.getStringSet("animalNames", null);
-            List<String> sample = new ArrayList<>(set);
-
-            Toast.makeText(getContext(), "DEBUG: " + sample.get(1), Toast.LENGTH_SHORT).show();
+//            SharedPreferences prefs = getContext().getSharedPreferences("io.github.htigroup4.pecs2life", Context.MODE_PRIVATE);
+//            Set<String> set = prefs.getStringSet("animalNames", null);
+//            List<String> sample = new ArrayList<>(set);
+//
+//            Toast.makeText(getContext(), "DEBUG: " + sample.get(1), Toast.LENGTH_SHORT).show();
 
             // the original ones:
-            //String newItem = "Pig";
-            //int newColor = Color.GREEN;
-            //int insertIndex = 2;
+            String newItem = "Pig";
+            int newColor = Color.GREEN;
+            int insertIndex = 2;
+
+
 
 
             // the original ones:
@@ -106,8 +109,25 @@ public class TabFragment3 extends Fragment {
         return view;
     }
 
-//    @Override
+    //    @Override
 //    public void onItemClick(View view, int position) {
 //        Toast.makeText(getContext(), "You clicked " + adapter.getItem(position) + " on item position " + position, Toast.LENGTH_SHORT).show();
 //    }
+    public interface SubmitListener {
+
+        void onSubmit();
+    }
+
+    private SubmitListener onSubmitListener;
+
+    public void setSubmitListener(SubmitListener onSubmitListener) {
+        this.onSubmitListener = onSubmitListener;
+    }
+
+    public SubmitListener getOnSubmitListener() {
+        return onSubmitListener;
+    }
+
 }
+
+

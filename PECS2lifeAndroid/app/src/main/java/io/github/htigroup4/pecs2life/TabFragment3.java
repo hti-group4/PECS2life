@@ -39,7 +39,9 @@ import java.util.ArrayList;
  */
 public class TabFragment3 extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
 
+    private ArrayList<Integer> viewColors;
     private MyRecyclerViewAdapter adapter;
+    private ArrayList<String> animalNames;
 
     public TabFragment3() {
         // Required empty public constructor
@@ -53,7 +55,7 @@ public class TabFragment3 extends Fragment implements MyRecyclerViewAdapter.Item
         View view = inflater.inflate(R.layout.tab_fragment3, container, false);
 
         // data to populate the RecyclerView with
-        ArrayList<Integer> viewColors = new ArrayList<>();
+        viewColors = new ArrayList<>();
         viewColors.add(Color.BLUE);
         viewColors.add(Color.YELLOW);
         viewColors.add(Color.MAGENTA);
@@ -62,7 +64,7 @@ public class TabFragment3 extends Fragment implements MyRecyclerViewAdapter.Item
         viewColors.add(Color.CYAN);
 
         // data to populate the RecyclerView with
-        ArrayList<String> animalNames = new ArrayList<>();
+        animalNames = new ArrayList<>();
         animalNames.add("Horse");
         animalNames.add("Cow");
         animalNames.add("Camel");
@@ -83,16 +85,18 @@ public class TabFragment3 extends Fragment implements MyRecyclerViewAdapter.Item
 //                layoutManager.getOrientation());
 //        recyclerView.addItemDecoration(dividerItemDecoration);
 
-//        Button button1 = view.findViewById(R.id.buttonInsertItem);
-//        button1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String item = "Pig";
-//                int insertIndex = 2;
-//                animalNames.add(insertIndex, item);
-//                adapter.notifyItemInserted(insertIndex);
-//            }
-//        });
+        Button button1 = view.findViewById(R.id.buttonInsertItem);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String item = "Pig";
+                int newColor = Color.GREEN;
+                int insertIndex = 2;
+                animalNames.add(insertIndex, item);
+                viewColors.add(insertIndex, newColor);
+                adapter.notifyItemInserted(insertIndex);
+            }
+        });
 
         return view;
     }

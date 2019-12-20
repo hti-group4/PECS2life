@@ -19,7 +19,6 @@
 package io.github.htigroup4.pecs2life;
 
 
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,22 +26,17 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TabFragment3 extends Fragment {
+public class TabFragment3 extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
 
-    private StringBuffer sb = null;
-    private PECSCardAdapter mAdapter;
-
-    private ArrayList<PECSCard> mPECSCardsData;
+    private MyRecyclerViewAdapter adapter;
 
     public TabFragment3() {
         // Required empty public constructor
@@ -55,6 +49,26 @@ public class TabFragment3 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.tab_fragment3, container, false);
 
+        // data to populate the RecyclerView with
+        ArrayList<String> animalNames = new ArrayList<>();
+        animalNames.add("Horse");
+        animalNames.add("Cow");
+        animalNames.add("Camel");
+        animalNames.add("Sheep");
+        animalNames.add("Goat");
+
+        // set up the RecyclerView
+        RecyclerView recyclerView = view.findViewById(R.id.rvAnimals);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new MyRecyclerViewAdapter(getContext(), animalNames);
+        adapter.setClickListener(this);
+        recyclerView.setAdapter(adapter);
+
         return view;
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        Toast.makeText(getContext(), "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
     }
 }

@@ -13,44 +13,50 @@ import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<Integer> mViewColors;
+    private List<String> mAnimals;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    MyRecyclerViewAdapter(Context context, List<String> data) {
+    MyRecyclerViewAdapter(Context context, List<Integer> colors, List<String> animals) {
         this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
+        this.mViewColors = colors;
+        this.mAnimals = animals;
     }
 
     // inflates the row layout from xml when needed
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.recyclerview_row, parent, false);
+        View view = mInflater.inflate(R.layout.recyclerview_item, parent, false);
         return new ViewHolder(view);
     }
 
-    // binds the data to the TextView in each row
+    // binds the data to the view and textview in each row
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String animal = mData.get(position);
+        int color = mViewColors.get(position);
+        String animal = mAnimals.get(position);
+        holder.myView.setBackgroundColor(color);
         holder.myTextView.setText(animal);
     }
 
     // total number of rows
     @Override
     public int getItemCount() {
-        return mData.size();
+        return mAnimals.size();
     }
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        View myView;
         TextView myTextView;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.tvAnimalName);
+            myView = itemView.findViewById(R.id.colorView);
+            myTextView = itemView.findViewById(R.id.tvAnimalName2);
             itemView.setOnClickListener(this);
         }
 
@@ -61,12 +67,12 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
 
     // convenience method for getting data at click position
-    String getItem(int id) {
-        return mData.get(id);
+    public String getItem(int id) {
+        return mAnimals.get(id);
     }
 
     // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
+    public void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 

@@ -23,9 +23,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +39,7 @@ import java.util.ArrayList;
 public class TabFragment3 extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
 
     private MyRecyclerViewAdapter adapter;
+    private ArrayList<String> animalNames;
 
     public TabFragment3() {
         // Required empty public constructor
@@ -50,7 +53,7 @@ public class TabFragment3 extends Fragment implements MyRecyclerViewAdapter.Item
         View view = inflater.inflate(R.layout.tab_fragment3, container, false);
 
         // data to populate the RecyclerView with
-        ArrayList<String> animalNames = new ArrayList<>();
+        animalNames = new ArrayList<>();
         animalNames.add("Horse");
         animalNames.add("Cow");
         animalNames.add("Camel");
@@ -59,10 +62,26 @@ public class TabFragment3 extends Fragment implements MyRecyclerViewAdapter.Item
 
         // set up the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.rvAnimals);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
         adapter = new MyRecyclerViewAdapter(getContext(), animalNames);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                layoutManager.getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
+
+        Button button1 = view.findViewById(R.id.buttonInsertItem);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String item = "Pig";
+                int insertIndex = 2;
+                animalNames.add(insertIndex, item);
+                adapter.notifyItemInserted(insertIndex);
+            }
+        });
 
         return view;
     }

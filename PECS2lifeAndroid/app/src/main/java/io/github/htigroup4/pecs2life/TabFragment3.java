@@ -28,7 +28,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -80,10 +79,6 @@ public class TabFragment3 extends Fragment implements MyRecyclerViewAdapter.Item
         adapter = new MyRecyclerViewAdapter(getContext(), viewColors, animalNames);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
-
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
-//                layoutManager.getOrientation());
-//        recyclerView.addItemDecoration(dividerItemDecoration);
 
         Button button1 = view.findViewById(R.id.buttonInsertItem);
         button1.setOnClickListener(new View.OnClickListener() {

@@ -18,6 +18,9 @@
 
 package io.github.htigroup4.pecs2life;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,7 +42,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 
 /**
@@ -93,6 +98,15 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         animalNames.add("Sheep");
         animalNames.add("Goat");
         animalNames.add("Lamb");
+
+        SharedPreferences prefs = this.getSharedPreferences("io.github.htigroup4.pecs2life", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = prefs.edit();
+
+        Set<String> set = new HashSet<>();
+        set.addAll(animalNames);
+        edit.putStringSet("animalNames", set);
+        edit.commit();
+
 
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.rvAnimals);

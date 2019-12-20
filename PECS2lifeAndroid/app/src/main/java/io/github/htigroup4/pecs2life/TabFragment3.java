@@ -19,7 +19,8 @@
 package io.github.htigroup4.pecs2life;
 
 
-import android.graphics.Color;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,10 +29,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -82,17 +83,24 @@ public class TabFragment3 extends Fragment {
 //        recyclerView.setAdapter(adapter);
 
         Button button1 = view.findViewById(R.id.buttonInsertItem);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), "Button clicked", Toast.LENGTH_SHORT).show();
-//                String item = "Pig";
-//                int newColor = Color.GREEN;
-//                int insertIndex = 2;
-//                animalNames.add(insertIndex, item);
+        button1.setOnClickListener(view1 -> {
+
+            SharedPreferences prefs = getContext().getSharedPreferences("io.github.htigroup4.pecs2life", Context.MODE_PRIVATE);
+            Set<String> set = prefs.getStringSet("animalNames", null);
+            List<String> sample = new ArrayList<>(set);
+
+            Toast.makeText(getContext(), "DEBUG: " + sample.get(1), Toast.LENGTH_SHORT).show();
+
+            // the original ones:
+            //String newItem = "Pig";
+            //int newColor = Color.GREEN;
+            //int insertIndex = 2;
+
+
+            // the original ones:
+//                animalNames.add(insertIndex, newItem);
 //                viewColors.add(insertIndex, newColor);
 //                adapter.notifyItemInserted(insertIndex);
-            }
         });
 
         return view;

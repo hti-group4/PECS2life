@@ -50,7 +50,7 @@ public abstract class WordRoomDatabase extends RoomDatabase {
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
         private final WordDao mDao;
-        String[] words = {"Volvo", "Nissan", "Skoda"};
+        String[] words = {"Volvo", "Nissan", "Skoda", "Volkswagen", "Fiat", "Mitsubishi", "Tesla"};
 
         PopulateDbAsync(WordRoomDatabase db) {
             mDao = db.wordDao();

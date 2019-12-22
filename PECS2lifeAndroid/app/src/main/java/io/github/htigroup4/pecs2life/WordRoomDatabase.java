@@ -1,6 +1,7 @@
 package io.github.htigroup4.pecs2life;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
@@ -9,7 +10,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Word.class}, version = 1, exportSchema = false)
+@Database(entities = {Word.class}, version = 2, exportSchema = false)
 public abstract class WordRoomDatabase extends RoomDatabase {
 
     public abstract WordDao wordDao();
@@ -50,6 +51,7 @@ public abstract class WordRoomDatabase extends RoomDatabase {
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
         private final WordDao mDao;
+        Integer[] colors = {Color.BLUE, Color.GREEN, Color.BLACK, Color.YELLOW, Color.CYAN, Color.GRAY, Color.RED};
         String[] words = {"Volvo", "Nissan", "Skoda", "Volkswagen", "Fiat", "Mitsubishi", "Tesla"};
 
         PopulateDbAsync(WordRoomDatabase db) {
@@ -64,7 +66,7 @@ public abstract class WordRoomDatabase extends RoomDatabase {
             mDao.deleteAll();
 
             for (int i = 0; i <= words.length - 1; i++) {
-                Word word = new Word(words[i]);
+                Word word = new Word(words[i], colors[i]);
                 mDao.insert(word);
             }
             return null;

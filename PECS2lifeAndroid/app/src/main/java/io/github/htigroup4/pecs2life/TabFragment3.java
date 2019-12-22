@@ -57,7 +57,7 @@ public class TabFragment3 extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         final WordListAdapter adapter = new WordListAdapter(getContext());
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
 

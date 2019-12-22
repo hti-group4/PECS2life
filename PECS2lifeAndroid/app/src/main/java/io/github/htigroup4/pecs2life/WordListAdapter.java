@@ -1,6 +1,7 @@
 package io.github.htigroup4.pecs2life;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,9 +32,11 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         if (mWords != null) {
             Word current = mWords.get(position);
             holder.wordItemView.setText(current.getWord());
+            holder.colorItemView.setBackgroundColor(current.getColor());
         } else {
             // Covers the case of data not being ready yet.
             holder.wordItemView.setText("No Word");
+            holder.colorItemView.setBackgroundColor(Color.WHITE);
         }
     }
 
@@ -53,10 +56,12 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
     class WordViewHolder extends RecyclerView.ViewHolder {
         private final TextView wordItemView;
+        private final View colorItemView;
 
         private WordViewHolder(View itemView) {
             super(itemView);
             wordItemView = itemView.findViewById(R.id.textView);
+            colorItemView = itemView.findViewById(R.id.colorView2);
         }
     }
 }

@@ -18,18 +18,12 @@
 
 package io.github.htigroup4.pecs2life;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -40,11 +34,8 @@ import com.vlstr.blurdialog.BlurDialog;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 
 /**
@@ -65,9 +56,9 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
     int SENDER_ICON;
     String RESPONSE_MESSAGE;
 
-    private ArrayList<Integer> viewColors;
-    private MyRecyclerViewAdapter adapter;
-    private ArrayList<String> animalNames;
+//    private ArrayList<Integer> viewColors;
+//    private MyRecyclerViewAdapter adapter;
+//    private ArrayList<String> animalNames;
 
     /**
      * Creates the content view, sets up the tab layout, and sets up
@@ -81,41 +72,33 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // data to populate the RecyclerView with
-        viewColors = new ArrayList<>();
-        viewColors.add(Color.BLUE);
-        viewColors.add(Color.YELLOW);
-        viewColors.add(Color.MAGENTA);
-        viewColors.add(Color.RED);
-        viewColors.add(Color.BLACK);
-        viewColors.add(Color.CYAN);
-
-        // data to populate the RecyclerView with
-        animalNames = new ArrayList<>();
-        animalNames.add("Horse");
-        animalNames.add("Cow");
-        animalNames.add("Camel");
-        animalNames.add("Sheep");
-        animalNames.add("Goat");
-        animalNames.add("Lamb");
-
-//        SharedPreferences prefs = this.getSharedPreferences("io.github.htigroup4.pecs2life", Context.MODE_PRIVATE);
-//        SharedPreferences.Editor edit = prefs.edit();
+//        // data to populate the RecyclerView with
+//        viewColors = new ArrayList<>();
+//        viewColors.add(Color.BLUE);
+//        viewColors.add(Color.YELLOW);
+//        viewColors.add(Color.MAGENTA);
+//        viewColors.add(Color.RED);
+//        viewColors.add(Color.BLACK);
+//        viewColors.add(Color.CYAN);
 //
-//        Set<String> set = new HashSet<>();
-//        set.addAll(animalNames);
-//        edit.putStringSet("animalNames", set);
-//        edit.commit();
+//        // data to populate the RecyclerView with
+//        animalNames = new ArrayList<>();
+//        animalNames.add("Horse");
+//        animalNames.add("Cow");
+//        animalNames.add("Camel");
+//        animalNames.add("Sheep");
+//        animalNames.add("Goat");
+//        animalNames.add("Lamb");
+//
+//        // set up the RecyclerView
+//        RecyclerView recyclerView = findViewById(R.id.rvAnimals);
+//        LinearLayoutManager layoutManager
+//                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+//        recyclerView.setLayoutManager(layoutManager);
+//        adapter = new MyRecyclerViewAdapter(this, viewColors, animalNames);
+//        adapter.setClickListener(this);
+//        recyclerView.setAdapter(adapter);
 
-
-        // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.rvAnimals);
-        LinearLayoutManager layoutManager
-                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-        adapter = new MyRecyclerViewAdapter(this, viewColors, animalNames);
-        adapter.setClickListener(this);
-        recyclerView.setAdapter(adapter);
 
         // TODO remove this section when settings for subscription handling has added to the app
         if (getResources().getBoolean(R.bool.isTablet)) { // the device is a tablet = a pupil uses it
@@ -223,6 +206,6 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 
     @Override
     public void onItemClick(View view, int position) {
-        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on item position " + position, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on item position " + position, Toast.LENGTH_SHORT).show();
     }
 }

@@ -26,13 +26,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 
 public class TabFragment3 extends Fragment {
+
+    private WordViewModel mWordViewModel;
 
     public TabFragment3() {
         // Required empty public constructor
@@ -45,22 +54,37 @@ public class TabFragment3 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.tab_fragment3, container, false);
 
-        Button button1 = view.findViewById(R.id.buttonInsertItem);
-        button1.setOnClickListener(view1 -> {
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
+        final WordListAdapter adapter = new WordListAdapter(getContext());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-            Toast.makeText(getContext(), "DEBUG: button clicked", Toast.LENGTH_SHORT).show();
+        mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
 
-            // the original ones:
-            //String newItem = "Pig";
-            //int newColor = Color.GREEN;
-            //int insertIndex = 2;
-
-
-            // the original ones:
-//                animalNames.add(insertIndex, newItem);
-//                viewColors.add(insertIndex, newColor);
-//                adapter.notifyItemInserted(insertIndex);
+        mWordViewModel.getAllWords().observe(this, new Observer<List<Word>>() {
+            @Override
+            public void onChanged(@Nullable final List<Word> words) {
+                // Update the cached copy of the words in the adapter.
+                adapter.setWords(words);
+            }
         });
+
+//        Button button1 = view.findViewById(R.id.buttonInsertItem);
+//        button1.setOnClickListener(view1 -> {
+//
+//            Toast.makeText(getContext(), "DEBUG: button clicked", Toast.LENGTH_SHORT).show();
+//
+//            // the original ones:
+//            //String newItem = "Pig";
+//            //int newColor = Color.GREEN;
+//            //int insertIndex = 2;
+//
+//
+//            // the original ones:
+////                animalNames.add(insertIndex, newItem);
+////                viewColors.add(insertIndex, newColor);
+////                adapter.notifyItemInserted(insertIndex);
+//        });
 
         return view;
     }

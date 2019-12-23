@@ -51,7 +51,8 @@ import java.util.Map;
 //public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
 public class MainActivity extends AppCompatActivity {
 
-    private WordViewModel mWordViewModel;
+    private CardViewModel mCardViewModel;
+    //private WordViewModel mWordViewModel;
 
     final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
     final private String serverKey = "key=" + BuildConfig.SERVER_KEY;
@@ -79,14 +80,21 @@ public class MainActivity extends AppCompatActivity {
 
         // Code for the local database:
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final WordListAdapter adapter1 = new WordListAdapter(this);
-        recyclerView.setAdapter(adapter1);
+        final CardListAdapter cardListAdapter = new CardListAdapter(this);
+        recyclerView.setAdapter(cardListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
 
-        // Update the cached copy of the words in the adapter.
-        mWordViewModel.getAllWords().observe(this, adapter1::setWords);
+
+
+//        final WordListAdapter adapter1 = new WordListAdapter(this);
+//        recyclerView.setAdapter(adapter1);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+//
+//        mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
+//
+//        // Update the cached copy of the words in the adapter.
+//        mWordViewModel.getAllWords().observe(this, adapter1::setWords);
 
 
         // TODO remove this section when settings for subscription handling has added to the app

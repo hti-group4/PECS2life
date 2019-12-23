@@ -26,14 +26,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,20 +48,7 @@ public class TabFragment3 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.tab_fragment3, container, false);
 
-//        RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
-//        final WordListAdapter adapter = new WordListAdapter(getContext());
-//        recyclerView.setAdapter(adapter);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-//
         mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
-//
-//        mWordViewModel.getAllWords().observe(this, new Observer<List<Word>>() {
-//            @Override
-//            public void onChanged(@Nullable final List<Word> words) {
-//                // Update the cached copy of the words in the adapter.
-//                adapter.setWords(words);
-//            }
-//        });
 
         Button button1 = view.findViewById(R.id.button1);
         button1.setOnClickListener(view1 -> {

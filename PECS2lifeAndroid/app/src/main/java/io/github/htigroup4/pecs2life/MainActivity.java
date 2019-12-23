@@ -48,7 +48,10 @@ import java.util.Map;
  * This app offers three view fragments and two tabs to
  * navigate to them.
  */
-public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
+//public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
+public class MainActivity extends AppCompatActivity {
+
+    private WordViewModel mWordViewModel;
 
     final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
     final private String serverKey = "key=" + BuildConfig.SERVER_KEY;
@@ -62,12 +65,6 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
     int SENDER_ICON;
     String RESPONSE_MESSAGE;
 
-    private WordViewModel mWordViewModel;
-
-//    private ArrayList<Integer> viewColors;
-//    private MyRecyclerViewAdapter adapter;
-//    private ArrayList<String> animalNames;
-
     /**
      * Creates the content view, sets up the tab layout, and sets up
      * a page adapter to manage views in fragments. The user clicks a tab and
@@ -80,33 +77,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        // data to populate the RecyclerView with
-//        viewColors = new ArrayList<>();
-//        viewColors.add(Color.BLUE);
-//        viewColors.add(Color.YELLOW);
-//        viewColors.add(Color.MAGENTA);
-//        viewColors.add(Color.RED);
-//        viewColors.add(Color.BLACK);
-//        viewColors.add(Color.CYAN);
-//
-//        // data to populate the RecyclerView with
-//        animalNames = new ArrayList<>();
-//        animalNames.add("Horse");
-//        animalNames.add("Cow");
-//        animalNames.add("Camel");
-//        animalNames.add("Sheep");
-//        animalNames.add("Goat");
-//        animalNames.add("Lamb");
-//
-//        // set up the RecyclerView
-//        RecyclerView recyclerView = findViewById(R.id.rvAnimals);
-//        LinearLayoutManager layoutManager
-//                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-//        recyclerView.setLayoutManager(layoutManager);
-//        adapter = new MyRecyclerViewAdapter(this, viewColors, animalNames);
-//        adapter.setClickListener(this);
-//        recyclerView.setAdapter(adapter);
-
+        // Code for the local database:
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final WordListAdapter adapter1 = new WordListAdapter(this);
         recyclerView.setAdapter(adapter1);
@@ -114,13 +85,8 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 
         mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
 
-        mWordViewModel.getAllWords().observe(this, new Observer<List<Word>>() {
-            @Override
-            public void onChanged(@Nullable final List<Word> words) {
-                // Update the cached copy of the words in the adapter.
-                adapter1.setWords(words);
-            }
-        });
+        // Update the cached copy of the words in the adapter.
+        mWordViewModel.getAllWords().observe(this, adapter1::setWords);
 
 
         // TODO remove this section when settings for subscription handling has added to the app
@@ -227,8 +193,8 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
 
-    @Override
-    public void onItemClick(View view, int position) {
-        //Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on item position " + position, Toast.LENGTH_SHORT).show();
-    }
+//    @Override
+//    public void onItemClick(View view, int position) {
+//        //Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on item position " + position, Toast.LENGTH_SHORT).show();
+//    }
 }

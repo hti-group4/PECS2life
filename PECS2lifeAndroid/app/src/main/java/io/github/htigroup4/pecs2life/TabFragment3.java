@@ -25,7 +25,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -72,22 +71,11 @@ public class TabFragment3 extends Fragment {
 
         Button button1 = view.findViewById(R.id.button1);
         button1.setOnClickListener(view1 -> {
-
-            //Toast.makeText(getContext(), "DEBUG: button clicked", Toast.LENGTH_SHORT).show();
-
-            // the original ones:
             String newItem = "BMW";
             int newColor = Color.MAGENTA;
-            //int insertIndex = 2;
 
             Word word = new Word(newItem, newColor);
             mWordViewModel.insert(word);
-
-
-            // the original ones:
-//                animalNames.add(insertIndex, newItem);
-//                viewColors.add(insertIndex, newColor);
-//                adapter.notifyItemInserted(insertIndex);
         });
 
         return view;

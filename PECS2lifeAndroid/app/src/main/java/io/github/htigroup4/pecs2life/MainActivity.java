@@ -23,7 +23,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -35,6 +40,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -55,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
     int LARGE_ICON;
     int SENDER_ICON;
     String RESPONSE_MESSAGE;
+
+    private WordViewModel mWordViewModel;
 
 //    private ArrayList<Integer> viewColors;
 //    private MyRecyclerViewAdapter adapter;
@@ -98,6 +106,21 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 //        adapter = new MyRecyclerViewAdapter(this, viewColors, animalNames);
 //        adapter.setClickListener(this);
 //        recyclerView.setAdapter(adapter);
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        final WordListAdapter adapter1 = new WordListAdapter(this);
+        recyclerView.setAdapter(adapter1);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+        mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
+
+        mWordViewModel.getAllWords().observe(this, new Observer<List<Word>>() {
+            @Override
+            public void onChanged(@Nullable final List<Word> words) {
+                // Update the cached copy of the words in the adapter.
+                adapter1.setWords(words);
+            }
+        });
 
 
         // TODO remove this section when settings for subscription handling has added to the app

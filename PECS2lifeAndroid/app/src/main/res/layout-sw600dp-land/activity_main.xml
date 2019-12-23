@@ -54,9 +54,16 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_below="@id/tab_layout"
         android:layout_marginTop="0dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pager"
+        tools:listitem="@layout/recyclerview_item2" />
 
     <com.vlstr.blurdialog.BlurDialog
         android:id="@+id/blurView"

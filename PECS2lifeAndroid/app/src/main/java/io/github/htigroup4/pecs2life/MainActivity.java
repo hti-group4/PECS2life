@@ -84,7 +84,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(cardListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
+        mCardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
 
+        mCardViewModel.getAllCards().observe(this, new Observer<List<Card>>() {
+            @Override
+            public void onChanged(List<Card> cards) {
+                // Update the cached copy of the words in the adapter.
+                cardListAdapter.setCards(cards);
+            }
+        });
 
 
 //        final WordListAdapter adapter1 = new WordListAdapter(this);

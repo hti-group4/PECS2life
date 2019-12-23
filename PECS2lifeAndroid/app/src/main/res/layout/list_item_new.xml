@@ -14,12 +14,12 @@
   -->
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -27,12 +27,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:contentDescription="@string/PECSCardImageDescription" />
+            android:contentDescription="@string/PECSCardImageDescription"
+            android:src="@drawable/img_kebab_meal" />
 
         <TextView
             android:id="@+id/titleNew"
             style="@style/PECSCardTitle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/imageNew"
             android:padding="8dp"

@@ -23,6 +23,7 @@
     <string name="song_string">Laulu</string>
     <string name="music_toast_1">Klikattiin \"</string>
     <string name="music_toast_2">\" -korttia kohdassa</string>
+    <string name="no_card_text">Ei korttia</string>
 
     <string-array name="food_titles">
         <item>Paprika</item>

@@ -35,7 +35,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 public class TabFragment3 extends Fragment {
 
-    //private WordViewModel mWordViewModel;
     private CardViewModel cardViewModel;
 
     public TabFragment3() {
@@ -51,8 +50,6 @@ public class TabFragment3 extends Fragment {
 
         cardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
 
-        //mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
-
         Button button1 = view.findViewById(R.id.button1);
         button1.setOnClickListener(view1 -> {
             String newItem = "Apple";
@@ -60,12 +57,6 @@ public class TabFragment3 extends Fragment {
 
             Card card = new Card(newItem, newImage);
             cardViewModel.insert(card);
-
-            //String newItem = "BMW";
-            //int newColor = Color.MAGENTA;
-
-            //Word word = new Word(newItem, newColor);
-            //mWordViewModel.insert(word);
         });
 
         return view;

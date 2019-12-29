@@ -40,6 +40,7 @@ import java.util.List;
 public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClickListener {
 
     private CardViewModel2 cardViewModel;
+    private CardViewModel cardViewModelSlot;
     private CardListAdapter2 cardListAdapter;
 
     public TabFragment3() {
@@ -70,6 +71,8 @@ public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClick
 
         cardViewModel = ViewModelProviders.of(this).get(CardViewModel2.class);
 
+        cardViewModelSlot = ViewModelProviders.of(this).get(CardViewModel.class);
+
         cardViewModel.getAllCards().observe(this, new Observer<List<Card2>>() {
             @Override
             public void onChanged(List<Card2> cards) {
@@ -92,8 +95,12 @@ public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClick
 
     @Override
     public void onItemClick(View view, int position) {
-        Toast.makeText(getContext(), "You clicked " + cardListAdapter.getItem(position).getTitle()
+
+        Card2 item = cardListAdapter.getItem(position);
+
+        Toast.makeText(getContext(), "You clicked " + item.getTitle()
                 + " on item position " + position, Toast.LENGTH_SHORT).show();
+        cardViewModelSlot.insert(new Card(item.getTitle(), item.getImageResource()));
     }
 }
 

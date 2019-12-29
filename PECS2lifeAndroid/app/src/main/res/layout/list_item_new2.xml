@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright (C) of the original layout file: 2018 Google Inc.
+  Copyright (C) of the edited layout file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
+  Changes made to this layout file: TODO
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+      http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/foodImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/PECSCardImageDescription" />
+
+        <TextView
+            android:id="@+id/foodTitle"
+            style="@style/PECSCardTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/foodImage"
+            android:padding="8dp"
+            android:text="@string/title_placeholder"
+            android:textAlignment="center" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

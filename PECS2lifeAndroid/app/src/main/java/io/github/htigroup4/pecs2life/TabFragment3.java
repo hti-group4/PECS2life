@@ -19,15 +19,18 @@
 package io.github.htigroup4.pecs2life;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,7 +38,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 public class TabFragment3 extends Fragment {
 
-    private CardViewModel cardViewModel;
+    private CardViewModel2 cardViewModel;
 
     public TabFragment3() {
         // Required empty public constructor
@@ -48,16 +51,38 @@ public class TabFragment3 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.tab_fragment3, container, false);
 
-        cardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
+        //Initialize the RecyclerView
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView10);
 
-        Button button1 = view.findViewById(R.id.button1);
-        button1.setOnClickListener(view1 -> {
-            String newItem = "Apple";
-            int newImage = R.drawable.img_apple;
+        final CardListAdapter2 cardListAdapter = new CardListAdapter2(getContext());
 
-            Card card = new Card(newItem, newImage);
-            cardViewModel.insert(card);
+        recyclerView.setAdapter(cardListAdapter);
+
+        // Get the appropriate column count.
+        int gridColumnCount = getResources().getInteger(R.integer.grid_column_count);
+
+        // Set the Layout Manager.
+        recyclerView.setLayoutManager(new GridLayoutManager(
+                getContext(), gridColumnCount));
+
+        cardViewModel = ViewModelProviders.of(this).get(CardViewModel2.class);
+
+        cardViewModel.getAllCards().observe(this, new Observer<List<Card2>>() {
+            @Override
+            public void onChanged(List<Card2> cards) {
+                // Update the cached copy of the words in the adapter.
+                cardListAdapter.setCards(cards);
+            }
         });
+
+//        Button button1 = view.findViewById(R.id.button1);
+//        button1.setOnClickListener(view1 -> {
+//            String newItem = "Apple";
+//            int newImage = R.drawable.img_apple;
+//
+//            Card card = new Card(newItem, newImage);
+//            cardViewModel.insert(card);
+//        });
 
         return view;
     }

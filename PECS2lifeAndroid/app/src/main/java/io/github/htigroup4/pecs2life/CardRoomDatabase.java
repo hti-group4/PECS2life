@@ -52,9 +52,8 @@ public abstract class CardRoomDatabase extends RoomDatabase {
 
         private final CardDao mDao;
 
-        String[] words = {"Red pepper", "Lunch", "Sandwich", "Apple", "Hamburger", "Banana", "Carrot"};
-        int[] images = {R.drawable.img_red_pepper, R.drawable.img_kebab_meal, R.drawable.img_sandwich,
-                R.drawable.img_apple, R.drawable.img_hamburger, R.drawable.img_banana, R.drawable.img_carrot};
+        String[] words = {"Red pepper", "Lunch"};
+        int[] images = {R.drawable.img_red_pepper, R.drawable.img_kebab_meal};
 
 
         PopulateDbAsync(CardRoomDatabase db) {

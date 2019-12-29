@@ -35,7 +35,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 public class TabFragment3 extends Fragment {
 
-    private WordViewModel mWordViewModel;
+    //private WordViewModel mWordViewModel;
+    private CardViewModel cardViewModel;
 
     public TabFragment3() {
         // Required empty public constructor
@@ -48,15 +49,23 @@ public class TabFragment3 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.tab_fragment3, container, false);
 
-        mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
+        cardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
+
+        //mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
 
         Button button1 = view.findViewById(R.id.button1);
         button1.setOnClickListener(view1 -> {
-            String newItem = "BMW";
-            int newColor = Color.MAGENTA;
+            String newItem = "Apple";
+            int newImage = R.drawable.img_apple;
 
-            Word word = new Word(newItem, newColor);
-            mWordViewModel.insert(word);
+            Card card = new Card(newItem, newImage);
+            cardViewModel.insert(card);
+
+            //String newItem = "BMW";
+            //int newColor = Color.MAGENTA;
+
+            //Word word = new Word(newItem, newColor);
+            //mWordViewModel.insert(word);
         });
 
         return view;

@@ -24,8 +24,8 @@
 
         <ImageView
             android:id="@+id/imageNew"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/PECSCardImageDescription"
             android:src="@drawable/img_kebab_meal" />
@@ -33,7 +33,7 @@
         <TextView
             android:id="@+id/titleNew"
             style="@style/PECSCardTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/imageNew"
             android:padding="8dp"

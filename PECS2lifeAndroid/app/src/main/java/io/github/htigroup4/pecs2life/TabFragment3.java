@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -36,9 +37,10 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 
-public class TabFragment3 extends Fragment {
+public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClickListener {
 
     private CardViewModel2 cardViewModel;
+    private CardListAdapter2 cardListAdapter;
 
     public TabFragment3() {
         // Required empty public constructor
@@ -54,7 +56,8 @@ public class TabFragment3 extends Fragment {
         //Initialize the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView10);
 
-        final CardListAdapter2 cardListAdapter = new CardListAdapter2(getContext());
+        cardListAdapter = new CardListAdapter2(getContext());
+        cardListAdapter.setClickListener(this);
 
         recyclerView.setAdapter(cardListAdapter);
 
@@ -85,6 +88,12 @@ public class TabFragment3 extends Fragment {
 //        });
 
         return view;
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        Toast.makeText(getContext(), "You clicked " + cardListAdapter.getItem(position).getTitle()
+                + " on item position " + position, Toast.LENGTH_SHORT).show();
     }
 }
 

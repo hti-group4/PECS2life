@@ -87,7 +87,6 @@ public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClick
 
         cardViewModelSlot.insert(new Card(item.getTitle(), item.getImageResource()));
 
-        // delete the clicked card
         cardViewModel.deleteCard(item);
     }
 }

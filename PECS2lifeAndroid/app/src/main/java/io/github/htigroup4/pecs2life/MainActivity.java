@@ -48,9 +48,11 @@ import java.util.Map;
  * This app offers three view fragments and two tabs to
  * navigate to them.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CardListAdapter.ItemClickListener {
 
     private CardViewModel mCardViewModel;
+    private CardListAdapter cardListAdapter;
+    private CardViewModel2 cardViewModelTab3;
 
     final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
     final private String serverKey = "key=" + BuildConfig.SERVER_KEY;
@@ -78,14 +80,20 @@ public class MainActivity extends AppCompatActivity {
 
         // Code for the local database:
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final CardListAdapter cardListAdapter = new CardListAdapter(this);
+        cardListAdapter = new CardListAdapter(this);
+        cardListAdapter.setClickListener(this);
         recyclerView.setAdapter(cardListAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(
+                this, LinearLayoutManager.HORIZONTAL, false));
 
         mCardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
 
+        cardViewModelTab3 = ViewModelProviders.of(this).get(CardViewModel2.class);
+
         // Update the cached copy of the words in the adapter.
         mCardViewModel.getAllCards().observe(this, cardListAdapter::setCards);
+
 
         // TODO remove this section when settings for subscription handling has added to the app
         if (getResources().getBoolean(R.bool.isTablet)) { // the device is a tablet = a pupil uses it
@@ -189,5 +197,15 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        Card card = cardListAdapter.getCardAtPosition(position);
+
+        Toast.makeText(this, "You clicked " + card.getTitle()
+                + " on item position " + position, Toast.LENGTH_SHORT).show();
+
+        cardViewModelTab3.insert(new Card2(card.getTitle(), card.getImageResource()));
     }
 }

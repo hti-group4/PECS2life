@@ -16,6 +16,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
 
     private final LayoutInflater mInflater;
     private List<Card> mCards; // Cached copy of cards
+    private ItemClickListener mClickListener;
 
     CardListAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
@@ -56,15 +57,36 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
         } else return 0;
     }
 
-    class CardViewHolder extends RecyclerView.ViewHolder {
+    class CardViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private final TextView cardItemView;
         private final ImageView imageItemView;
 
-        public CardViewHolder(@NonNull View itemView) {
+        CardViewHolder(@NonNull View itemView) {
             super(itemView);
             cardItemView = itemView.findViewById(R.id.titleNew);
             imageItemView = itemView.findViewById(R.id.imageNew);
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+        }
+    }
+
+    // convenience method for getting data at click position
+    Card getCardAtPosition(int position) {
+        return mCards.get(position);
+    }
+
+    // allows clicks events to be caught
+    void setClickListener(ItemClickListener itemClickListener) {
+        this.mClickListener = itemClickListener;
+    }
+
+    // parent activity will implement this method to respond to click events
+    public interface ItemClickListener {
+        void onItemClick(View view, int position);
     }
 }

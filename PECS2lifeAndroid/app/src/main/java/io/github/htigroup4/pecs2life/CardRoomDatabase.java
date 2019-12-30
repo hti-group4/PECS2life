@@ -16,7 +16,7 @@ public abstract class CardRoomDatabase extends RoomDatabase {
 
     private static CardRoomDatabase INSTANCE;
 
-    public static CardRoomDatabase getDatabase(final Context context) {
+    static CardRoomDatabase getDatabase(final Context context) {
 
         if (INSTANCE == null) {
             synchronized (CardRoomDatabase.class) {
@@ -52,7 +52,7 @@ public abstract class CardRoomDatabase extends RoomDatabase {
 
         private final CardDao mDao;
 
-        String[] words = {"Red pepper", "Lunch"};
+        String[] words = {"Paprika", "Lounas"};
         int[] images = {R.drawable.img_red_pepper, R.drawable.img_kebab_meal};
 
 

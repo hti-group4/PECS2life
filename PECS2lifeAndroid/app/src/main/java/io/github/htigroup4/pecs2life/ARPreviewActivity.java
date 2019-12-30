@@ -85,6 +85,16 @@ public class ARPreviewActivity extends AppCompatActivity {
         TypedArray PECSCardsImageResources =
                 getResources().obtainTypedArray(R.array.models_in_3d);
 
+        TypedArray foodImageResources = getResources().obtainTypedArray(R.array.food_images);
+
+        int[] result = new int[foodImageResources.length()];
+
+        for (int i = 0; i < result.length; i++) {
+            // TODO
+        }
+
+        foodImageResources.recycle();
+
         int resourceId = PECSCardsImageResources.getResourceId(position, 0);
 
         PECSCardsImageResources.recycle(); // a compulsory feature after previous rows

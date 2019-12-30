@@ -18,6 +18,8 @@ public abstract class CardRoomDatabase2 extends RoomDatabase {
 
     static CardRoomDatabase2 getDatabase(final Context context) {
 
+        String[] foodTitles = context.getResources().getStringArray(R.array.food_titles);
+
         if (INSTANCE == null) {
             synchronized (CardRoomDatabase2.class) {
                 if (INSTANCE == null) {
@@ -52,12 +54,15 @@ public abstract class CardRoomDatabase2 extends RoomDatabase {
 
         private final CardDao2 mDao;
 
+        private String[] titles;
+
         String[] words = {"Paprika", "Lounas", "Voileipä", "Omena", "Hampurilainen", "Banaani",
                 "Porkkana"};
         int[] images = {R.drawable.img_red_pepper, R.drawable.img_kebab_meal,
                 R.drawable.img_sandwich, R.drawable.img_apple, R.drawable.img_hamburger,
                 R.drawable.img_banana, R.drawable.img_carrot};
 
+        //String[] PECSCardsList = getResources().getStringArray(R.array.food_titles);
 
         PopulateDbAsync(CardRoomDatabase2 db) {
             mDao = db.cardDao2();

@@ -26,12 +26,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -77,16 +74,6 @@ public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClick
             // Update the cached copy of the words in the adapter.
             cardListAdapter.setCards(cards);
         });
-
-//        Button button1 = view.findViewById(R.id.button1);
-//        button1.setOnClickListener(view1 -> {
-//            String newItem = "Apple";
-//            int newImage = R.drawable.img_apple;
-//
-//            Card card = new Card(newItem, newImage);
-//            cardViewModel.insert(card);
-//        });
-
         return view;
     }
 

@@ -48,11 +48,9 @@ import java.util.Map;
  * This app offers three view fragments and two tabs to
  * navigate to them.
  */
-//public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
 public class MainActivity extends AppCompatActivity {
 
     private CardViewModel mCardViewModel;
-    //private WordViewModel mWordViewModel;
 
     final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
     final private String serverKey = "key=" + BuildConfig.SERVER_KEY;
@@ -88,17 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Update the cached copy of the words in the adapter.
         mCardViewModel.getAllCards().observe(this, cardListAdapter::setCards);
-
-
-//        final WordListAdapter adapter1 = new WordListAdapter(this);
-//        recyclerView.setAdapter(adapter1);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-//
-//        mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
-//
-//        // Update the cached copy of the words in the adapter.
-//        mWordViewModel.getAllWords().observe(this, adapter1::setWords);
-
 
         // TODO remove this section when settings for subscription handling has added to the app
         if (getResources().getBoolean(R.bool.isTablet)) { // the device is a tablet = a pupil uses it
@@ -203,9 +190,4 @@ public class MainActivity extends AppCompatActivity {
         };
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
-
-//    @Override
-//    public void onItemClick(View view, int position) {
-//        //Toast.makeText(this, "You clicked " + adapter.getCardAtPosition(position) + " on item position " + position, Toast.LENGTH_SHORT).show();
-//    }
 }

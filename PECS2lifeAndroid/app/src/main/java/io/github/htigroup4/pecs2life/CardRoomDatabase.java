@@ -9,7 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Card.class}, version = 1, exportSchema = false)
+@Database(entities = {Card.class}, version = 2, exportSchema = false)
 public abstract class CardRoomDatabase extends RoomDatabase {
 
     public abstract CardDao cardDao();
@@ -52,8 +52,8 @@ public abstract class CardRoomDatabase extends RoomDatabase {
 
         private final CardDao mDao;
 
-        String[] words = {"Paprika", "Lounas"};
-        int[] images = {R.drawable.img_red_pepper, R.drawable.img_kebab_meal};
+        //String[] words = {"Paprika", "Lounas"};
+        //int[] images = {R.drawable.img_red_pepper, R.drawable.img_kebab_meal};
 
 
         PopulateDbAsync(CardRoomDatabase db) {
@@ -67,10 +67,10 @@ public abstract class CardRoomDatabase extends RoomDatabase {
             // when it is first created
             mDao.deleteAll();
 
-            for (int i = 0; i < words.length; i++) {
-                Card card = new Card(words[i], images[i]);
-                mDao.insert(card);
-            }
+//            for (int i = 0; i < words.length; i++) {
+//                Card card = new Card(words[i], images[i]);
+//                mDao.insert(card);
+//            }
             return null;
         }
     }

@@ -52,8 +52,10 @@ public abstract class CardRoomDatabase2 extends RoomDatabase {
 
         private final CardDao2 mDao;
 
-        String[] words = {"Voileipä", "Omena", "Hampurilainen", "Banaani", "Porkkana"};
-        int[] images = {R.drawable.img_sandwich, R.drawable.img_apple, R.drawable.img_hamburger,
+        String[] words = {"Paprika", "Lounas", "Voileipä", "Omena", "Hampurilainen", "Banaani",
+                "Porkkana"};
+        int[] images = {R.drawable.img_red_pepper, R.drawable.img_kebab_meal,
+                R.drawable.img_sandwich, R.drawable.img_apple, R.drawable.img_hamburger,
                 R.drawable.img_banana, R.drawable.img_carrot};
 
 

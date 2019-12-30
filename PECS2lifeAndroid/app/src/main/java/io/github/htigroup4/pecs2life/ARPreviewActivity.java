@@ -80,6 +80,8 @@ public class ARPreviewActivity extends AppCompatActivity {
 
         int position = getIntent().getIntExtra("position", 0);
 
+        int imageResource = getIntent().getIntExtra("imageResource", 0);
+
         TypedArray PECSCardsImageResources =
                 getResources().obtainTypedArray(R.array.models_in_3d);
 

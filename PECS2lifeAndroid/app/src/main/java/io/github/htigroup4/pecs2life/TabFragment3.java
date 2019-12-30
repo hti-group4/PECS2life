@@ -19,6 +19,7 @@
 package io.github.htigroup4.pecs2life;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -88,6 +89,10 @@ public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClick
         cardViewModelSlot.insert(new Card(card.getTitle(), card.getImageResource()));
 
         cardViewModel.deleteCard(card);
+
+        Intent arPreviewIntent = new Intent(getContext(), ARPreviewActivity.class);
+        arPreviewIntent.putExtra("position", position);
+        startActivity(arPreviewIntent);
     }
 }
 

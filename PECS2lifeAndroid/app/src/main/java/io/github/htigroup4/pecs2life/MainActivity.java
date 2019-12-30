@@ -207,5 +207,7 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                 + " on item position " + position, Toast.LENGTH_SHORT).show();
 
         cardViewModelTab3.insert(new Card2(card.getTitle(), card.getImageResource()));
+
+        mCardViewModel.deleteCard(card);
     }
 }

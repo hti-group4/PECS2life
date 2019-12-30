@@ -80,14 +80,14 @@ public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClick
     @Override
     public void onItemClick(View view, int position) {
 
-        Card2 item = cardListAdapter.getCardAtPosition(position);
+        Card2 card = cardListAdapter.getCardAtPosition(position);
 
-        Toast.makeText(getContext(), "You clicked " + item.getTitle()
+        Toast.makeText(getContext(), "You clicked " + card.getTitle()
                 + " on item position " + position, Toast.LENGTH_SHORT).show();
 
-        cardViewModelSlot.insert(new Card(item.getTitle(), item.getImageResource()));
+        cardViewModelSlot.insert(new Card(card.getTitle(), card.getImageResource()));
 
-        cardViewModel.deleteCard(item);
+        cardViewModel.deleteCard(card);
     }
 }
 

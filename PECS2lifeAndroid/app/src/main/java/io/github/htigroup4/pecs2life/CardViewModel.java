@@ -25,4 +25,8 @@ public class CardViewModel extends AndroidViewModel {
     public void insert(Card card) {
         mRepository.insert(card);
     }
+
+    void deleteCard(Card card) {
+        mRepository.deleteCard(card);
+    }
 }

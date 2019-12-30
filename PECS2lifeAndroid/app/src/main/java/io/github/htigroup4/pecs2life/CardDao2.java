@@ -2,6 +2,7 @@ package io.github.htigroup4.pecs2life;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -18,4 +19,7 @@ public interface CardDao2 {
 
     @Query("SELECT * from card_table2 ORDER BY title ASC")
     LiveData<List<Card2>> getAllCards();
+
+    @Delete
+    void deleteCard(Card2 card);
 }

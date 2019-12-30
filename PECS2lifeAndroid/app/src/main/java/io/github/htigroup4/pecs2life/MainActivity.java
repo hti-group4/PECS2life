@@ -86,13 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
         mCardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
 
-        mCardViewModel.getAllCards().observe(this, new Observer<List<Card>>() {
-            @Override
-            public void onChanged(List<Card> cards) {
-                // Update the cached copy of the words in the adapter.
-                cardListAdapter.setCards(cards);
-            }
-        });
+        // Update the cached copy of the words in the adapter.
+        mCardViewModel.getAllCards().observe(this, cardListAdapter::setCards);
 
 
 //        final WordListAdapter adapter1 = new WordListAdapter(this);
@@ -211,6 +206,6 @@ public class MainActivity extends AppCompatActivity {
 
 //    @Override
 //    public void onItemClick(View view, int position) {
-//        //Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on item position " + position, Toast.LENGTH_SHORT).show();
+//        //Toast.makeText(this, "You clicked " + adapter.getCardAtPosition(position) + " on item position " + position, Toast.LENGTH_SHORT).show();
 //    }
 }

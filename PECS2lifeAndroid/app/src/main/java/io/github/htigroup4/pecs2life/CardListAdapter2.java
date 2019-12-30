@@ -62,7 +62,7 @@ public class CardListAdapter2 extends RecyclerView.Adapter<CardListAdapter2.Card
         private final TextView cardItemView;
         private final ImageView imageItemView;
 
-        public CardViewHolder(@NonNull View itemView) {
+        CardViewHolder(@NonNull View itemView) {
             super(itemView);
             cardItemView = itemView.findViewById(R.id.foodTitle);
             imageItemView = itemView.findViewById(R.id.foodImage);
@@ -76,12 +76,12 @@ public class CardListAdapter2 extends RecyclerView.Adapter<CardListAdapter2.Card
     }
 
     // convenience method for getting data at click position
-    public Card2 getItem(int id) {
-        return mCards.get(id);
+    Card2 getCardAtPosition(int position) {
+        return mCards.get(position);
     }
 
     // allows clicks events to be caught
-    public void setClickListener(ItemClickListener itemClickListener) {
+    void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 

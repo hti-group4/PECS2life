@@ -73,12 +73,9 @@ public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClick
 
         cardViewModelSlot = ViewModelProviders.of(this).get(CardViewModel.class);
 
-        cardViewModel.getAllCards().observe(this, new Observer<List<Card2>>() {
-            @Override
-            public void onChanged(List<Card2> cards) {
-                // Update the cached copy of the words in the adapter.
-                cardListAdapter.setCards(cards);
-            }
+        cardViewModel.getAllCards().observe(this, cards -> {
+            // Update the cached copy of the words in the adapter.
+            cardListAdapter.setCards(cards);
         });
 
 //        Button button1 = view.findViewById(R.id.button1);
@@ -96,11 +93,15 @@ public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClick
     @Override
     public void onItemClick(View view, int position) {
 
-        Card2 item = cardListAdapter.getItem(position);
+        Card2 item = cardListAdapter.getCardAtPosition(position);
 
         Toast.makeText(getContext(), "You clicked " + item.getTitle()
                 + " on item position " + position, Toast.LENGTH_SHORT).show();
+
         cardViewModelSlot.insert(new Card(item.getTitle(), item.getImageResource()));
+
+        // delete the clicked card
+        cardViewModel.deleteCard(item);
     }
 }
 

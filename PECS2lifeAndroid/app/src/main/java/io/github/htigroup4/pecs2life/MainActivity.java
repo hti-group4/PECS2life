@@ -76,8 +76,10 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // if the device is NOT tablet, use only the portrait orientation:
-        if (!getResources().getBoolean(R.bool.isTablet)) {
+        // if the device is a tablet, use only the landscape orientation:
+        if (getResources().getBoolean(R.bool.isTablet)) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        } else { // if the device is a mobile phone, use only the portrait orientation:
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
 

@@ -25,6 +25,11 @@
     <string name="music_toast_2">\" -korttia kohdassa</string>
     <string name="no_card_text">Ei korttia</string>
     <string name="request_error_message">Virhe lähetettäessä viestiä. Toimiihan internetyhteytesi?</string>
+    <string name="and_text">ja</string>
+    <string name="select_cards_for_teacher">Valitse kortit, jotka lähetetään opettajalle</string>
+    <string name="select_cards_for_pupil">Valitse kortit, jotka lähetetään oppilaalle</string>
+    <string name="selected_cards_text_part1">Valitut kortit (</string>
+    <string name="selected_cards_text_part2">kpl):</string>
 
     <string-array name="food_titles">
         <item>Paprika</item>

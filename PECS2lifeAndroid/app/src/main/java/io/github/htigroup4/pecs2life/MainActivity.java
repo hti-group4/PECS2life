@@ -26,7 +26,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -171,7 +170,8 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                 if (cards.size() == 1) {
                     cardTitles = new StringBuilder(cardTitle);
                 } else if (i == cards.size() - 1) {
-                    cardTitles.append(" and ").append(cardTitle);
+                    String andText = getResources().getString(R.string.and_text);
+                    cardTitles.append(" ").append(andText).append(" ").append(cardTitle);
                 } else if (i != 0) {
                     cardTitles.append(", ").append(cardTitle);
                 } else {
@@ -180,14 +180,18 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
             }
 
             if (cardsSize == 0) {
-                Toast.makeText(this, "Please select cards to send for the teacher", Toast.LENGTH_LONG).show();
+                if (getResources().getBoolean(R.bool.isTablet)) { // the device is a tablet = a pupil uses it
+                    Toast.makeText(this, R.string.select_cards_for_teacher, Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, R.string.select_cards_for_pupil, Toast.LENGTH_LONG).show();
+                }
             } else {
-                String resultText = "Selected cards (" + cardsSize + " pcs): " + cardTitles;
-                Toast.makeText(this, resultText, Toast.LENGTH_LONG).show();
+                String messageText = getString(R.string.selected_cards_text_part1) + cardsSize + " " + getString(R.string.selected_cards_text_part2) + " " + cardTitles;
+                Toast.makeText(this, messageText, Toast.LENGTH_LONG).show();
 
                 TOPIC = "/topics/fromPupilToTeacher"; //topic has to match what the receiver subscribed to
                 NOTIFICATION_TITLE = getString(R.string.pupil_notification_title);
-                NOTIFICATION_MESSAGE = resultText;
+                NOTIFICATION_MESSAGE = messageText;
                 LARGE_ICON = R.drawable.img_pupil;
                 SENDER_ICON = R.drawable.img_teacher;
                 RESPONSE_MESSAGE = getString(R.string.response_message_help);

@@ -25,6 +25,11 @@
     <string name="music_toast_2">\" card in position</string>
     <string name="no_card_text">No Card</string>
     <string name="request_error_message">An error occurred while sending the notification. Is your internet connection working?</string>
+    <string name="and_text">and</string>
+    <string name="select_cards_for_teacher">Please select cards to send for the teacher</string>
+    <string name="select_cards_for_pupil">Please select cards to send for the pupil</string>
+    <string name="selected_cards_text_part1">Selected cards (</string>
+    <string name="selected_cards_text_part2">pcs):</string>
 
     <string-array name="food_titles">
         <item>Red pepper</item>

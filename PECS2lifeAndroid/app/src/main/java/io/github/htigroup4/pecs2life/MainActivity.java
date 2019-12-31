@@ -288,7 +288,7 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
     }
 
     public void startHandler() {
-        handler.postDelayed(r, 10 * 1000); // 10 seconds = 10 * 1000 ms
+        handler.postDelayed(r, 15 * 1000); // 15 seconds = 15 * 1000 ms
     }
 
     public void sendHelpRequest(View view) {

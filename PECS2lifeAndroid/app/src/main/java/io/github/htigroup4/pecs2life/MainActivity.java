@@ -182,19 +182,28 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
             if (cardsSize == 0) {
                 if (getResources().getBoolean(R.bool.isTablet)) { // the device is a tablet = a pupil uses it
                     Toast.makeText(this, R.string.select_cards_for_teacher, Toast.LENGTH_LONG).show();
-                } else {
+                } else { // the device is a mobile phone = a teacher uses it
                     Toast.makeText(this, R.string.select_cards_for_pupil, Toast.LENGTH_LONG).show();
                 }
             } else {
                 String messageText = getString(R.string.selected_cards_text_part1) + cardsSize + " " + getString(R.string.selected_cards_text_part2) + " " + cardTitles;
                 Toast.makeText(this, messageText, Toast.LENGTH_LONG).show();
 
-                TOPIC = "/topics/fromPupilToTeacher"; //topic has to match what the receiver subscribed to
-                NOTIFICATION_TITLE = getString(R.string.pupil_notification_title);
-                NOTIFICATION_MESSAGE = messageText;
-                LARGE_ICON = R.drawable.img_pupil;
-                SENDER_ICON = R.drawable.img_teacher;
-                RESPONSE_MESSAGE = getString(R.string.response_message_help);
+                if (getResources().getBoolean(R.bool.isTablet)) { // the device is a tablet = a pupil uses it
+                    TOPIC = "/topics/fromPupilToTeacher"; //topic has to match what the receiver subscribed to
+                    NOTIFICATION_TITLE = getString(R.string.pupil_notification_title);
+                    NOTIFICATION_MESSAGE = messageText;
+                    LARGE_ICON = R.drawable.img_pupil;
+                    SENDER_ICON = R.drawable.img_teacher;
+                    RESPONSE_MESSAGE = getString(R.string.response_message_help);
+                } else { // the device is a mobile phone = a teacher uses it
+                    TOPIC = "/topics/fromTeacherToPupil"; //topic has to match what the receiver subscribed to
+                    NOTIFICATION_TITLE = getString(R.string.teacher_notification_title);
+                    NOTIFICATION_MESSAGE = messageText;
+                    LARGE_ICON = R.drawable.img_teacher;
+                    SENDER_ICON = R.drawable.img_pupil;
+                    RESPONSE_MESSAGE = getString(R.string.response_message_response);
+                }
 
                 JSONObject notification = new JSONObject();
                 JSONObject notificationBody = new JSONObject();

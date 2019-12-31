@@ -17,7 +17,7 @@ import java.util.List;
 public class CardListAdapter2 extends RecyclerView.Adapter<CardListAdapter2.CardViewHolder> {
 
     private final LayoutInflater mInflater;
-    private List<Card2> mCards; // Cached copy of cards
+    private List<Card> mCards; // Cached copy of cards
     private ItemClickListener mClickListener;
     private Context mContext;
 
@@ -36,7 +36,7 @@ public class CardListAdapter2 extends RecyclerView.Adapter<CardListAdapter2.Card
     @Override
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
         if (mCards != null) {
-            Card2 current = mCards.get(position);
+            Card current = mCards.get(position);
             holder.cardItemView.setText(current.getTitle());
             Glide.with(mContext).load(
                     current.getImageResource()).into(holder.imageItemView);
@@ -49,7 +49,7 @@ public class CardListAdapter2 extends RecyclerView.Adapter<CardListAdapter2.Card
 
     }
 
-    void setCards(List<Card2> cards) {
+    void setCards(List<Card> cards) {
         mCards = cards;
         notifyDataSetChanged();
     }
@@ -83,7 +83,7 @@ public class CardListAdapter2 extends RecyclerView.Adapter<CardListAdapter2.Card
     }
 
     // convenience method for getting data at click position
-    Card2 getCardAtPosition(int position) {
+    Card getCardAtPosition(int position) {
         return mCards.get(position);
     }
 

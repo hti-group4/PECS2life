@@ -12,14 +12,14 @@ import java.util.List;
 public interface CardDao2 {
 
     @Insert
-    void insert(Card2 card);
+    void insert(Card card);
 
-    @Query("DELETE FROM card_table2")
+    @Query("DELETE FROM card_table")
     void deleteAll();
 
-    @Query("SELECT * from card_table2 ORDER BY title ASC")
-    LiveData<List<Card2>> getAllCards();
+    @Query("SELECT * from card_table ORDER BY title ASC")
+    LiveData<List<Card>> getAllCards();
 
     @Delete
-    void deleteCard(Card2 card);
+    void deleteCard(Card card);
 }

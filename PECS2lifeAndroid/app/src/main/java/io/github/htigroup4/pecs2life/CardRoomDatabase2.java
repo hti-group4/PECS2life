@@ -9,7 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Card2.class}, version = 3, exportSchema = false)
+@Database(entities = {Card.class}, version = 4, exportSchema = false)
 public abstract class CardRoomDatabase2 extends RoomDatabase {
 
     public abstract CardDao2 cardDao2();
@@ -72,7 +72,7 @@ public abstract class CardRoomDatabase2 extends RoomDatabase {
             mDao.deleteAll();
 
             for (int i = 0; i < words.length; i++) {
-                Card2 card = new Card2(words[i], images[i], ids[i]);
+                Card card = new Card(words[i], images[i], ids[i]);
                 mDao.insert(card);
             }
             return null;

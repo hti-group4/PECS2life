@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CardViewModel2 extends AndroidViewModel {
     private CardRepository2 mRepository;
-    private LiveData<List<Card2>> mAllCards;
+    private LiveData<List<Card>> mAllCards;
 
     public CardViewModel2(@NonNull Application application) {
         super(application);
@@ -18,15 +18,15 @@ public class CardViewModel2 extends AndroidViewModel {
         mAllCards = mRepository.getAllCards();
     }
 
-    public LiveData<List<Card2>> getAllCards() {
+    public LiveData<List<Card>> getAllCards() {
         return mAllCards;
     }
 
-    public void insert(Card2 card) {
+    public void insert(Card card) {
         mRepository.insert(card);
     }
 
-    void deleteCard(Card2 card) {
+    void deleteCard(Card card) {
         mRepository.deleteCard(card);
     }
 }

@@ -80,7 +80,7 @@ public class TabFragment1 extends Fragment implements CardListAdapter2.ItemClick
     @Override
     public void onItemClick(View view, int position) {
 
-        Card2 card = cardListAdapter.getCardAtPosition(position);
+        Card card = cardListAdapter.getCardAtPosition(position);
 
         cardViewModelSlot.insert(new Card(card.getTitle(), card.getImageResource(), card.getId()));
 

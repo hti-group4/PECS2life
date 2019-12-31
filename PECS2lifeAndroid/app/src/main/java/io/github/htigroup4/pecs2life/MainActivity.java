@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
     public void onItemClick(View view, int position) {
         Card card = cardListAdapter.getCardAtPosition(position);
 
-        cardViewModelTab3.insert(new Card2(card.getTitle(), card.getImageResource(), card.getId()));
+        cardViewModelTab3.insert(new Card(card.getTitle(), card.getImageResource(), card.getId()));
 
         mCardViewModel.deleteCard(card);
     }

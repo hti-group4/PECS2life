@@ -144,14 +144,17 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
             // Update the cached copy of the words in the adapter.
             cardListAdapter.setCards(cards);
 
+            // wrap content of the viewPager if there are no cards:
             if (cards.isEmpty()) {
                 viewPager.getLayoutParams().height = ViewPager.LayoutParams.WRAP_CONTENT;
                 viewPager.requestLayout();
             } else if (getResources().getBoolean(R.bool.isTablet)) {
-                viewPager.getLayoutParams().height = 290;
+                // otherwise, use a tested height for viewPager depending on the device (here it's tablet):
+                viewPager.getLayoutParams().height = 660; //290
                 viewPager.requestLayout();
             } else {
-                viewPager.getLayoutParams().height = 320;
+                // a mobile device: use a tested height for viewPager
+                viewPager.getLayoutParams().height = 960; //320
                 viewPager.requestLayout();
             }
         });

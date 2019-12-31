@@ -86,9 +86,10 @@ public class TabFragment1 extends Fragment implements CardListAdapter2.ItemClick
 
         cardViewModel.deleteCard(card);
 
-        Intent arPreviewIntent = new Intent(getContext(), ARPreviewActivity.class);
-        arPreviewIntent.putExtra("id", card.getId());
-        startActivity(arPreviewIntent);
+        // TODO: remove these commented code lines when sending the selected cards feature is ready
+//        Intent arPreviewIntent = new Intent(getContext(), ARPreviewActivity.class);
+//        arPreviewIntent.putExtra("id", card.getId());
+//        startActivity(arPreviewIntent);
     }
 }
 

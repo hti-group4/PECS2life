@@ -23,9 +23,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,7 +38,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -202,9 +199,6 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
     @Override
     public void onItemClick(View view, int position) {
         Card card = cardListAdapter.getCardAtPosition(position);
-
-        Toast.makeText(this, "You clicked " + card.getTitle() + " (id: " + card.getId() + ")"
-                + " on item position " + position, Toast.LENGTH_SHORT).show();
 
         cardViewModelTab3.insert(new Card2(card.getTitle(), card.getImageResource(), card.getId()));
 

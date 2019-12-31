@@ -51,7 +51,6 @@ public class ARPreviewActivity extends AppCompatActivity {
     private static final double MIN_OPENGL_VERSION = 3.0;
 
     private ArFragment arFragment;
-    private ModelRenderable modelRenderable;
 
     @Override
     @SuppressWarnings({"AndroidApiChecker", "FutureReturnValueIgnored"})
@@ -78,15 +77,9 @@ public class ARPreviewActivity extends AppCompatActivity {
 
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
-        //int position = getIntent().getIntExtra("position", 0);
-        //int imageResource = getIntent().getIntExtra("imageResource", 0);
-
         String cardId = getIntent().getStringExtra("id");
-
         String[] foodIds = getResources().getStringArray(R.array.food_ids);
-
         int needed3DModelId = 0;
-
 
         for (int i = 0; i < foodIds.length; i++) {
             String foodId = foodIds[i];
@@ -97,15 +90,6 @@ public class ARPreviewActivity extends AppCompatActivity {
 
         TypedArray food3DModels =
                 getResources().obtainTypedArray(R.array.models_in_3d);
-
-        //TypedArray foodImageResources = getResources().obtainTypedArray(R.array.food_images);
-
-//        int[] result = new int[foodImageResources.length()];
-//
-//        for (int i = 0; i < result.length; i++) {
-//        }
-
-        //foodImageResources.recycle();
 
         int resourceId = food3DModels.getResourceId(needed3DModelId, 0);
 

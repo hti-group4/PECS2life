@@ -24,7 +24,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -75,10 +74,6 @@ public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClick
             // Update the cached copy of the words in the adapter.
             cardListAdapter.setCards(cards);
         });
-
-        //Get the data
-        //initializeData();
-
         return view;
     }
 
@@ -87,35 +82,14 @@ public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClick
 
         Card2 card = cardListAdapter.getCardAtPosition(position);
 
-        Toast.makeText(getContext(), "You clicked " + card.getTitle() + " (id: " + card.getId() + ")"
-                + " on item position " + position, Toast.LENGTH_SHORT).show();
-
         cardViewModelSlot.insert(new Card(card.getTitle(), card.getImageResource(), card.getId()));
 
         cardViewModel.deleteCard(card);
 
         Intent arPreviewIntent = new Intent(getContext(), ARPreviewActivity.class);
-        //arPreviewIntent.putExtra("position", position);
-        //arPreviewIntent.putExtra("imageResource", card.getImageResource());
         arPreviewIntent.putExtra("id", card.getId());
         startActivity(arPreviewIntent);
     }
-
-//    private void initializeData() {
-//        //Get the resources from the XML file
-//        String[] foodTitlesList = getResources().getStringArray(R.array.food_titles);
-//
-//        TypedArray foodImagesList =
-//                getResources().obtainTypedArray(R.array.food_images);
-//
-//        //Create the ArrayList of PECSCards objects with the titles and information about each PECSCard
-//        for (int i = 0; i < foodTitlesList.length; i++) {
-//            cardViewModel.insert(new Card2(foodTitlesList[i], foodImagesList.getResourceId(i, 0)));
-//        }
-//
-//        // Recycle the typed array.
-//        foodImagesList.recycle();
-//    }
 }
 
 

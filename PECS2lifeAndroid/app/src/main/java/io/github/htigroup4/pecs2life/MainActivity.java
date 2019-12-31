@@ -161,7 +161,8 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
         handler = new Handler();
 
         r = () -> {
-            Toast.makeText(this, "Testing user inactivity", Toast.LENGTH_SHORT).show();
+            int cardsSize = cardListAdapter.getCardsSize();
+            Toast.makeText(this, "Selected cards: " + cardsSize, Toast.LENGTH_SHORT).show();
         };
 
         startHandler();

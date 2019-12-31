@@ -89,4 +89,8 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+
+    int getCardsSize() {
+        return mCards.size();
+    }
 }

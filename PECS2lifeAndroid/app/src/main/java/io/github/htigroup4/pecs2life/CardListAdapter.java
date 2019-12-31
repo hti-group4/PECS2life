@@ -90,7 +90,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
         void onItemClick(View view, int position);
     }
 
-    int getCardsSize() {
-        return mCards.size();
+    List<Card> getmCards() {
+        return mCards;
     }
 }

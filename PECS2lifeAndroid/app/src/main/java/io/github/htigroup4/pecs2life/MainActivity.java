@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
     public void onItemClick(View view, int position) {
         Card card = cardListAdapter.getCardAtPosition(position);
 
-        Toast.makeText(this, "You clicked " + card.getTitle()
+        Toast.makeText(this, "You clicked " + card.getTitle() + " (id: " + card.getId() + ")"
                 + " on item position " + position, Toast.LENGTH_SHORT).show();
 
         cardViewModelTab3.insert(new Card2(card.getTitle(), card.getImageResource(), card.getId()));

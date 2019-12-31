@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class CardListAdapter2 extends RecyclerView.Adapter<CardListAdapter2.CardViewHolder> {
@@ -17,9 +19,11 @@ public class CardListAdapter2 extends RecyclerView.Adapter<CardListAdapter2.Card
     private final LayoutInflater mInflater;
     private List<Card2> mCards; // Cached copy of cards
     private ItemClickListener mClickListener;
+    private Context mContext;
 
     CardListAdapter2(Context context) {
         mInflater = LayoutInflater.from(context);
+        mContext = context;
     }
 
     @NonNull
@@ -34,11 +38,13 @@ public class CardListAdapter2 extends RecyclerView.Adapter<CardListAdapter2.Card
         if (mCards != null) {
             Card2 current = mCards.get(position);
             holder.cardItemView.setText(current.getTitle());
-            holder.imageItemView.setImageResource(current.getImageResource());
+            Glide.with(mContext).load(
+                    current.getImageResource()).into(holder.imageItemView);
         } else {
             // Covers the case of data not being ready yet.
             holder.cardItemView.setText(R.string.no_card_text);
-            holder.imageItemView.setImageResource(R.drawable.logo_splash);
+            Glide.with(mContext).load(
+                    R.drawable.logo_splash).into(holder.imageItemView);
         }
 
     }
@@ -64,6 +70,7 @@ public class CardListAdapter2 extends RecyclerView.Adapter<CardListAdapter2.Card
 
         CardViewHolder(@NonNull View itemView) {
             super(itemView);
+
             cardItemView = itemView.findViewById(R.id.foodTitle);
             imageItemView = itemView.findViewById(R.id.foodImage);
             itemView.setOnClickListener(this);

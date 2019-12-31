@@ -13,9 +13,12 @@ public class Card {
 
     private int imageResource;
 
-    public Card(@NonNull String title, int imageResource) {
+    private String id;
+
+    public Card(@NonNull String title, int imageResource, String id) {
         this.title = title;
         this.imageResource = imageResource;
+        this.id = id;
     }
 
     @NonNull
@@ -25,5 +28,9 @@ public class Card {
 
     public int getImageResource() {
         return imageResource;
+    }
+
+    public String getId() {
+        return id;
     }
 }

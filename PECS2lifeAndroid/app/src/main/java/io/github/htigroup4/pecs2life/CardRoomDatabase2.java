@@ -58,6 +58,8 @@ public abstract class CardRoomDatabase2 extends RoomDatabase {
                 R.drawable.img_sandwich, R.drawable.img_apple, R.drawable.img_hamburger,
                 R.drawable.img_banana, R.drawable.img_carrot};
 
+        String[] ids = {"pepper", "lunch", "sandwich", "apple", "hamburger", "banana", "carrot"};
+
         PopulateDbAsync(CardRoomDatabase2 db) {
             mDao = db.cardDao2();
         }
@@ -70,7 +72,7 @@ public abstract class CardRoomDatabase2 extends RoomDatabase {
             mDao.deleteAll();
 
             for (int i = 0; i < words.length; i++) {
-                Card2 card = new Card2(words[i], images[i]);
+                Card2 card = new Card2(words[i], images[i], ids[i]);
                 mDao.insert(card);
             }
             return null;

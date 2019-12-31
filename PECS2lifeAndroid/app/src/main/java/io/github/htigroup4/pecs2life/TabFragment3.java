@@ -90,7 +90,7 @@ public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClick
         Toast.makeText(getContext(), "You clicked " + card.getTitle()
                 + " on item position " + position, Toast.LENGTH_SHORT).show();
 
-        cardViewModelSlot.insert(new Card(card.getTitle(), card.getImageResource()));
+        cardViewModelSlot.insert(new Card(card.getTitle(), card.getImageResource(), card.getId()));
 
         cardViewModel.deleteCard(card);
 

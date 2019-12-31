@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
         Toast.makeText(this, "You clicked " + card.getTitle()
                 + " on item position " + position, Toast.LENGTH_SHORT).show();
 
-        cardViewModelTab3.insert(new Card2(card.getTitle(), card.getImageResource()));
+        cardViewModelTab3.insert(new Card2(card.getTitle(), card.getImageResource(), card.getId()));
 
         mCardViewModel.deleteCard(card);
     }

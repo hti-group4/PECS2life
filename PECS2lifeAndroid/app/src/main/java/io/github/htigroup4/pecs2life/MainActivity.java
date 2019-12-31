@@ -18,6 +18,7 @@
 
 package io.github.htigroup4.pecs2life;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -74,6 +75,10 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (!getResources().getBoolean(R.bool.isTablet)) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
 
         // Code for the local database:
         RecyclerView recyclerView = findViewById(R.id.recyclerview);

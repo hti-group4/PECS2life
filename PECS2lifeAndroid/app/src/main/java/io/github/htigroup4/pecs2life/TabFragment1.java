@@ -34,13 +34,13 @@ import androidx.recyclerview.widget.RecyclerView;
  * A simple {@link Fragment} subclass.
  */
 
-public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClickListener {
+public class TabFragment1 extends Fragment implements CardListAdapter2.ItemClickListener {
 
     private CardViewModel2 cardViewModel;
     private CardViewModel cardViewModelSlot;
     private CardListAdapter2 cardListAdapter;
 
-    public TabFragment3() {
+    public TabFragment1() {
         // Required empty public constructor
     }
 
@@ -49,7 +49,7 @@ public class TabFragment3 extends Fragment implements CardListAdapter2.ItemClick
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.tab_fragment3, container, false);
+        View view = inflater.inflate(R.layout.tab_fragment1, container, false);
 
         //Initialize the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView10);

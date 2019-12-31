@@ -44,7 +44,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new TabFragment3();
+                return new TabFragment1();
             case 1:
                 return new TabFragment2();
             default:

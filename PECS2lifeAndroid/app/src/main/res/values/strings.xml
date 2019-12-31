@@ -30,7 +30,7 @@
     <string name="select_cards_for_pupil">Please select cards to send for the pupil</string>
     <string name="selected_cards_text_part1">Selected cards (</string>
     <string name="selected_cards_text_part2">pcs):</string>
-    <string name="response_message_thank_you">Thank you. You sent:</string>
+    <string name="response_message_thank_you">Thank you, you sent:</string>
 
     <string-array name="food_titles">
         <item>Red pepper</item>

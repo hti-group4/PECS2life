@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                 }
             } else {
                 String messageText = getString(R.string.selected_cards_text_part1) + cardsSize + " " + getString(R.string.selected_cards_text_part2) + " " + cardTitles;
-                Toast.makeText(this, messageText, Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, messageText, Toast.LENGTH_LONG).show();
 
                 List<Bitmap> bitmapList = new ArrayList<>();
 

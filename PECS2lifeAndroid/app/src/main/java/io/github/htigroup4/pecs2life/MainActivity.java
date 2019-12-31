@@ -25,6 +25,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,6 +40,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -96,10 +98,6 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
 
         cardViewModelTab3 = ViewModelProviders.of(this).get(CardViewModel2.class);
 
-        // Update the cached copy of the words in the adapter.
-        mCardViewModel.getAllCards().observe(this, cardListAdapter::setCards);
-
-
         // TODO remove this section when settings for subscription handling has added to the app
         if (getResources().getBoolean(R.bool.isTablet)) { // the device is a tablet = a pupil uses it
             FirebaseMessaging.getInstance().subscribeToTopic("/topics/fromTeacherToPupil");
@@ -141,6 +139,22 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                     public void onTabReselected(TabLayout.Tab tab) {
                     }
                 });
+
+        mCardViewModel.getAllCards().observe(this, cards -> {
+            // Update the cached copy of the words in the adapter.
+            cardListAdapter.setCards(cards);
+
+            if (cards.isEmpty()) {
+                viewPager.getLayoutParams().height = ViewPager.LayoutParams.WRAP_CONTENT;
+                viewPager.requestLayout();
+            } else if (getResources().getBoolean(R.bool.isTablet)) {
+                viewPager.getLayoutParams().height = 290;
+                viewPager.requestLayout();
+            } else {
+                viewPager.getLayoutParams().height = 320;
+                viewPager.requestLayout();
+            }
+        });
     }
 
     public void sendHelpRequest(View view) {

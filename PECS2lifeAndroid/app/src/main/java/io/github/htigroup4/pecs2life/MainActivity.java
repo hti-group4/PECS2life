@@ -19,6 +19,11 @@
 package io.github.htigroup4.pecs2life;
 
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -39,6 +44,7 @@ import com.vlstr.blurdialog.BlurDialog;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -189,19 +195,33 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                 String messageText = getString(R.string.selected_cards_text_part1) + cardsSize + " " + getString(R.string.selected_cards_text_part2) + " " + cardTitles;
                 Toast.makeText(this, messageText, Toast.LENGTH_LONG).show();
 
+                List<Bitmap> bitmapList = new ArrayList<>();
+
+                for (int i = 0; i < cards.size(); i++) {
+                    Card card = cards.get(i);
+                    int cardImageResource = card.getImageResource();
+
+                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), cardImageResource);
+                    bitmapList.add(bitmap);
+                }
+
+                Bitmap mergedImages = createSingleImageFromMultipleImages(bitmapList);
+                Drawable blurDialogIcon = new BitmapDrawable(getResources(), mergedImages);
+
                 if (getResources().getBoolean(R.bool.isTablet)) { // the device is a tablet = a pupil uses it
                     TOPIC = "/topics/fromPupilToTeacher"; //topic has to match what the receiver subscribed to
                     NOTIFICATION_TITLE = getString(R.string.pupil_notification_title);
                     NOTIFICATION_MESSAGE = messageText;
                     LARGE_ICON = R.drawable.img_pupil;
-                    SENDER_ICON = R.drawable.img_teacher;
+                    //SENDER_ICON = R.drawable.img_teacher;
                 } else { // the device is a mobile phone = a teacher uses it
                     TOPIC = "/topics/fromTeacherToPupil"; //topic has to match what the receiver subscribed to
                     NOTIFICATION_TITLE = getString(R.string.teacher_notification_title);
                     NOTIFICATION_MESSAGE = messageText;
                     LARGE_ICON = R.drawable.img_teacher;
-                    SENDER_ICON = R.drawable.img_pupil;
+                    //SENDER_ICON = R.drawable.img_pupil;
                 }
+
 
                 RESPONSE_MESSAGE = getString(R.string.response_message_thank_you);
 
@@ -218,11 +238,42 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                 } catch (JSONException e) {
                     Log.e(TAG, "onCreate: " + e.getMessage());
                 }
-                sendNotification(notification, true);
+                sendNotification(notification, true, blurDialogIcon);
             }
         };
 
         startHandler();
+    }
+
+    private Bitmap createSingleImageFromMultipleImages(List<Bitmap> bitmapList) {
+
+        int width = 0;
+        int height = 0;
+        Bitmap.Config config = bitmapList.get(0).getConfig();
+
+        for (int i = 0; i < bitmapList.size(); i++) {
+            Bitmap bitmap = bitmapList.get(i);
+
+            if (i == 0) {
+                config = bitmap.getConfig();
+            }
+            width += bitmap.getWidth();
+            height += bitmap.getHeight();
+        }
+
+        Bitmap result = Bitmap.createBitmap(width,
+                height, config);
+        Canvas canvas = new Canvas(result);
+
+        float left = 0f;
+
+        for (int i = 0; i < bitmapList.size(); i++) {
+            Bitmap bitmap = bitmapList.get(i);
+            canvas.drawBitmap(bitmap, left, 0f, null);
+            left += bitmap.getWidth();
+        }
+
+        return result;
     }
 
     @Override
@@ -270,10 +321,10 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
         } catch (JSONException e) {
             Log.e(TAG, "onCreate: " + e.getMessage());
         }
-        sendNotification(notification, true);
+        sendNotification(notification, true, null);
     }
 
-    private void sendNotification(JSONObject notification, boolean showBlurDialog) {
+    private void sendNotification(JSONObject notification, boolean showBlurDialog, Drawable blurDialogIcon) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(FCM_API, notification,
                 response -> {
                     Log.i(TAG, "onResponse: " + response.toString());
@@ -282,7 +333,12 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                         final BlurDialog blurDialog = (BlurDialog) findViewById(R.id.blurView);
                         blurDialog.create(getWindow().getDecorView(), 20);
                         blurDialog.setTitle(RESPONSE_MESSAGE);
-                        blurDialog.setIcon(getDrawable(SENDER_ICON));
+                        if (blurDialogIcon == null) {
+                            blurDialog.setIcon(getDrawable(SENDER_ICON));
+                        } else {
+                            blurDialog.setIcon(blurDialogIcon);
+                        }
+
                         blurDialog.show();
                     }
                 },

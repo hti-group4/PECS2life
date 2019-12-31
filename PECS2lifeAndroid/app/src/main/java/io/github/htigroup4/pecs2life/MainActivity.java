@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
         // Set the text for each tab.
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_text_1));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_text_2));
-        tabLayout.addTab(tabLayout.newTab().setText("Test 1"));
 
         // Set the tabs to fill the entire layout.
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);

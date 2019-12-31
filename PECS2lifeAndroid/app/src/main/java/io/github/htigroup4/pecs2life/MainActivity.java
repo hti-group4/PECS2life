@@ -195,14 +195,16 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                     NOTIFICATION_MESSAGE = messageText;
                     LARGE_ICON = R.drawable.img_pupil;
                     SENDER_ICON = R.drawable.img_teacher;
-                    RESPONSE_MESSAGE = getString(R.string.response_message_help);
+                    //RESPONSE_MESSAGE = getString(R.string.response_message_help);
+                    RESPONSE_MESSAGE = "Thank you. You sent:";
                 } else { // the device is a mobile phone = a teacher uses it
                     TOPIC = "/topics/fromTeacherToPupil"; //topic has to match what the receiver subscribed to
                     NOTIFICATION_TITLE = getString(R.string.teacher_notification_title);
                     NOTIFICATION_MESSAGE = messageText;
                     LARGE_ICON = R.drawable.img_teacher;
                     SENDER_ICON = R.drawable.img_pupil;
-                    RESPONSE_MESSAGE = getString(R.string.response_message_response);
+                    //RESPONSE_MESSAGE = getString(R.string.response_message_response);
+                    RESPONSE_MESSAGE = "Thank you. You sent:";
                 }
 
                 JSONObject notification = new JSONObject();
@@ -218,7 +220,7 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                 } catch (JSONException e) {
                     Log.e(TAG, "onCreate: " + e.getMessage());
                 }
-                sendNotification(notification, false);
+                sendNotification(notification, true);
             }
         };
 

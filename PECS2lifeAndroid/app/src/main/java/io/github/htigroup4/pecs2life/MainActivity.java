@@ -78,13 +78,6 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // if the device is a tablet, use only the landscape orientation:
-        if (getResources().getBoolean(R.bool.isTablet)) {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        } else { // if the device is a mobile phone, use only the portrait orientation:
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        }
-
         // Code for the local database:
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         cardListAdapter = new CardListAdapter(this);
@@ -101,8 +94,10 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
         // TODO remove this section when settings for subscription handling has added to the app
         if (getResources().getBoolean(R.bool.isTablet)) { // the device is a tablet = a pupil uses it
             FirebaseMessaging.getInstance().subscribeToTopic("/topics/fromTeacherToPupil");
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // if the device is a tablet, use only the landscape orientation:
         } else { // the device is a mobile phone = a teacher uses it
             FirebaseMessaging.getInstance().subscribeToTopic("/topics/fromPupilToTeacher");
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // if the device is a mobile phone, use only the portrait orientation:
         }
 
         // Create an instance of the tab layout from the view.

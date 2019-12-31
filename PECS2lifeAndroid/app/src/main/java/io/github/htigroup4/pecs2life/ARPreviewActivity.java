@@ -69,7 +69,7 @@ public class ARPreviewActivity extends AppCompatActivity {
 
 
         r = () -> {
-            Toast.makeText(ARPreviewActivity.this, R.string.user_inactive, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.user_inactive, Toast.LENGTH_LONG).show();
             finish(); // after 10 seconds, moving back to the main activity
         };
 

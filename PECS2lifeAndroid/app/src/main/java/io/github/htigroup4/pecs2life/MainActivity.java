@@ -20,6 +20,7 @@ package io.github.htigroup4.pecs2life;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -65,6 +66,9 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
     int LARGE_ICON;
     int SENDER_ICON;
     String RESPONSE_MESSAGE;
+
+    Handler handler;
+    Runnable r;
 
     /**
      * Creates the content view, sets up the tab layout, and sets up
@@ -153,6 +157,29 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                 viewPager.requestLayout();
             }
         });
+
+        handler = new Handler();
+
+        r = () -> {
+            Toast.makeText(this, "Testing user inactivity", Toast.LENGTH_SHORT).show();
+        };
+
+        startHandler();
+    }
+
+    @Override
+    public void onUserInteraction() {
+        super.onUserInteraction();
+        stopHandler();
+        startHandler();
+    }
+
+    public void stopHandler() {
+        handler.removeCallbacks(r);
+    }
+
+    public void startHandler() {
+        handler.postDelayed(r, 10 * 1000); // 10 seconds = 10 * 1000 ms
     }
 
     public void sendHelpRequest(View view) {

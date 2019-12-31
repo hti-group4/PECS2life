@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) of the original layout file: 2018 Google Inc.
   ~ Copyright (C) of the edited layout file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
   ~ Changes made to this layout file: removed a toolbar, added a button (id: help_button) and added BlurDialog.
@@ -52,9 +51,17 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:layout_below="@id/tab_layout"
         android:layout_marginTop="0dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pager"
+        android:background="@color/colorPrimary"
+        tools:listitem="@layout/list_item_new" />
 
     <com.vlstr.blurdialog.BlurDialog
         android:id="@+id/blurView"

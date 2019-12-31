@@ -35,6 +35,16 @@
         <item>Carrot</item>
     </string-array>
 
+    <string-array name="food_ids">
+        <item>pepper</item>
+        <item>lunch</item>
+        <item>sandwich</item>
+        <item>apple</item>
+        <item>hamburger</item>
+        <item>banana</item>
+        <item>carrot</item>
+    </string-array>
+
     <array name="food_images">
         <item>@drawable/img_red_pepper</item>
         <item>@drawable/img_kebab_meal</item>

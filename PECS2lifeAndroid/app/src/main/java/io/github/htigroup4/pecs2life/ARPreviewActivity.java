@@ -78,26 +78,38 @@ public class ARPreviewActivity extends AppCompatActivity {
 
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
-        int position = getIntent().getIntExtra("position", 0);
+        //int position = getIntent().getIntExtra("position", 0);
+        //int imageResource = getIntent().getIntExtra("imageResource", 0);
 
-        int imageResource = getIntent().getIntExtra("imageResource", 0);
+        String cardId = getIntent().getStringExtra("id");
 
-        TypedArray PECSCardsImageResources =
-                getResources().obtainTypedArray(R.array.models_in_3d);
+        String[] foodIds = getResources().getStringArray(R.array.food_ids);
 
-        TypedArray foodImageResources = getResources().obtainTypedArray(R.array.food_images);
+        int needed3DModelId = 0;
 
-        int[] result = new int[foodImageResources.length()];
 
-        for (int i = 0; i < result.length; i++) {
-            // TODO
+        for (int i = 0; i < foodIds.length; i++) {
+            String foodId = foodIds[i];
+            if (Objects.equals(cardId, foodId)) {
+                needed3DModelId = i;
+            }
         }
 
-        foodImageResources.recycle();
+        TypedArray food3DModels =
+                getResources().obtainTypedArray(R.array.models_in_3d);
 
-        int resourceId = PECSCardsImageResources.getResourceId(position, 0);
+        //TypedArray foodImageResources = getResources().obtainTypedArray(R.array.food_images);
 
-        PECSCardsImageResources.recycle(); // a compulsory feature after previous rows
+//        int[] result = new int[foodImageResources.length()];
+//
+//        for (int i = 0; i < result.length; i++) {
+//        }
+
+        //foodImageResources.recycle();
+
+        int resourceId = food3DModels.getResourceId(needed3DModelId, 0);
+
+        food3DModels.recycle(); // a compulsory feature after previous rows
 
         // the following lines hide and disable the planeRenderer:
         arFragment.getPlaneDiscoveryController().hide();

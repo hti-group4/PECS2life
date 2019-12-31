@@ -30,6 +30,7 @@
     <string name="select_cards_for_pupil">Valitse kortit, jotka lähetetään oppilaalle</string>
     <string name="selected_cards_text_part1">Valitut kortit (</string>
     <string name="selected_cards_text_part2">kpl):</string>
+    <string name="response_message_thank_you">Kiitos. Lähetit:</string>
 
     <string-array name="food_titles">
         <item>Paprika</item>

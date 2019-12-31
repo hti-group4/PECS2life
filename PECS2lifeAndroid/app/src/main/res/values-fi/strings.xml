@@ -24,6 +24,7 @@
     <string name="music_toast_1">Klikattiin \"</string>
     <string name="music_toast_2">\" -korttia kohdassa</string>
     <string name="no_card_text">Ei korttia</string>
+    <string name="request_error_message">Virhe lähetettäessä viestiä. Toimiihan internetyhteytesi?</string>
 
     <string-array name="food_titles">
         <item>Paprika</item>

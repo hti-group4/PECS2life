@@ -182,7 +182,30 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
             if (cardsSize == 0) {
                 Toast.makeText(this, "Please select cards to send for the teacher", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(this, "Selected cards (" + cardsSize + " pcs): " + cardTitles, Toast.LENGTH_LONG).show();
+                String resultText = "Selected cards (" + cardsSize + " pcs): " + cardTitles;
+                Toast.makeText(this, resultText, Toast.LENGTH_LONG).show();
+
+                TOPIC = "/topics/fromPupilToTeacher"; //topic has to match what the receiver subscribed to
+                NOTIFICATION_TITLE = getString(R.string.pupil_notification_title);
+                NOTIFICATION_MESSAGE = resultText;
+                LARGE_ICON = R.drawable.img_pupil;
+                SENDER_ICON = R.drawable.img_teacher;
+                RESPONSE_MESSAGE = getString(R.string.response_message_help);
+
+                JSONObject notification = new JSONObject();
+                JSONObject notificationBody = new JSONObject();
+
+                try {
+                    notificationBody.put("title", NOTIFICATION_TITLE);
+                    notificationBody.put("message", NOTIFICATION_MESSAGE);
+                    notificationBody.put("largeIcon", LARGE_ICON);
+
+                    notification.put("to", TOPIC);
+                    notification.put("data", notificationBody);
+                } catch (JSONException e) {
+                    Log.e(TAG, "onCreate: " + e.getMessage());
+                }
+                sendNotification(notification, false);
             }
         };
 
@@ -234,23 +257,24 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
         } catch (JSONException e) {
             Log.e(TAG, "onCreate: " + e.getMessage());
         }
-        sendNotification(notification);
+        sendNotification(notification, true);
     }
 
-    private void sendNotification(JSONObject notification) {
+    private void sendNotification(JSONObject notification, boolean showBlurDialog) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(FCM_API, notification,
                 response -> {
                     Log.i(TAG, "onResponse: " + response.toString());
 
-                    final BlurDialog blurDialog = (BlurDialog) findViewById(R.id.blurView);
-                    blurDialog.create(getWindow().getDecorView(), 20);
-                    blurDialog.setTitle(RESPONSE_MESSAGE);
-                    blurDialog.setIcon(getDrawable(SENDER_ICON));
-                    blurDialog.show();
-
+                    if (showBlurDialog) {
+                        final BlurDialog blurDialog = (BlurDialog) findViewById(R.id.blurView);
+                        blurDialog.create(getWindow().getDecorView(), 20);
+                        blurDialog.setTitle(RESPONSE_MESSAGE);
+                        blurDialog.setIcon(getDrawable(SENDER_ICON));
+                        blurDialog.show();
+                    }
                 },
                 error -> {
-                    Toast.makeText(MainActivity.this, "Request error", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.request_error_message, Toast.LENGTH_LONG).show();
                     Log.i(TAG, "onErrorResponse: Didn't work");
                 }) {
             @Override

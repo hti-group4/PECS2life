@@ -24,6 +24,7 @@
     <string name="music_toast_1">You clicked \"</string>
     <string name="music_toast_2">\" card in position</string>
     <string name="no_card_text">No Card</string>
+    <string name="request_error_message">An error occurred while sending the notification. Is your internet connection working?</string>
 
     <string-array name="food_titles">
         <item>Red pepper</item>

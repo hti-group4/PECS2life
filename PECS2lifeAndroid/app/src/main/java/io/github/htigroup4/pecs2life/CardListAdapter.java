@@ -5,7 +5,6 @@
  * Added ItemClickListener feature for selecting cards.
  * Use also imageItemView for viewing card images.
  * Added getCardAtPosition and getmCards helper methods.
- * Use also Glide library for caching images. Added Context member variable for Glide library.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,8 +31,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.List;
 
 public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardViewHolder> {
@@ -41,11 +38,9 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
     private final LayoutInflater mInflater;
     private List<Card> mCards; // Cached copy of cards
     private ItemClickListener mClickListener;
-    private Context mContext;
 
     CardListAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
-        mContext = context;
     }
 
     @NonNull
@@ -60,13 +55,11 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
         if (mCards != null) {
             Card current = mCards.get(position);
             holder.cardItemView.setText(current.getTitle());
-            Glide.with(mContext).load(
-                    current.getImageResource()).into(holder.imageItemView);
+            holder.imageItemView.setImageResource(current.getImageResource());
         } else {
             // Covers the case of data not being ready yet.
             holder.cardItemView.setText(R.string.no_card_text);
-            Glide.with(mContext).load(
-                    R.drawable.logo_splash).into(holder.imageItemView);
+            holder.imageItemView.setImageResource(R.drawable.logo_splash);
         }
 
     }

@@ -4,6 +4,7 @@
  * Changes made to this file: added user inactivity detection feature.
  * Updated ModelRenderable to load from IntExtra & resource string.
  * Texture from another drawable file.
+ * Select the 3D model based on the card ID.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

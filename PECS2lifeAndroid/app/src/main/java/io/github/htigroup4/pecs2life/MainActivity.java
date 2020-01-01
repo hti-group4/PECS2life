@@ -1,7 +1,12 @@
 /*
- * Copyright (C) of the original layout file: 2018 Google Inc.
- * Copyright (C) of the edited file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
+ * Copyright (C) of the original file: 2018 Google Inc.
+ * Copyright (C) of the edited file: 2019-2020 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
  * Changes made to this file: added FirebaseMessaging features for the button & removed the 3rd tab.
+ * Added the card slot area functionality & automatic inactivity timer.
+ * The size of ViewPager will change based on whether the card slot area is empty or not.
+ * Added also createSingleImageFromMultipleImages feature for BlurDialog (that is used in two
+ * different situations). Generating the notification for the mobile (teacher) device based on
+ * the selected cards that are in the slot area.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

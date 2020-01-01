@@ -1,3 +1,25 @@
+/*
+ * Copyright (C) of the original file: 2018 Google Inc.
+ * Copyright (C) of the edited file: 2019-2020 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
+ * Changes made to this file: use word "Card" instead of "Word".
+ * Added ItemClickListener feature for selecting cards.
+ * Use also imageItemView for viewing card images.
+ * Added getCardAtPosition and getmCards helper methods.
+ * Use also Glide library for caching images. Added Context member variable for Glide library.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package io.github.htigroup4.pecs2life;
 
 import android.content.Context;
@@ -10,6 +32,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardViewHolder> {
@@ -17,9 +41,11 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
     private final LayoutInflater mInflater;
     private List<Card> mCards; // Cached copy of cards
     private ItemClickListener mClickListener;
+    private Context mContext;
 
     CardListAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
+        mContext = context;
     }
 
     @NonNull
@@ -34,11 +60,13 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
         if (mCards != null) {
             Card current = mCards.get(position);
             holder.cardItemView.setText(current.getTitle());
-            holder.imageItemView.setImageResource(current.getImageResource());
+            Glide.with(mContext).load(
+                    current.getImageResource()).into(holder.imageItemView);
         } else {
             // Covers the case of data not being ready yet.
             holder.cardItemView.setText(R.string.no_card_text);
-            holder.imageItemView.setImageResource(R.drawable.logo_splash);
+            Glide.with(mContext).load(
+                    R.drawable.logo_splash).into(holder.imageItemView);
         }
 
     }

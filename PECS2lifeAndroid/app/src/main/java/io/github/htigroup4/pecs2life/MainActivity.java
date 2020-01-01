@@ -175,21 +175,6 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
             int cardsSize = cardListAdapter.getItemCount();
             List<Card> cards = cardListAdapter.getmCards();
 
-            for (int i = 0; i < cards.size(); i++) {
-                Card card = cards.get(i);
-                String cardTitle = card.getTitle();
-                if (cards.size() == 1) {
-                    cardTitles = new StringBuilder(cardTitle);
-                } else if (i == cards.size() - 1) {
-                    String andText = getResources().getString(R.string.and_text);
-                    cardTitles.append(" ").append(andText).append(" ").append(cardTitle);
-                } else if (i != 0) {
-                    cardTitles.append(", ").append(cardTitle);
-                } else {
-                    cardTitles.append(cardTitle);
-                }
-            }
-
             if (cardsSize == 0) {
                 if (getResources().getBoolean(R.bool.isTablet)) { // the device is a tablet = a pupil uses it
                     Toast.makeText(this, R.string.select_cards_for_teacher, Toast.LENGTH_LONG).show();
@@ -197,6 +182,21 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                     Toast.makeText(this, R.string.select_cards_for_pupil, Toast.LENGTH_LONG).show();
                 }
             } else {
+                for (int i = 0; i < cards.size(); i++) {
+                    Card card = cards.get(i);
+                    String cardTitle = card.getTitle();
+                    if (cards.size() == 1) {
+                        cardTitles = new StringBuilder(cardTitle);
+                    } else if (i == cards.size() - 1) {
+                        String andText = getResources().getString(R.string.and_text);
+                        cardTitles.append(" ").append(andText).append(" ").append(cardTitle);
+                    } else if (i != 0) {
+                        cardTitles.append(", ").append(cardTitle);
+                    } else {
+                        cardTitles.append(cardTitle);
+                    }
+                }
+
                 String messageText = getString(R.string.selected_cards_text_part1) + cardsSize + " " + getString(R.string.selected_cards_text_part2) + " " + cardTitles;
                 //Toast.makeText(this, messageText, Toast.LENGTH_LONG).show();
 

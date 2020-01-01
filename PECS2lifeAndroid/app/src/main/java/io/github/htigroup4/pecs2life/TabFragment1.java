@@ -1,7 +1,9 @@
 /*
- * Copyright (C) of the original layout file: 2018 Google Inc.
- * Copyright (C) of the edited file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
- * Changes made to this file: TODO
+ * Copyright (C) of the original file: 2018 Google Inc.
+ * Copyright (C) of the edited file: 2019-2020 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
+ * Changes made to this file: added cardListAdapter & cardViewModelSlot member variables.
+ * Some content in this file is from TabExperiment, MaterialMe, MaterialMe-Resource,
+ * RoomWordsSample and RoomWordsWithDelete projects.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -85,7 +87,6 @@ public class TabFragment1 extends Fragment implements CardListAdapter2.ItemClick
         cardViewModelSlot.insert(new Card(card.getTitle(), card.getImageResource(), card.getId()));
 
         cardViewModel.deleteCard(card);
-
 
         Intent arPreviewIntent = new Intent(getContext(), ARPreviewActivity.class);
         arPreviewIntent.putExtra("id", card.getId());

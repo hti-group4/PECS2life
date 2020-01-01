@@ -2,11 +2,17 @@
  * Copyright (C) of the original file: 2018 Google Inc.
  * Copyright (C) of the edited file: 2019-2020 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
  * Changes made to this file: added FirebaseMessaging features for the button & removed the 3rd tab.
- * Added the card slot area functionality & automatic inactivity timer.
+ * Added the card slot area functionality & user inactivity detection feature (based on this tutorial:
+ * https://www.tutorialspoint.com/how-to-detect-user-inactivity-for-5-seconds-in-android).
  * The size of ViewPager will change based on whether the card slot area is empty or not.
  * Added also createSingleImageFromMultipleImages feature for BlurDialog (that is used in two
  * different situations). Generating the notification for the mobile (teacher) device based on
  * the selected cards that are in the slot area.
+ * Added cardListAdapter & cardViewModelTab3 member variables.
+ * Some content in this file is from TabExperiment,
+ * RoomWordsSample and RoomWordsWithDelete projects.
+ * (Used this tutorial partly for the horizontal card slot area:
+ * https://stackoverflow.com/a/45953855/12518132).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -159,11 +165,11 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                 viewPager.requestLayout();
             } else if (getResources().getBoolean(R.bool.isTablet)) {
                 // otherwise, use a tested height for viewPager depending on the device (here it's tablet):
-                viewPager.getLayoutParams().height = 660; //290
+                viewPager.getLayoutParams().height = 660;
                 viewPager.requestLayout();
             } else {
                 // a mobile device: use a tested height for viewPager
-                viewPager.getLayoutParams().height = 960; //320
+                viewPager.getLayoutParams().height = 960;
                 viewPager.requestLayout();
             }
         });

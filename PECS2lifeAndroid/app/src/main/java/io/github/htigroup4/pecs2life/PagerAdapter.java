@@ -1,7 +1,9 @@
 /*
  * Copyright (C) of the original layout file: 2018 Google Inc.
- * Copyright (C) of the edited file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
- * Changes made to this file: FragmentStatePagerAdapter was deprecated so fixed that error. Removed the 3rd tab.
+ * Copyright (C) of the edited file: 2019-2020 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
+ * Changes made to this file: FragmentStatePagerAdapter was deprecated so fixed that error.
+ * Removed the 3rd tab.
+ * The content of this file is mainly from TabExperiment project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

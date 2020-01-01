@@ -1,7 +1,8 @@
 /*
  * Copyright (C) of the original layout file: 2018 Google LLC. All Rights Reserved.
  * Copyright (C) of the edited file: 2019 hti-group4 (Arttu Ylhävuori, Louis Sosa and Tamilselvi Jayavelu).
- * Changes made to this file: added user inactivity detection feature.
+ * Changes made to this file: added user inactivity detection feature (based on this tutorial:
+ * https://www.tutorialspoint.com/how-to-detect-user-inactivity-for-5-seconds-in-android).
  * Updated ModelRenderable to load from IntExtra & resource string.
  * Texture from another drawable file.
  * Select the 3D model based on the card ID.

@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
     private Bitmap createSingleImageFromMultipleImages(List<Bitmap> bitmapList) {
 
         int width = 0;
-        int height = 0;
+        int height = bitmapList.get(0).getHeight();
         Bitmap.Config config = bitmapList.get(0).getConfig();
 
         for (int i = 0; i < bitmapList.size(); i++) {
@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity implements CardListAdapter.I
                 config = bitmap.getConfig();
             }
             width += bitmap.getWidth();
-            height += bitmap.getHeight();
+            //height += bitmap.getHeight();
         }
 
         Bitmap result = Bitmap.createBitmap(width,
